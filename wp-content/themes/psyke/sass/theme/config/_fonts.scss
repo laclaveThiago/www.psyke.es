@@ -94,3 +94,18 @@ $font-scala-name: "scala-sans" !default;
   font-style: italic;
   font-display: swap;
 }
+
+
+
+$font-museo-path: "../fonts/museo-sans" !default;
+$font-museo-name: "museo-sans" !default;
+
+/* REGULAR */
+@font-face {
+  font-family: #{$font-museo-name};
+  src: url("#{$font-museo-path}/#{$font-museo-name}-500.woff2") format("woff2"),
+    url("#{$font-museo-path}/#{$font-museo-name}-500.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}

@@ -66,6 +66,30 @@
   background-color: $tertiary-color!important;
 }
 
+.bg-beige {
+  background-color: #e6dec8;
+  color: #453f3f;
+}
+
+.bg-blackboard {
+  background-image: url('../img/assets/bg-blackboard.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-green-pale-01 {
+  background-color: #baccd0;
+}
+.bg-green-pale-02 {
+  background-color: #799da5;
+  color: #fff;
+}
+
+.mt--1 {
+  margin-top: -1px;
+}
+
 /*
 .bg-black {
   background-color: $brand-black;

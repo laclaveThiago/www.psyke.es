@@ -184,3 +184,20 @@
         }
     }
 }
+
+.card-icon {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    .card-image {
+        padding: 0;
+    }
+    .card-body {
+        padding-left: 0;
+        padding-right: 0;
+        color: #000;
+        @include font-size(18px);
+        p:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+}

@@ -29,8 +29,7 @@ endif;
 
 <div class="wrapper bg-white" id="full-width-page-wrapper">
 
-	<div class="<?php echo esc_attr( $container ); ?>" id="content">
-
+	<div id="content">
         <main class="site-main" id="main" role="main">
 
             <?php
@@ -46,7 +45,6 @@ endif;
             ?>
 
         </main><!-- #main -->
-
 	</div><!-- #content -->
 
 </div><!-- #full-width-page-wrapper -->

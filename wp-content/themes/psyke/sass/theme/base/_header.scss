@@ -18,9 +18,33 @@
   }
 }
 
+.navbar-nav {
+  .active .nav-link {
+    &:after {
+      width: 42px;
+      background-color: white;
+    }
+  }
+}
 .navbar-nav .nav-link {
   color: #fff;
   @include font-size(20px);
+  position: relative;
+  &:after {
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+    transition-property: width, background-color;
+    transition: 300ms ease;
+  }
+  &:hover:after {
+    width: 42px;
+    background-color: white;
+  }
 }
 
 .navbar {
@@ -36,8 +60,18 @@
     width: 62px;
     height: 62px;
   }
-  .navbar-nav .nav-link {
-    color: $primary-color;
+  .navbar-nav {
+    .nav-link {
+      color: $primary-color;
+      &:hover:after {
+        background-color: $primary-color;
+      }
+    }
+    .active .nav-link {
+      &:after {
+        background-color: $primary-color;
+      }
+    }
   }
 }
 

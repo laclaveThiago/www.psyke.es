@@ -163,9 +163,198 @@
             margin-top: 32px;
         }
     }
+    .hero-thais {
+        background-color: #948572;
+        .hero-page-inner {
+            width: 100%;
+            opacity: 1;  
+            display: -ms-flexbox;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            flex-wrap: nowrap;
+            height: 100%;
+            .col-image {
+                width: 40%;
+                flex: 0 0 40%;
+                height: 100%;
+                background-position: center bottom;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .col-content {
+                width: 60%;
+                flex: 0 0 60%;
+                align-self: flex-end;
+                color: #eae3d6;
+                font-family: $font-scala;
+                p {
+                    line-height: 1.5em;
+                    @include font-size(20px);
+                }
+                h1 {
+                    @include font-size(72px);
+                    line-height: 0.8em;
+                    font-family: $font-heading;
+                    font-weight: 500;
+                    color: $secondary-color;
+                    margin-bottom: 24px;
+                }
+            }   
+        }
+        .col-content--inner {
+            padding: 92px 132px 124px 62px;
+        }
+    }
     .text-hero {
         font-family: $font-heading;
         font-weight: 500;
         line-height: 0.85em;
+    }
+    .stamp--page {
+        position: absolute;
+        bottom: 46px;
+        right: 10%;
+        .stamp {
+            position: static;
+        }
+    
+    }
+}
+
+.section-header {
+    padding: calculateRem(32px) 0;
+    &.section-header--primary {
+        background-color: $primary-color;
+        h3 {
+            color: white;
+        }
+    }
+    &.section-header--primary-opacity {
+        background-color: rgba($primary-color, 0.5); 
+    }
+    h3 {
+        text-transform: uppercase;
+        font-family: $font-alternate;
+        @include font-size(50px);
+        text-align: center;
+    }
+}
+
+.section-psyke--comunidad {
+    p {
+        @include font-size(20px);
+    }
+    .lead {
+        @include font-size(30px);
+    }
+}
+
+.component-valores {
+    padding: calculateRem(62px);
+    h3 {
+        font-family: $font-museo;
+        font-weight: 500;
+        color: #5e939d;
+        @include font-size(72px);
+    }
+}
+.card-valores {
+    padding: 12px 24px;
+    a.card-valores-title {
+        color: #fff;
+        @include font-size(34px);
+        font-weight: 500;
+        font-family: $font-museo;
+        position: relative;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        margin-bottom: 16px;
+        
+        transition: 300ms color ease;
+        &:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 6px;
+            background-color: transparent;
+            transition-property: background-color, width;
+            transition: 300ms ease;
+        }
+        &:hover {
+            color: #5e939d;
+            text-decoration: none;
+            &:after {
+                width: 24px;
+                background-color: #5e939d;
+            }
+        }
+    }
+    
+    &.active {
+        a.card-valores-title {
+            color: #5e939d;
+            &:after {
+                width: 72px;
+                background-color: #5e939d;
+            }
+        }
+        
+    }
+    .card-valores-content {
+        padding-top: 16px;
+        color: white;
+    }
+}
+@media screen and (max-width: 991px) {
+    .hidden-phone {
+        display: none;
+    }
+}
+.component-valores--support {
+    max-width: 620px;
+    margin: auto;
+    flex-wrap: wrap;
+    height: 100%;
+    align-items: center;
+    .valores-support--item {
+        height: 0;
+        width: 100%;
+        margin: auto;
+        align-self: center;
+        display: none;
+        padding: 62px;
+
+        &.active {
+            height: auto;
+            display: block;
+        }
+        .valores-support--title {
+            color: #fff;
+            @include font-size(34px);
+            font-weight: 500;
+            font-family: $font-museo;
+            padding-top: 16px;
+            padding-bottom: 16px;
+            margin-bottom: 16px;
+            position: relative;
+            &:after {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 72px;
+                height: 6px;
+                background-color: white;
+                transition-property: background-color, width;
+                transition: 300ms ease;
+            }    
+        }
+        .valores-support--content {
+            color: #fff;
+            @include font-size(18px);
+        }
     }
 }

@@ -9380,6 +9380,14 @@ figure.woocommerce-product-gallery__wrapper {
   font-style: italic;
   font-display: swap; }
 
+/* REGULAR */
+@font-face {
+  font-family: museo-sans;
+  src: url("../fonts/museo-sans/museo-sans-500.woff2") format("woff2"), url("../fonts/museo-sans/museo-sans-500.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap; }
+
 body {
   font-family: "scala-sans", "Avenir Next", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-weight: 400;
@@ -9419,11 +9427,6 @@ body {
 p:empty {
   display: none;
   visibility: hidden; }
-
-.img-auto {
-  display: block;
-  margin-left: auto;
-  margin-right: auto; }
 
 .social-media-links {
   list-style: none;
@@ -9481,6 +9484,11 @@ p:empty {
 .social-media-links.m-left li {
   margin-left: 4px; }
 
+.img-auto {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
 .img-center {
   margin-left: auto;
   margin-right: auto;
@@ -9490,38 +9498,34 @@ p:empty {
   -webkit-filter: contrast(0.75) brightness(1.75);
           filter: contrast(0.75) brightness(1.75); }
 
+.col-image {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+.padding--inner {
+  padding: 3.875rem 2rem; }
+  .padding--inner p:last-of-type {
+    margin-bottom: 0; }
+
+@media screen and (min-width: 992px) {
+  .padding--inner {
+    padding: 4.5rem; } }
+
 .wrapper {
   padding: 0; }
 
 @media (min-width: 1300px) {
+  .container,
   #main-nav .container,
   #wrapper-footer .container {
     max-width: 1180px; } }
 
 @media (min-width: 1400px) {
+  .container,
   #main-nav .container,
   #wrapper-footer .container {
     max-width: 1280px; } }
-
-@media (min-width: 1500px) {
-  #main-nav .container,
-  #wrapper-footer .container {
-    max-width: 1380px; } }
-
-@media (min-width: 1600px) {
-  #main-nav .container,
-  #wrapper-footer .container {
-    max-width: 1480px; } }
-
-@media (min-width: 1700px) {
-  #main-nav .container,
-  #wrapper-footer .container {
-    max-width: 1580px; } }
-
-@media (min-width: 1800px) {
-  #main-nav .container,
-  #wrapper-footer .container {
-    max-width: 1680px; } }
 
 .list-inline > li {
   display: inline-block;
@@ -9552,10 +9556,31 @@ body {
   .navbar-brand .smile-group path {
     fill: black; }
 
+.navbar-nav .active .nav-link:after {
+  width: 42px;
+  background-color: white; }
+
 .navbar-nav .nav-link {
   color: #fff;
   font-size: 20px;
-  font-size: 1.25rem; }
+  font-size: 1.25rem;
+  position: relative; }
+  .navbar-nav .nav-link:after {
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    left: 50%;
+    -webkit-transform: translate3d(-50%, 0, 0);
+            transform: translate3d(-50%, 0, 0);
+    -webkit-transition-property: width, background-color;
+    transition-property: width, background-color;
+    -webkit-transition: 300ms ease;
+    transition: 300ms ease; }
+  .navbar-nav .nav-link:hover:after {
+    width: 42px;
+    background-color: white; }
 
 .navbar {
   -webkit-transition-property: background;
@@ -9572,6 +9597,11 @@ body {
 
 .top-nav-collapse .navbar-nav .nav-link {
   color: #8ab1b8; }
+  .top-nav-collapse .navbar-nav .nav-link:hover:after {
+    background-color: #8ab1b8; }
+
+.top-nav-collapse .navbar-nav .active .nav-link:after {
+  background-color: #8ab1b8; }
 
 /*
 // toogle
@@ -9902,6 +9932,9 @@ body {
 .text-terracota-dark {
   color: #853115; }
 
+.text-green {
+  color: #5e939d; }
+
 .title-smile {
   position: relative; }
   .title-smile:before {
@@ -9968,6 +10001,26 @@ body {
 
 .bg-tertiary {
   background-color: #b2744b !important; }
+
+.bg-beige {
+  background-color: #e6dec8;
+  color: #453f3f; }
+
+.bg-blackboard {
+  background-image: url("../img/assets/bg-blackboard.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.bg-green-pale-01 {
+  background-color: #baccd0; }
+
+.bg-green-pale-02 {
+  background-color: #799da5;
+  color: #fff; }
+
+.mt--1 {
+  margin-top: -1px; }
 
 /*
 .bg-black {
@@ -10174,6 +10227,20 @@ body {
       .card-meditaciones .card-post--inner:hover .card-image--inner:before {
         opacity: 0.35; }
 
+.card-icon {
+  padding-top: 12px;
+  padding-bottom: 12px; }
+  .card-icon .card-image {
+    padding: 0; }
+  .card-icon .card-body {
+    padding-left: 0;
+    padding-right: 0;
+    color: #000;
+    font-size: 18px;
+    font-size: 1.125rem; }
+    .card-icon .card-body p:last-of-type {
+      margin-bottom: 0; }
+
 .btn,
 .wpcf7 input[type=submit],
 .btn-primary {
@@ -10358,10 +10425,189 @@ body {
       font-family: "scala-sans", "Avenir Next", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
       line-height: 1.35em;
       margin-top: 32px; }
+  .hero-pages .hero-thais {
+    background-color: #948572; }
+    .hero-pages .hero-thais .hero-page-inner {
+      width: 100%;
+      opacity: 1;
+      display: -ms-flexbox;
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-pack: end;
+          -ms-flex-pack: end;
+              justify-content: flex-end;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
+      height: 100%; }
+      .hero-pages .hero-thais .hero-page-inner .col-image {
+        width: 40%;
+        -webkit-box-flex: 0;
+            -ms-flex: 0 0 40%;
+                flex: 0 0 40%;
+        height: 100%;
+        background-position: center bottom;
+        background-repeat: no-repeat;
+        background-size: cover; }
+      .hero-pages .hero-thais .hero-page-inner .col-content {
+        width: 60%;
+        -webkit-box-flex: 0;
+            -ms-flex: 0 0 60%;
+                flex: 0 0 60%;
+        -ms-flex-item-align: end;
+            align-self: flex-end;
+        color: #eae3d6;
+        font-family: "scala-sans", "Avenir Next", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
+        .hero-pages .hero-thais .hero-page-inner .col-content p {
+          line-height: 1.5em;
+          font-size: 20px;
+          font-size: 1.25rem; }
+        .hero-pages .hero-thais .hero-page-inner .col-content h1 {
+          font-size: 72px;
+          font-size: 4.5rem;
+          line-height: 0.8em;
+          font-family: "Omnes", "Avenir Next", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+          font-weight: 500;
+          color: #b2744b;
+          margin-bottom: 24px; }
+    .hero-pages .hero-thais .col-content--inner {
+      padding: 92px 132px 124px 62px; }
   .hero-pages .text-hero {
     font-family: "Omnes", "Avenir Next", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     font-weight: 500;
     line-height: 0.85em; }
+  .hero-pages .stamp--page {
+    position: absolute;
+    bottom: 46px;
+    right: 10%; }
+    .hero-pages .stamp--page .stamp {
+      position: static; }
+
+.section-header {
+  padding: 2rem 0; }
+  .section-header.section-header--primary {
+    background-color: #8ab1b8; }
+    .section-header.section-header--primary h3 {
+      color: white; }
+  .section-header.section-header--primary-opacity {
+    background-color: rgba(138, 177, 184, 0.5); }
+  .section-header h3 {
+    text-transform: uppercase;
+    font-family: "Garamond", "AGaramond Pro", "Garamond Pro", serif;
+    font-size: 50px;
+    font-size: 3.125rem;
+    text-align: center; }
+
+.section-psyke--comunidad p {
+  font-size: 20px;
+  font-size: 1.25rem; }
+
+.section-psyke--comunidad .lead {
+  font-size: 30px;
+  font-size: 1.875rem; }
+
+.component-valores {
+  padding: 3.875rem; }
+  .component-valores h3 {
+    font-family: "museo-sans", "Avenir Next", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-weight: 500;
+    color: #5e939d;
+    font-size: 72px;
+    font-size: 4.5rem; }
+
+.card-valores {
+  padding: 12px 24px; }
+  .card-valores a.card-valores-title {
+    color: #fff;
+    font-size: 34px;
+    font-size: 2.125rem;
+    font-weight: 500;
+    font-family: "museo-sans", "Avenir Next", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    position: relative;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    -webkit-transition: 300ms color ease;
+    transition: 300ms color ease; }
+    .card-valores a.card-valores-title:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 6px;
+      background-color: transparent;
+      -webkit-transition-property: background-color, width;
+      transition-property: background-color, width;
+      -webkit-transition: 300ms ease;
+      transition: 300ms ease; }
+    .card-valores a.card-valores-title:hover {
+      color: #5e939d;
+      text-decoration: none; }
+      .card-valores a.card-valores-title:hover:after {
+        width: 24px;
+        background-color: #5e939d; }
+  .card-valores.active a.card-valores-title {
+    color: #5e939d; }
+    .card-valores.active a.card-valores-title:after {
+      width: 72px;
+      background-color: #5e939d; }
+  .card-valores .card-valores-content {
+    padding-top: 16px;
+    color: white; }
+
+@media screen and (max-width: 991px) {
+  .hidden-phone {
+    display: none; } }
+
+.component-valores--support {
+  max-width: 620px;
+  margin: auto;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  height: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .component-valores--support .valores-support--item {
+    height: 0;
+    width: 100%;
+    margin: auto;
+    -ms-flex-item-align: center;
+        align-self: center;
+    display: none;
+    padding: 62px; }
+    .component-valores--support .valores-support--item.active {
+      height: auto;
+      display: block; }
+    .component-valores--support .valores-support--item .valores-support--title {
+      color: #fff;
+      font-size: 34px;
+      font-size: 2.125rem;
+      font-weight: 500;
+      font-family: "museo-sans", "Avenir Next", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+      padding-top: 16px;
+      padding-bottom: 16px;
+      margin-bottom: 16px;
+      position: relative; }
+      .component-valores--support .valores-support--item .valores-support--title:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 72px;
+        height: 6px;
+        background-color: white;
+        -webkit-transition-property: background-color, width;
+        transition-property: background-color, width;
+        -webkit-transition: 300ms ease;
+        transition: 300ms ease; }
+    .component-valores--support .valores-support--item .valores-support--content {
+      color: #fff;
+      font-size: 18px;
+      font-size: 1.125rem; }
 
 .site-footer {
   background-color: #222120; }

@@ -23,12 +23,12 @@ if( $posts->have_posts() ) :
   ?>
   <section class="section-blog"> 
     <div class="section-blog--inner">
-        <div class="padding-regular bg-tertiary">
+        <div class="padding-regular bg-tertiary anim-blog-block-01">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-12">
-                        <h3 class="text-center text-alternate text-terracota-dark">Lunes Mindful en Psyke</h3>
-                        <p class="text-center text-white text-uppercase">Reflexiones terapéuticas para iniciar la semana con la intención de vivir el presente y aspirar a una vida plena con sentido</p>
+                        <h3 class="text-center text-alternate text-terracota-dark anim-blog-block-02">Lunes Mindful en Psyke</h3>
+                        <p class="text-center text-white text-uppercase anim-blog-block-03">Reflexiones terapéuticas para iniciar la semana con la intención de vivir el presente y aspirar a una vida plena con sentido</p>
                     </div>
                 </div>
             </div>
