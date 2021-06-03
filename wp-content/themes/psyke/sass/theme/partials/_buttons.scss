@@ -1,0 +1,40 @@
+.btn,
+.btn-primary {
+  border-radius: 32px;
+  border: none;
+  font-family: $font-scala;
+  color: #fff;
+  background-color: $primary-color;
+  font-size: 18px;
+  padding: 14px 42px;
+  line-height: 1.5em;
+
+
+  text-align: left;
+  font-weight: 400;
+  display: inline-block;
+
+  -moz-transition: 300ms background-color, color ease-in-out;
+  -webkit-transition: 300ms background-color, color ease-in-out;
+  transition: 300ms background-color, color ease-in-out;
+
+  &:hover {
+    color: #fff;
+    background-color: $secondary-color;
+  }
+}
+
+.btn-outline {
+    text-transform: uppercase;
+    background-color: transparent;
+    border-radius: 32px;
+    &.btn-outline--primary {
+        border: 2px solid #e2e6e9;
+        color: #6f8391;
+        &:hover {
+            background-color: $primary-color;
+            color: $brand-blue-dark;
+            border: 2px solid $primary-color;
+        }
+    }
+}

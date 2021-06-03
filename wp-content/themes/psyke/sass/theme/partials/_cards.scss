@@ -1,0 +1,186 @@
+.card-frases {
+    align-self: center;
+    color: #fff;
+    font-weight: 700;
+    @include font-size(34px);
+    font-family: $font-heading;
+    .card-body,
+    .card-footer {
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        p:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+    .card-body {
+        line-height: 1.25em;
+    }
+    .card-footer {
+        @include font-size(16px);
+        font-weight: 400;
+
+    }
+}
+
+.card-post {
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    .card-header,
+    .card-body,
+    .card-footer {
+        padding: 0;
+        border: none;
+        background: transparent;
+    }
+    .card-image {
+        border-radius: 50%;
+        overflow: hidden;
+        canvas {
+            width: 100%;
+            background-size: cover;
+            background-position: center center;
+            border-radius: 50%;
+            overflow: hidden;
+            transform: scale(1);
+            transition: 500ms transform ease;
+        }
+    }
+    .card-header {
+        h3 {
+            font-family: $font-alternate;
+            color: $brand-blue-dark;
+            @include font-size(24px);
+            margin-top: calculateRem(24px);
+            margin-bottom: calculateRem(16px);
+        }
+        p {
+            color: #a09ead;
+            font-family: $font-scala;
+            @include font-size(14px);   
+            text-transform: uppercase;
+        }
+    }
+    .card-body {
+        font-family: $font-scala;
+        color: black;
+        @include font-size(16px);
+        line-height: 1.35em;
+        
+    }
+    .card-footer {
+        padding-top: 16px;
+        .btn-link.btn-fk {
+            text-transform: uppercase;
+            color: #e27c61;
+            @include font-size(16px);
+        }
+    }
+    .card-post--inner {
+        &:hover {
+            text-decoration: none;
+            canvas {
+                transform: scale(1.15);
+            }
+        }
+    }
+}
+
+.card-meditaciones {
+    height: inherit;
+    padding-left: 15px;
+    padding-right: 15px;
+    height: inherit;
+    
+    .card-image,
+    .card-header,
+    .card-body,
+    .card-footer {
+        padding: 0;
+        border: none;
+        background: transparent;
+        flex: 0 0 100%;
+    }
+    .card-image,
+    .card-header,
+    .card-body {
+        margin-top:0;
+    }
+    .card-image--inner {
+        position: relative;
+        overflow: hidden;
+        &:before {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            content: '';
+            background-color: $primary-color;
+            opacity: 0;
+            transition: 300ms opacity ease;
+        }
+    }
+    .card-header {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        .card-header-play {
+            display: -ms-flexbox;
+            display:flex;
+            flex-wrap: nowrap;
+            .icon {
+                flex: 0 0 30px;
+                align-self: center;
+                svg {
+                    width: 100%;
+                }
+            }
+            .title {
+                flex: 0 0 calc(100% - 30px);
+                align-self: center;
+                padding-left: 15px;
+                margin: 12px 0;
+            }
+        }
+        h3 {
+            font-family: $font-scala;  
+            font-weight: 700;
+            color: $coral;
+            text-transform: uppercase;
+            @include font-size(16px);
+            transition: 300ms color ease;
+        }
+    }
+    .card-body {
+        color: black;
+    }
+    .card-footer {
+        margin-top: auto;
+        align-self: flex-end;
+        color: #a09ead;
+        .meditation-time {
+            font-weight: 400;
+            text-transform: uppercase;
+            @include font-size(14px);
+        }
+    }
+    .card-post--inner {
+        display: block;
+        &:hover {
+            text-decoration: none;
+            .card-header .card-header-play h3{
+                color: $primary-color;
+            }
+            .play-icon {
+                circle {
+                    stroke:$primary-color;
+                }
+                path {
+                    fill: $primary-color;
+                }
+            }
+            .card-image--inner:before {
+                opacity: 0.35;
+            }
+        }
+    }
+}

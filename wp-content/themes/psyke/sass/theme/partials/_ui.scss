@@ -1,0 +1,171 @@
+.section-frases {
+    background-color: $dark-gray;
+    text-align: center;
+    .slick-dots li button:before {
+        color:#dadfe2;
+        opacity: 1;
+        font-size: 11px;
+    }
+    .slick-dots li.slick-active button:before {
+        color:#9aa6ad;
+        opacity: 1;
+    }
+    .slick-track {
+        display: flex !important;
+    }
+    .slick-slide,
+    .slick-item {
+        height: inherit !important;
+    }
+    .slick-slide {
+        align-self: center;
+    }
+}
+
+.slick-dots li button:before {
+    font-size: 11px;
+}
+
+.section-blog {
+    .bg-tertiary {
+        h3 {
+            text-transform: uppercase;
+            @include font-size(50px);
+            font-family: $font-alternate;
+            margin-top: calculateRem(24px);
+        }
+        p {
+            @include font-size(20px);
+        }
+    }
+}
+
+.section-meditaciones-slider {
+    .bg-primary {
+        h3 {
+            text-transform: uppercase;
+            @include font-size(50px);
+            font-family: $font-alternate;
+            margin-top: calculateRem(24px);
+        }
+        p {
+            @include font-size(20px);
+        }
+    }
+    .slick-track {
+        display: flex !important;
+    }
+    .slick-slide,
+    .slick-item {
+        height: inherit !important;
+    }
+    .slick-slide > div {
+        height: 100%;
+    }
+    .slick-meditaciones {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+}
+
+.intro-meditation {
+    padding: calculateRem(64px) 0;
+    color: black;
+    .title-meditation {
+        text-transform: uppercase;
+        @include font-size(18px);
+        color: $primary-color;
+        font-family: $font-scala;  
+    }
+}
+@media screen and (min-width: 992px) {
+    .content-meditaciones {
+        -moz-column-count: 2;
+        -webkit-column-count: 2;
+        column-count: 2;
+        -moz-column-gap: 30px;
+        -webkit-column-gap: 30px;
+        column-gap: 30px;
+    }
+}
+
+.play-icon {
+    circle {
+        fill:none;
+        stroke:#E26D5C;
+        stroke-width:3.0252;
+        stroke-miterlimit:10;
+        transition: 300ms stroke ease;
+    }
+    path {
+        fill: #E26D5C;
+        transition: 300ms fill ease;
+    }
+}
+ 
+.hero-pages {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    &.has-overlay {
+        position: relative;
+        overflow: hidden;
+        &:before {
+            content: '';
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.35);
+            position: absolute;
+        }
+    }
+    .hero-inner {
+        min-height: 80vh;
+        display: -ms-flexbox;
+        display: flex;
+    }
+    .hero-page-content {
+
+    }
+    .hero-psyke {
+        display: -ms-flexbox;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 100%;
+        .hero-page-inner {
+            width: 60%;
+            color: white;
+            opacity: 0.65;
+        }
+        .text-hero-01,
+        .text-hero-02,
+        .text-hero-03 {
+            display: block;
+        }
+        .text-hero-01 {
+            @include font-size(80px);
+            padding-left: 124px;
+        }
+        .text-hero-02 {
+            @include font-size(114px);
+            padding-left: 40px;
+        }
+        .text-hero-03 {
+            @include font-size(80px);
+            padding-left: 40px;
+        }
+        .text-hero-04 p{
+            text-transform: uppercase;
+            @include font-size(20px);
+            font-weight: 400;
+            font-family: $font-scala;
+            line-height: 1.35em;
+            margin-top: 32px;
+        }
+    }
+    .text-hero {
+        font-family: $font-heading;
+        font-weight: 500;
+        line-height: 0.85em;
+    }
+}

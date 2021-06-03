@@ -1,0 +1,30 @@
+.text-white {
+    color: #fff;
+}
+.text-gray {
+    color: $gray;
+}
+.text-terracota-light {
+    color: $terracota-light;
+}
+.text-terracota-medium {
+    color: $tertiary-color;
+}
+.text-terracota-dark {
+    color: $terracota-dark;
+}
+
+.title-smile {
+    position: relative;
+    &:before {
+        content: '';
+        width: 70px;
+        height: 70px;
+        background-image: url('../img/base/logotype-symbol--primary-psyke.svg');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: block;
+        margin: 0 auto 12px auto;
+    }
+}

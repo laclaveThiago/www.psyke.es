@@ -1,0 +1,62 @@
+// Use this file to overwrite the basic Bootstrap variables and add your own variables
+// To overwrite a Bootstrap variable you don´t have to touch the Bootstrap folder.
+// Just copy a variable from /sass/bootstrap/_variables.scss, paste it here and edit the value.
+// As example you find one of the most important Bootstrap variable below: $brand-primary.
+// Thats the ugly Bootstrap blue used for all the links, primary buttons etc.
+// Just add your color code here, compile the theme.scss file to change this color everywhere
+
+//
+// Color system
+//
+
+$primary: rgb(138,177,184);
+$primary-color: $primary;
+$brand-blue-01: $primary;
+$brand-blue-02: rgb(94,147,157);
+$brand-blue-dark: #142738;
+
+$secondary: rgb(178,116,75);
+$secondary-color: $secondary;
+$brand-orange: $secondary-color;
+
+$tertiary: rgb(178,116,75);
+$tertiary-color: $tertiary;
+
+$terracota-dark: rgb(133,49,21);
+$terracota-light: rgb(162,88,41);
+
+$coral: rgb(226,109,92);
+
+$dark-blue: #142738;
+
+$dark-gray: #222120;
+$gray: rgb(68,63,63);
+
+$gray-09: #4c4447;
+$gray-08: #60595b;
+$gray-07: #746d70;
+$gray-06: #888284;
+$gray-05: #9c9799;
+$gray-04: #afacad;
+$gray-03: #c3c1c2;
+$gray-02: #d7d5d6;
+$gray-01: #ebeaeb;
+$gray-00: rgba(242, 242, 242, 1);
+
+$gray-100: $gray-01;
+$gray-200: $gray-02;
+$gray-300: $gray-03;
+$gray-400: $gray-04;
+$gray-500: $gray-05;
+$gray-600: $gray-06;
+$gray-700: $gray-07;
+$gray-800: $gray-08;
+$gray-900: $gray-09;
+
+//
+// Type
+//
+$font-stack: "Omnes", "Avenir Next", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+$font-heading: "Omnes", "Avenir Next", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+$font-alternate: "Garamond", "AGaramond Pro", "Garamond Pro", serif;
+$font-scala: "scala-sans", "Avenir Next", "Helvetica Neue", "Helvetica", "Arial", sans-serif;

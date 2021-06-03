@@ -1,0 +1,98 @@
+.navbar-brand {
+  width: 96px;
+  height: 96px;
+  display: inline-block;
+  padding: 0;
+  transition-property: width, height; 
+  transition: 300ms ease;
+  svg {
+    width: 100%;
+    //transition-property: width, height;
+    //transition: 300ms ease;
+  }
+  .smile-base {
+    fill: $primary-color;
+  }
+  .smile-group path {
+    fill: black;
+  }
+}
+
+.navbar-nav .nav-link {
+  color: #fff;
+  @include font-size(20px);
+}
+
+.navbar {
+  transition-property: background;
+  transition: 300ms ease;
+}
+
+.top-nav-collapse {
+  &.navbar {
+    background-color: white;
+  }
+  .navbar-brand {
+    width: 62px;
+    height: 62px;
+  }
+  .navbar-nav .nav-link {
+    color: $primary-color;
+  }
+}
+
+
+/*
+// toogle
+*/
+.navbar-toggler {
+  .navbar-toggler-icon {
+    padding: 4px;
+    text-align: center;
+    position: relative;
+    line-height: 0;
+    &:before {
+      content: "Menu";
+      position: absolute;
+      left: -12px;
+      top: 50%;
+      text-align: right;
+      color: #5a6175;
+      transform: translate3d(-100%, -50%, 0);
+      font-size: 10px;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      -moz-transition: 300ms color ease;
+      -webkit-transition: 300ms color ease;
+      transition: 300ms color ease;
+    }
+    .icon--line {
+      height: 2px;
+      border-radius: 2px;
+      background-color: $secondary-color;
+      display: inline-block;
+      margin: 2px auto;
+      width: 70%;
+      text-align: center;
+
+      -moz-transition: 300ms width ease;
+      -webkit-transition: 300ms width ease;
+      transition: 300ms width ease;
+    }
+    .icon--line-2 {
+      width: 100%;
+    }
+  }
+  &:hover {
+    .navbar-toggler-icon:before {
+      color: $secondary-color;
+    }
+    .navbar-toggler-icon .icon--line {
+      width: 100%;
+    }
+  }
+}
+
+
+
