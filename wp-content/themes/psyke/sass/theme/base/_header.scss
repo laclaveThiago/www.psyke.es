@@ -12,6 +12,8 @@
   }
   .smile-base {
     fill: $primary-color;
+    opacity: 0.7;
+    transition: 300ms opacity ease;
   }
   .smile-group path {
     fill: black;
@@ -59,6 +61,9 @@
   .navbar-brand {
     width: 62px;
     height: 62px;
+    svg .smile-base {
+      opacity: 1;
+    }
   }
   .navbar-nav {
     .nav-link {

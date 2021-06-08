@@ -71,6 +71,32 @@
   color: #453f3f;
 }
 
+.bg-beige-2 {
+  background-color: #e6dec8;
+  color: #453f3f;
+}
+.bg-green-1,
+.course-green-1 {
+  background-color: #adc5b9;
+  color: #453f3f;
+}
+.bg-green-2,
+.course-green-2 {
+  background-color: #d6e2dc;
+  color: #453f3f;
+}
+
+
+
+.bg-blue {
+  background-color: $primary-color;
+}
+
+.bg-dotted {
+  background-image: url('../img/base/bg-dotted.jpg');
+  background-position: center center;
+  background-repeat: repeat;
+}
 .bg-blackboard {
   background-image: url('../img/assets/bg-blackboard.jpg');
   background-position: center center;

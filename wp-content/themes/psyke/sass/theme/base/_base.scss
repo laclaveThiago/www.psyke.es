@@ -119,6 +119,9 @@ p:empty {
 .img-filter-effect {
   filter: contrast(0.75) brightness(1.75);
 }
+.img-black {
+  filter: contrast(1) brightness(0);
+}
 
 .col-image {
   background-position: center center;

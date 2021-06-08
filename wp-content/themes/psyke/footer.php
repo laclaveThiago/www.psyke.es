@@ -121,7 +121,7 @@ $container = get_theme_mod( 'understrap_container_type' );
                                 </g>
                             </svg>
                         </a>
-                        <p class="footer-tagline">Centro de Psicología General Sanitaria autorizado por la Conselleria de Sanidad (nº13619/2013)</p>
+                        <p class="footer-tagline">Centro de Psicología General Sanitaria autorizado por la Conselleria de Sanidad (n&deg;13619/2013)</p>
                     </div>
                     <div class="col-md-4">
                         <?php

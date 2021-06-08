@@ -13,13 +13,22 @@
             
             if ($("#main-nav").offset().top > 92) {
                 $("#main-nav").addClass("top-nav-collapse");
-                console.log('if');
             } else {
-                console.log('else');
                 $("#main-nav").removeClass("top-nav-collapse");
             }
         }
     }
+
+    //scrollTo
+    $(function() {
+        $('a.page-scroll').bind('click', function(event) {
+            var $anchor = $(this);
+            $('html, body').stop().animate({
+                scrollTop: $($anchor.attr('href')).offset().top
+            }, 1500, 'easeInOutExpo');
+            event.preventDefault();
+        });
+    });
 
     function setPaddingBottomBody () {
         var paddingBottom = $('#wrapper-footer').height();
@@ -113,6 +122,44 @@
                 ]
             });
         }
+        if($('.slick-terapias--vertical').length > 0) {
+            $('.slick-terapias--vertical').each( function() {
+                $(this).slick({
+                    dots: true,
+                    arrows: false,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                });
+            });
+        }
+        if($('.slick-brands').length > 0) {
+            $('.slick-brands').slick({
+                dots: false,
+                arrows: true,
+                slidesToShow: 4,
+                infinite: true,
+                autoplay: true,
+                autoplaySpeed: 5000,
+                responsive: [
+                {
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: 3,
+                    }
+                },
+                {
+                    breakpoint: 640,
+                    settings: {
+                        slidesToShow: 2,
+                    }
+                }
+                // You can unslick at a given breakpoint now by adding:
+                // settings: "unslick"
+                // instead of a settings object
+                ]
+            });
+        }
+        
 
         gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -421,8 +468,41 @@
         });
 
        
-        
+        if($('.card-terapias').length > 0) {
+            $('.card-terapias').each( function() {
+                var thisElement = $(this).find('.collumn-color');
+                var thisCard = $(this);
+                console.log(thisCard);
+                thisElement.waypoint(function(direction) {
+                    if (direction === 'down') {
+                        thisCard.addClass('in');
+                        gsap.to(thisElement, { height: 0, duration: 0.65, ease: "power4.out"});
+                    } else {
+                        thisCard.removeClass('in');
+                        gsap.to(thisElement, { height: '100%', duration: 0.65, ease: "power4.out"});
+                    }
+                }, {
+                    offset: '50%'
+                })
+            });
+        }
 
+        $('.trigger-course').on('click', function(){
+            $(this).toggleClass('active');
+            var elementToTogglePointer = $(this).attr('data-tab');
+            var elementToToggle = $(elementToTogglePointer);
+            console.log(elementToToggle);
+            elementToToggle.slideToggle('slow');
+
+            if(elementToTogglePointer == '#company-tab') {
+                $('.slick-brands').slick('reinit');
+            }
+        });
+
+        $('.tab-button').on('click', function() {
+            $(this).toggleClass('active');
+        });
+        
         
        
         

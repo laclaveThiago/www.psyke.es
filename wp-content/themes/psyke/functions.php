@@ -26,6 +26,7 @@ function theme_enqueue_styles() {
     wp_enqueue_script( 'jquery');
     wp_enqueue_script( 'child-understrap-scripts', get_stylesheet_directory_uri() . '/js/child-theme.min.js', array(), $the_theme->get( 'Version' ), true );
 	wp_enqueue_script( 'slick-scripts', get_stylesheet_directory_uri() . '/plugins/slick/slick.min.js', array(), $the_theme->get( 'Version' ), true );
+	wp_enqueue_script( 'jquery-easings', get_stylesheet_directory_uri() . '/plugins/jquery-easings/jquery-easing.min.js', array(), $the_theme->get( 'Version' ), true );
 	wp_enqueue_script( 'typed-scripts', get_stylesheet_directory_uri() . '/plugins/typed/typed.min.js', array(), $the_theme->get( 'Version' ), true );
 	wp_enqueue_script( 'waypoints-scripts', get_stylesheet_directory_uri() . '/plugins/waypoints/jquery.waypoints.min.js', array(), $the_theme->get( 'Version' ), true );
 	wp_enqueue_script( 'waypoints-debug-scripts', get_stylesheet_directory_uri() . '/plugins/waypoints/waypoints.debug.js', array(), $the_theme->get( 'Version' ), true );

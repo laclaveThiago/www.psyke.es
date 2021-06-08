@@ -18,6 +18,14 @@
     color: #5e939d;
 }
 
+.font-garamond {
+    font-family: $font-alternate;
+}
+
+.text-museo {
+    font-family: $font-museo;
+}
+
 .title-smile {
     position: relative;
     &:before {
