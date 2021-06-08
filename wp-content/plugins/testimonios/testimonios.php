@@ -65,7 +65,7 @@ function testimonios_post_type() {
   		'rest_controller_class' => 'WP_REST_Posts_Controller',
   		'rewrite' => true,
 		// This is where we add taxonomies to our CPT
-		'taxonomies'          => array( 'testimonios_category_init', 'post_tag' ),
+		'taxonomies'          => array( 'categorias-testimonios', 'post_tag' ),
 	);
 	register_post_type('testimonios', $args);
 }
@@ -76,10 +76,10 @@ add_action( 'init', 'testimonios_post_type', 0 );
 add_action( 'init', 'testimonios_category_init', 0 );
 
 //create a custom taxonomy name it "type" for your posts
-function courses_course_init() {
+function testimonios_category_init() {
 
   $labels = array(
-    'name' => _x( 'testimonios_post_type_init', 'taxonomy general name' ),
+    'name' => _x( 'Categoría', 'taxonomy general name' ),
     'singular_name' => _x( 'Categoría', 'taxonomy singular name' ),
     'search_items' =>  __( 'Search category' ),
     'all_items' => __( 'Todas categorías' ),
@@ -92,7 +92,7 @@ function courses_course_init() {
     'menu_name' => __( 'Categoría' ),
   );
 
-  register_taxonomy('testimonios_post_type_init',array('testimonios'), array(
+  register_taxonomy('categorias-testimonios',array('testimonios'), array(
     'hierarchical' => true,
     'labels' => $labels,
     'show_ui' => true,
@@ -101,4 +101,83 @@ function courses_course_init() {
     'rewrite' => array( 'slug' => 'testimonios-categoria' ),
     'show_in_rest' =>true,
   ));
+}
+
+
+
+/**
+ * Register all shortcodes
+ *
+ * @return null
+ */
+function register_shortcodes() {
+    add_shortcode( 'testimonios_slider', 'shortcode_slider_testimonials' );
+}
+add_action( 'init', 'register_shortcodes' );
+
+/**
+ * Produtos Shortcode Callback
+ * 
+ * @param Array $atts
+ *
+ * @return string
+ */
+function shortcode_slider_testimonials( $atts ) {
+	ob_start();
+    global $wp_query,
+        $post;
+
+    $atts = shortcode_atts( array(
+        'categoria-testimonios' => '',
+        'numero-testimonios' => '',
+    ), $atts );
+
+    $loop = new WP_Query( array(
+        'posts_per_page'    => sanitize_title( $atts['numero-testimonios'] ),
+        'post_type'         => 'testimonios',
+        'order'             => 'RAND',
+        'tax_query'         => array( 
+        	'relation' => 'AND',
+        	array(
+            	'taxonomy'  => 'categorias-testimonios',
+            	'field'     => 'slug',
+            	'terms'     => array( sanitize_title( $atts['categoria-testimonios'] ) )
+        	)
+        )
+    ) );
+
+    if( ! $loop->have_posts() ) {
+        return false;
+    }
+
+	?>
+	<div class="padding-large wrapper-slider-testimonials">
+		<div class="slider-testimonials--inner">
+			<div class="container"><div class="row"><div class="col-md-12">
+				<div class="slick-testimonials">
+					<?php
+					while( $loop->have_posts() ) :
+						$loop->the_post();
+						?>
+						<div class="testimonials-item">
+							<div class="testimonials-content">
+								<?php the_content(); ?>
+							</div>
+							<div class="testimonials-author">
+								<?php the_title(); ?>
+							</div>
+						</div>
+
+						<?php
+							$pointerGrid = $pointerGrid+1;
+					endwhile; // end while
+					?>
+				</div>
+			</div></div></div>
+		</div>
+	</div>
+	<?php
+    wp_reset_postdata();
+    $sliderTestimonials = ob_get_clean();
+    return $sliderTestimonials;
 }

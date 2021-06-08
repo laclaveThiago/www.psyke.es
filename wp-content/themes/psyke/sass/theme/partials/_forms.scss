@@ -1,0 +1,24 @@
+.tnp-subscription {
+    
+    &.tnp {
+        max-width: 100%;
+    }
+    .input-group input[type="email"] {
+        width: 1%;
+        border-top-left-radius: 2px;
+        border-bottom-left-radius: 2px;
+    }
+    .input-group input[type="submit"] {
+        width: auto;
+        width: auto;
+        border-radius: 2px;
+        border: 1px solid #fff;
+        background: #000;
+        color: #fff;
+        padding-left: 24px;
+        padding-right: 24px;
+        font-weight: 700;
+        font-family: $font-alternate;
+        font-size: 18px;
+    }
+}

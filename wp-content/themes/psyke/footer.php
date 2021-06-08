@@ -13,6 +13,8 @@ defined( 'ABSPATH' ) || exit;
 $container = get_theme_mod( 'understrap_container_type' );
 ?>
 
+</div><!-- #page we need this extra closing tag here -->
+
 <?php get_template_part( 'sidebar-templates/sidebar', 'footerfull' ); ?>
 
 <div class="wrapper" id="wrapper-footer">
@@ -21,6 +23,35 @@ $container = get_theme_mod( 'understrap_container_type' );
         <div class="site-info">
 
             <div class="container">
+                <div class="padding-large--bottom">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="suscribe-text">
+                                <h4>¡Suscríbete al blog!</h4>
+                                <p>para estar al día de todas Reflexiones Terapéuticas</p>
+                            </div>
+                        </div>
+                        <div class="col-md-7 align-self-center">
+                            <div class="tnp tnp-subscription">
+                                <form method="post" action="https://developlaclave.es/develop/psyke/?na=s">
+                                    <input type="hidden" name="nlang" value="">
+                                    <div class="input-group mb-3">
+                                        <input type="email" class="form-control" name="ne" value="" required placeholder="Email" aria-label="Email" aria-describedby="button-addon2">
+                                        <div class="input-group-append tnp-field-button">
+                                            <input class="btn btn-outline-secondary" type="submit" id="button-addon2" value="Unirse">
+                                        </div>
+                                    </div>
+                                    <div class="tnp-field tnp-privacy-field">
+                                        <label>
+                                            <input type="checkbox" name="ny" required class="tnp-privacy"> Si continúas, aceptas la <a target="_blank" href="https://developlaclave.es/develop/psyke/politica-privacidad/">política de privacidad</a>
+                                        </label>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-md-5">
                         <a class="navbar-brand navbar-brand--footer" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" itemprop="url">
@@ -165,7 +196,7 @@ $container = get_theme_mod( 'understrap_container_type' );
     </footer><!-- #colophon -->
 </div><!-- wrapper end -->
 
-</div><!-- #page we need this extra closing tag here -->
+
 
 <?php wp_footer(); ?>
 

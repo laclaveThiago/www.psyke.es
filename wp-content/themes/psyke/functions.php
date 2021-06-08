@@ -66,6 +66,15 @@ function custom_widgets_init() {
         'before_title'  => '<h4 class="title-meditation">',
         'after_title'   => '</h4>',
     ) );
+
+	register_sidebar( array(
+        'name'          => 'Suscribirse - Newsletter',
+        'id'            => 'newsletter-form',
+        'before_widget' => '<div class="newsletter-form">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h4 class="title-newsletter">',
+        'after_title'   => '</h4>',
+    ) );
  
 }
 add_action( 'widgets_init', 'custom_widgets_init' );

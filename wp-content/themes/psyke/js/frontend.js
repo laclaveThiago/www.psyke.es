@@ -32,9 +32,19 @@
 
     function setPaddingBottomBody () {
         var paddingBottom = $('#wrapper-footer').height();
-        $('body').css({
-            'padding-bottom' : paddingBottom 
-        });
+        var windownHeight = $(window).height() - $('#main-nav').height();
+        if(paddingBottom > windownHeight) {
+            $('#wrapper-footer').removeClass('footer-fixed');
+            $('body').css({
+                'padding-bottom' : 0
+            });
+        } else {
+            $('#wrapper-footer').addClass('footer-fixed');
+            $('body').css({
+                'padding-bottom' : paddingBottom 
+            });
+        }
+        
     }
 
     function watchComponentValores() {
@@ -132,6 +142,19 @@
                 });
             });
         }
+        if($('.slick-testimonials').length > 0) {
+            $('.slick-testimonials').each( function() {
+                $(this).slick({
+                    dots: false,
+                    arrows: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    autoplaySpeed: 5000
+                });
+            });
+        }
+        
         if($('.slick-brands').length > 0) {
             $('.slick-brands').slick({
                 dots: false,
@@ -318,7 +341,7 @@
                     $(this).find('.card-valores-content').hide();
                 }
                 
-                var supportContent = `<div class="valores-support--item ${active}" id="" data-slide="${index}"><div class="valores-support--title">${cardTitle}</div><div class="valores-support--content">${cardContent}</div></div>`;
+                var supportContent = `<div class="valores-support--item ${active}" id="" data-slide="${index}"><div class="valores-support--content">${cardContent}</div></div>`;
                 $('.component-valores--support').append(supportContent);
 
                 //set gsap anim

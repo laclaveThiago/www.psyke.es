@@ -10373,6 +10373,36 @@ body {
 .slick-brands .slick-next.slick-arrow {
   background-image: url("../img/icons/arrow-right.png"); }
 
+.slick-testimonials .item {
+  padding: 24px 42px;
+  height: 100%; }
+
+.slick-testimonials .slick-track {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important; }
+
+.slick-testimonials .slick-slide,
+.slick-testimonials .slick-slide > div,
+.slick-testimonials .slick-item {
+  height: inherit !important; }
+
+.slick-testimonials .slick-slide {
+  -ms-flex-item-align: center;
+      align-self: center; }
+
+.slick-testimonials .slick-arrow {
+  width: 39px;
+  height: 73px;
+  background-position: center center;
+  background-image: url("../img/icons/arrow-left.png");
+  background-repeat: no-repeat; }
+  .slick-testimonials .slick-arrow:before {
+    opacity: 0; }
+
+.slick-testimonials .slick-next.slick-arrow {
+  background-image: url("../img/icons/arrow-right.png"); }
+
 .section-blog .bg-tertiary h3 {
   text-transform: uppercase;
   font-size: 50px;
@@ -10546,7 +10576,7 @@ body {
           line-height: 0.8em;
           font-family: "Omnes", "Avenir Next", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
           font-weight: 500;
-          color: #b2744b;
+          color: #aca18d;
           margin-bottom: 24px; }
     .hero-pages .hero-thais .col-content--inner {
       padding: 92px 132px 124px 62px; }
@@ -11195,6 +11225,53 @@ body {
     text-align: center;
     margin: 0; }
 
+.wrapper-slider-testimonials {
+  background-color: #bfcdcf;
+  color: #000;
+  text-align: center; }
+  .wrapper-slider-testimonials .testimonials-item {
+    padding: 16px 62px;
+    position: relative; }
+    .wrapper-slider-testimonials .testimonials-item:before {
+      position: absolute;
+      content: '';
+      width: 69px;
+      height: 59px;
+      top: 0;
+      left: 62px;
+      background-image: url("../img/base/quote.png");
+      background-position: center center;
+      background-repeat: no-repeat; }
+    .wrapper-slider-testimonials .testimonials-item .testimonials-content {
+      padding-bottom: 16px;
+      font-size: 20px;
+      font-size: 1.25rem; }
+    .wrapper-slider-testimonials .testimonials-item .testimonials-author {
+      font-size: 20px;
+      font-size: 1.25rem;
+      font-weight: 600; }
+
+.tnp-subscription.tnp {
+  max-width: 100%; }
+
+.tnp-subscription .input-group input[type="email"] {
+  width: 1%;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px; }
+
+.tnp-subscription .input-group input[type="submit"] {
+  width: auto;
+  width: auto;
+  border-radius: 2px;
+  border: 1px solid #fff;
+  background: #000;
+  color: #fff;
+  padding-left: 24px;
+  padding-right: 24px;
+  font-weight: 700;
+  font-family: "Garamond", "AGaramond Pro", "Garamond Pro", serif;
+  font-size: 18px; }
+
 .site-footer {
   background-color: #222120; }
   .site-footer .social-media {
@@ -11272,11 +11349,32 @@ body {
     background-color: #b2744b;
     color: #fff; }
 
-#wrapper-footer {
+.suscribe-text {
+  font-family: "Garamond", "AGaramond Pro", "Garamond Pro", serif;
+  color: #fff;
+  padding: 15px 0; }
+  .suscribe-text h4 {
+    font-size: 34px;
+    font-size: 2.125rem;
+    margin: 0; }
+  .suscribe-text p {
+    font-size: 20px;
+    font-size: 1.25rem;
+    margin: 0; }
+
+@media screen and (min-width: 992px) {
+  .suscribe-text {
+    text-align: right; } }
+
+#page {
+  position: relative;
+  z-index: 2; }
+
+#wrapper-footer.footer-fixed {
   position: fixed;
   bottom: 0;
   width: 100%;
-  z-index: -1; }
+  z-index: 1; }
 
 /*
 * Use existing Bootstrap 4 classes and

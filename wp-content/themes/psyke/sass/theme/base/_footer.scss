@@ -104,9 +104,32 @@
   }
 }
 
-#wrapper-footer {
+.suscribe-text {
+  font-family: $font-alternate;
+  color: #fff;
+  padding: 15px 0;
+  h4 {
+    @include font-size(34px);
+    margin: 0;
+  }
+  p {
+    @include font-size(20px);
+    margin: 0;
+  }
+}
+@media screen and (min-width: 992px) {
+  .suscribe-text {
+    text-align: right;
+  }
+}
+
+#page {
+  position: relative;
+  z-index: 2;
+}
+#wrapper-footer.footer-fixed {
   position: fixed;
   bottom: 0;
   width: 100%;
-  z-index: -1;
+  z-index: 1;
 }
