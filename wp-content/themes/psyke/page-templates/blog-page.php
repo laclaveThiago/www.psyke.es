@@ -44,7 +44,7 @@ endif;
             }
             ?>
             
-            <section class="title-blog--section border-bottom">
+            <section class="title-blog--section txt-center border-b">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
@@ -54,8 +54,32 @@ endif;
                 </div>
             </section>
             <?php get_template_part( 'global-templates/block-blog--lasts-posts' ); ?>
+            <div class="spacer-blog border-t border-b"></div>
 
-            <section class="title-blog--section border-top border-bottom">
+            <section class="title-blog--section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3 class="title-blog--link"><a href="https://developlaclave.es/develop/psyke/category/autoestima/">Autoestima</a></h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <?php get_template_part( 'global-templates/block-blog--autoestima' ); ?>
+
+            <section class="title-blog--section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3 class="title-blog--link"><a href="https://developlaclave.es/develop/psyke/category/desarrollo-personal/">Desarrollo personal</a></h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <?php get_template_part( 'global-templates/block-blog--desarrollo-personal' ); ?>
+
+
+            <section class="title-blog--section txt-center border-t border-b">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
@@ -65,6 +89,17 @@ endif;
                 </div>
             </section>
             <?php wpp_get_mostpopular(); ?>
+
+            <section class="title-blog--section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3 class="title-blog--link"><a href="https://developlaclave.es/develop/psyke/category/ansiedad/">Ansiedad</a></h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <?php get_template_part( 'global-templates/block-blog--ansiedad' ); ?>
 
 
         </main><!-- #main -->
