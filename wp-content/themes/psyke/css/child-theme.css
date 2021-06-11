@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
@@ -9926,6 +9927,12 @@ body {
   .cursor-follower.hovered {
     opacity: 1; }
 
+.touchevents .cursor,
+.touchevents .cursor-follower {
+  display: none;
+  visibility: hidden;
+  height: 0; }
+
 .text-white {
   color: #fff; }
 
@@ -9947,6 +9954,7 @@ body {
 .font-garamond {
   font-family: "Garamond", "AGaramond Pro", "Garamond Pro", serif; }
 
+.title-museo,
 .text-museo {
   font-family: "museo-sans", "Avenir Next", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
 
@@ -10607,6 +10615,11 @@ body {
     right: 10%; }
     .hero-pages .stamp--page .stamp {
       position: static; }
+  .hero-pages .stamp--contact {
+    position: relative;
+    text-align: right; }
+    .hero-pages .stamp--contact .stamp {
+      position: static; }
 
 .stamp--page-unfixed .stamp {
   position: static; }
@@ -10982,19 +10995,40 @@ body {
   font-size: 70px;
   font-size: 4.375rem;
   text-align: right; }
+  .hero-formacion h2 a {
+    color: rgba(245, 240, 228, 0.5); }
+    .hero-formacion h2 a:hover {
+      text-decoration: none;
+      color: rgba(138, 177, 184, 0.75); }
 
-.hero-formacion .list-anchor-courses {
+.hero-retiros {
+  width: 100%; }
+  .hero-retiros .hero-page-inner {
+    width: 100%;
+    padding-bottom: 270px;
+    padding-top: 120px; }
+    .hero-retiros .hero-page-inner .row {
+      min-height: 10vh; }
+  .hero-retiros h1 {
+    padding-top: 164px;
+    font-family: "Omnes", "Avenir Next", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    color: rgba(245, 240, 228, 0.5);
+    font-size: 70px;
+    font-size: 4.375rem;
+    text-align: center; }
+
+.hero-page-content .list-anchor-courses {
   list-style: none;
   padding-left: 0;
   margin-left: -6px;
   margin-right: -6px; }
-  .hero-formacion .list-anchor-courses li {
+  .hero-page-content .list-anchor-courses li {
     display: inline-block;
     padding: 6px; }
 
-.hero-formacion .btn-outline {
+.hero-page-content .btn-outline {
   border: 2px solid rgba(245, 240, 228, 0.8); }
-  .hero-formacion .btn-outline:hover {
+  .hero-page-content .btn-outline:hover {
     border: 2px solid #b2744b; }
 
 .section-formacion--intro {
@@ -11213,6 +11247,55 @@ body {
     .course-tab.course-tab--white .card-body {
       background-color: transparent; }
 
+#custom-collpase .collapse {
+  color: #453f3f; }
+  #custom-collpase .collapse .card-body {
+    border: none;
+    padding: 0;
+    padding-bottom: 24px; }
+    #custom-collpase .collapse .card-body p:last-of-type {
+      margin: 0; }
+
+.list-tabs .list-tabs-list {
+  list-style: none;
+  padding-left: 0; }
+  .list-tabs .list-tabs-list a {
+    font-family: "museo-sans", "Avenir Next", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    color: #453f3f;
+    font-size: 30px;
+    font-size: 1.875rem;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 6px;
+    margin-bottom: 6px;
+    -webkit-transition: 300ms color ease;
+    transition: 300ms color ease; }
+    .list-tabs .list-tabs-list a:after {
+      position: absolute;
+      content: '';
+      width: 0px;
+      height: 3px;
+      background-color: #453f3f;
+      left: 0;
+      bottom: 0;
+      -webkit-transition: 300ms background-color ease, 300ms width ease;
+      transition: 300ms background-color ease, 300ms width ease; }
+    .list-tabs .list-tabs-list a.active {
+      color: #8ab1b8;
+      text-decoration: none; }
+      .list-tabs .list-tabs-list a.active:after {
+        width: 52px;
+        background-color: #8ab1b8; }
+    .list-tabs .list-tabs-list a:hover {
+      color: #8ab1b8;
+      text-decoration: none; }
+      .list-tabs .list-tabs-list a:hover:after {
+        width: 52px;
+        background-color: #8ab1b8; }
+
+.content-gray {
+  color: #453f3f; }
+
 .intro-title {
   background-color: #e5e5e5;
   color: #453f3f; }
@@ -11251,6 +11334,129 @@ body {
       font-size: 1.25rem;
       font-weight: 600; }
 
+.section-novedades {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 12px 0;
+  background-color: #000;
+  z-index: 99; }
+
+.marquee {
+  position: relative;
+  overflow: hidden;
+  --offset: 20vw;
+  --move-initial: calc(-25% + var(--offset));
+  --move-final: calc(-50% + var(--offset));
+  z-index: 2; }
+
+.marquee__inner {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-transform: translate3d(var(--move-initial), 0, 0);
+          transform: translate3d(var(--move-initial), 0, 0);
+  -webkit-animation: marquee 12s linear infinite;
+          animation: marquee 12s linear infinite;
+  -webkit-animation-play-state: running;
+          animation-play-state: running; }
+
+.marquee span {
+  font-size: 16px;
+  padding: 0 2vw;
+  font-style: normal;
+  letter-spacing: -0.025em;
+  white-space: nowrap;
+  color: #e6dec8; }
+  .marquee span p {
+    margin-bottom: 0; }
+  .marquee span strong {
+    color: #fff;
+    font-weight: 700; }
+  .marquee span a {
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    padding-left: 12px;
+    padding-right: 42px; }
+    .marquee span a:after {
+      content: '&rarr;';
+      content: '→';
+      font-size: 28px;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      -webkit-transform: translateY(-54%);
+              transform: translateY(-54%); }
+
+.marquee:hover .marquee__inner {
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused; }
+
+@-webkit-keyframes marquee {
+  0% {
+    -webkit-transform: translate3d(var(--move-initial), 0, 0);
+            transform: translate3d(var(--move-initial), 0, 0); }
+  100% {
+    -webkit-transform: translate3d(var(--move-final), 0, 0);
+            transform: translate3d(var(--move-final), 0, 0); } }
+
+@keyframes marquee {
+  0% {
+    -webkit-transform: translate3d(var(--move-initial), 0, 0);
+            transform: translate3d(var(--move-initial), 0, 0); }
+  100% {
+    -webkit-transform: translate3d(var(--move-final), 0, 0);
+            transform: translate3d(var(--move-final), 0, 0); } }
+
+/*
+// Contact
+*/
+.hero-contact--wrapper:before {
+  z-index: 1; }
+
+.hero-contact--wrapper .hero-inner {
+  padding-top: 162px;
+  padding-bottom: 32px; }
+
+.hero-contact--wrapper .stamp--contact .stamp {
+  float: right;
+  position: relative;
+  z-index: 2; }
+
+.box-contact {
+  background-color: rgba(255, 255, 255, 0.9);
+  margin: 32px 0;
+  position: relative;
+  z-index: 2; }
+  .box-contact .lead.lead-contact {
+    font-family: "museo-sans", "Avenir Next", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    color: #000;
+    font-size: 30px;
+    font-size: 1.875rem;
+    font-weight: 700; }
+  .box-contact .bottom-contact {
+    font-family: "museo-sans", "Avenir Next", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    color: #000;
+    font-size: 24px;
+    font-size: 1.5rem;
+    font-weight: 700; }
+    .box-contact .bottom-contact a {
+      color: #000;
+      text-decoration: underline; }
+  .box-contact .contact-info {
+    color: #000;
+    font-size: 16px;
+    font-size: 1rem; }
+    .box-contact .contact-info address {
+      margin-bottom: 0;
+      margin-top: 6px; }
+
 .tnp-subscription.tnp {
   max-width: 100%; }
 
@@ -11270,7 +11476,333 @@ body {
   padding-right: 24px;
   font-weight: 700;
   font-family: "Garamond", "AGaramond Pro", "Garamond Pro", serif;
-  font-size: 18px; }
+  font-size: 18px;
+  z-index: 1; }
+
+.wpcf7 {
+  max-width: 100% !important; }
+  .wpcf7 .form-control, .wpcf7 input[type=text],
+  .wpcf7 input[type=search],
+  .wpcf7 input[type=url],
+  .wpcf7 input[type=tel],
+  .wpcf7 input[type=number],
+  .wpcf7 input[type=range],
+  .wpcf7 input[type=date],
+  .wpcf7 input[type=month],
+  .wpcf7 input[type=week],
+  .wpcf7 input[type=time],
+  .wpcf7 input[type=datetime],
+  .wpcf7 input[type=datetime-local],
+  .wpcf7 input[type=color],
+  .wpcf7 input[type=email],
+  .wpcf7 input[type=file],
+  .wpcf7 input[type=submit],
+  .wpcf7 select,
+  .wpcf7 textarea, .wpcf7 .wpcf7-validation-errors,
+  .wpcf7 .wpcf7 .wpcf7-validation-errors,
+  .wpcf7 .wpcf7 input[type=color],
+  .wpcf7 .wpcf7 input[type=date],
+  .wpcf7 .wpcf7 input[type=datetime-local],
+  .wpcf7 .wpcf7 input[type=datetime],
+  .wpcf7 .wpcf7 input[type=email],
+  .wpcf7 .wpcf7 input[type=file],
+  .wpcf7 .wpcf7 input[type=month],
+  .wpcf7 .wpcf7 input[type=number],
+  .wpcf7 .wpcf7 input[type=range],
+  .wpcf7 .wpcf7 input[type=search],
+  .wpcf7 .wpcf7 input[type=tel],
+  .wpcf7 .wpcf7 input[type=text],
+  .wpcf7 .wpcf7 input[type=time],
+  .wpcf7 .wpcf7 input[type=url],
+  .wpcf7 .wpcf7 input[type=week],
+  .wpcf7 .wpcf7 select,
+  .wpcf7 .wpcf7 textarea {
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    padding-left: 0;
+    padding-right: 0;
+    background-color: transparent;
+    color: #000; }
+    .wpcf7 .form-control:focus, .wpcf7 input:focus[type=text],
+    .wpcf7 input:focus[type=search],
+    .wpcf7 input:focus[type=url],
+    .wpcf7 input:focus[type=tel],
+    .wpcf7 input:focus[type=number],
+    .wpcf7 input:focus[type=range],
+    .wpcf7 input:focus[type=date],
+    .wpcf7 input:focus[type=month],
+    .wpcf7 input:focus[type=week],
+    .wpcf7 input:focus[type=time],
+    .wpcf7 input:focus[type=datetime],
+    .wpcf7 input:focus[type=datetime-local],
+    .wpcf7 input:focus[type=color],
+    .wpcf7 input:focus[type=email],
+    .wpcf7 input:focus[type=file],
+    .wpcf7 input:focus[type=submit],
+    .wpcf7 select:focus,
+    .wpcf7 textarea:focus, .wpcf7 .wpcf7-validation-errors:focus,
+    .wpcf7 .wpcf7 .wpcf7-validation-errors:focus,
+    .wpcf7 .wpcf7 input[type=color]:focus,
+    .wpcf7 .wpcf7 input[type=date]:focus,
+    .wpcf7 .wpcf7 input[type=datetime-local]:focus,
+    .wpcf7 .wpcf7 input[type=datetime]:focus,
+    .wpcf7 .wpcf7 input[type=email]:focus,
+    .wpcf7 .wpcf7 input[type=file]:focus,
+    .wpcf7 .wpcf7 input[type=month]:focus,
+    .wpcf7 .wpcf7 input[type=number]:focus,
+    .wpcf7 .wpcf7 input[type=range]:focus,
+    .wpcf7 .wpcf7 input[type=search]:focus,
+    .wpcf7 .wpcf7 input[type=tel]:focus,
+    .wpcf7 .wpcf7 input[type=text]:focus,
+    .wpcf7 .wpcf7 input[type=time]:focus,
+    .wpcf7 .wpcf7 input[type=url]:focus,
+    .wpcf7 .wpcf7 input[type=week]:focus,
+    .wpcf7 .wpcf7 select:focus,
+    .wpcf7 .wpcf7 textarea:focus {
+      background-color: transparent;
+      border-bottom: 1px solid #8ab1b8; }
+    .wpcf7 .form-control:-moz-placeholder, .wpcf7 input:-moz-placeholder[type=text],
+    .wpcf7 input:-moz-placeholder[type=search],
+    .wpcf7 input:-moz-placeholder[type=url],
+    .wpcf7 input:-moz-placeholder[type=tel],
+    .wpcf7 input:-moz-placeholder[type=number],
+    .wpcf7 input:-moz-placeholder[type=range],
+    .wpcf7 input:-moz-placeholder[type=date],
+    .wpcf7 input:-moz-placeholder[type=month],
+    .wpcf7 input:-moz-placeholder[type=week],
+    .wpcf7 input:-moz-placeholder[type=time],
+    .wpcf7 input:-moz-placeholder[type=datetime],
+    .wpcf7 input:-moz-placeholder[type=datetime-local],
+    .wpcf7 input:-moz-placeholder[type=color],
+    .wpcf7 input:-moz-placeholder[type=email],
+    .wpcf7 input:-moz-placeholder[type=file],
+    .wpcf7 input:-moz-placeholder[type=submit],
+    .wpcf7 select:-moz-placeholder,
+    .wpcf7 textarea:-moz-placeholder, .wpcf7 .wpcf7-validation-errors:-moz-placeholder, .wpcf7 .form-control::-webkit-input-placeholder, .wpcf7 input[type=text]::-webkit-input-placeholder,
+    .wpcf7 input[type=search]::-webkit-input-placeholder,
+    .wpcf7 input[type=url]::-webkit-input-placeholder,
+    .wpcf7 input[type=tel]::-webkit-input-placeholder,
+    .wpcf7 input[type=number]::-webkit-input-placeholder,
+    .wpcf7 input[type=range]::-webkit-input-placeholder,
+    .wpcf7 input[type=date]::-webkit-input-placeholder,
+    .wpcf7 input[type=month]::-webkit-input-placeholder,
+    .wpcf7 input[type=week]::-webkit-input-placeholder,
+    .wpcf7 input[type=time]::-webkit-input-placeholder,
+    .wpcf7 input[type=datetime]::-webkit-input-placeholder,
+    .wpcf7 input[type=datetime-local]::-webkit-input-placeholder,
+    .wpcf7 input[type=color]::-webkit-input-placeholder,
+    .wpcf7 input[type=email]::-webkit-input-placeholder,
+    .wpcf7 input[type=file]::-webkit-input-placeholder,
+    .wpcf7 input[type=submit]::-webkit-input-placeholder,
+    .wpcf7 select::-webkit-input-placeholder,
+    .wpcf7 textarea::-webkit-input-placeholder, .wpcf7 .wpcf7-validation-errors::-webkit-input-placeholder, .wpcf7 .form-control::-moz-placeholder, .wpcf7 input[type=text]::-moz-placeholder,
+    .wpcf7 input[type=search]::-moz-placeholder,
+    .wpcf7 input[type=url]::-moz-placeholder,
+    .wpcf7 input[type=tel]::-moz-placeholder,
+    .wpcf7 input[type=number]::-moz-placeholder,
+    .wpcf7 input[type=range]::-moz-placeholder,
+    .wpcf7 input[type=date]::-moz-placeholder,
+    .wpcf7 input[type=month]::-moz-placeholder,
+    .wpcf7 input[type=week]::-moz-placeholder,
+    .wpcf7 input[type=time]::-moz-placeholder,
+    .wpcf7 input[type=datetime]::-moz-placeholder,
+    .wpcf7 input[type=datetime-local]::-moz-placeholder,
+    .wpcf7 input[type=color]::-moz-placeholder,
+    .wpcf7 input[type=email]::-moz-placeholder,
+    .wpcf7 input[type=file]::-moz-placeholder,
+    .wpcf7 input[type=submit]::-moz-placeholder,
+    .wpcf7 select::-moz-placeholder,
+    .wpcf7 textarea::-moz-placeholder, .wpcf7 .wpcf7-validation-errors::-moz-placeholder,
+    .wpcf7 .wpcf7 .wpcf7-validation-errors:-moz-placeholder,
+    .wpcf7 .wpcf7 .wpcf7-validation-errors::-webkit-input-placeholder,
+    .wpcf7 .wpcf7 .wpcf7-validation-errors::-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=color]:-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=color]::-webkit-input-placeholder,
+    .wpcf7 .wpcf7 input[type=color]::-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=date]:-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=date]::-webkit-input-placeholder,
+    .wpcf7 .wpcf7 input[type=date]::-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=datetime-local]:-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=datetime-local]::-webkit-input-placeholder,
+    .wpcf7 .wpcf7 input[type=datetime-local]::-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=datetime]:-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=datetime]::-webkit-input-placeholder,
+    .wpcf7 .wpcf7 input[type=datetime]::-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=email]:-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=email]::-webkit-input-placeholder,
+    .wpcf7 .wpcf7 input[type=email]::-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=file]:-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=file]::-webkit-input-placeholder,
+    .wpcf7 .wpcf7 input[type=file]::-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=month]:-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=month]::-webkit-input-placeholder,
+    .wpcf7 .wpcf7 input[type=month]::-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=number]:-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=number]::-webkit-input-placeholder,
+    .wpcf7 .wpcf7 input[type=number]::-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=range]:-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=range]::-webkit-input-placeholder,
+    .wpcf7 .wpcf7 input[type=range]::-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=search]:-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=search]::-webkit-input-placeholder,
+    .wpcf7 .wpcf7 input[type=search]::-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=tel]:-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=tel]::-webkit-input-placeholder,
+    .wpcf7 .wpcf7 input[type=tel]::-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=text]:-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=text]::-webkit-input-placeholder,
+    .wpcf7 .wpcf7 input[type=text]::-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=time]:-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=time]::-webkit-input-placeholder,
+    .wpcf7 .wpcf7 input[type=time]::-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=url]:-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=url]::-webkit-input-placeholder,
+    .wpcf7 .wpcf7 input[type=url]::-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=week]:-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=week]::-webkit-input-placeholder,
+    .wpcf7 .wpcf7 input[type=week]::-moz-placeholder,
+    .wpcf7 .wpcf7 select:-moz-placeholder,
+    .wpcf7 .wpcf7 select::-webkit-input-placeholder,
+    .wpcf7 .wpcf7 select::-moz-placeholder,
+    .wpcf7 .wpcf7 textarea:-moz-placeholder,
+    .wpcf7 .wpcf7 textarea::-webkit-input-placeholder,
+    .wpcf7 .wpcf7 textarea::-moz-placeholder {
+      color: #000;
+      opacity: 1; }
+    .wpcf7 .form-control:-moz-placeholder, .wpcf7 input:-moz-placeholder[type=text],
+    .wpcf7 input:-moz-placeholder[type=search],
+    .wpcf7 input:-moz-placeholder[type=url],
+    .wpcf7 input:-moz-placeholder[type=tel],
+    .wpcf7 input:-moz-placeholder[type=number],
+    .wpcf7 input:-moz-placeholder[type=range],
+    .wpcf7 input:-moz-placeholder[type=date],
+    .wpcf7 input:-moz-placeholder[type=month],
+    .wpcf7 input:-moz-placeholder[type=week],
+    .wpcf7 input:-moz-placeholder[type=time],
+    .wpcf7 input:-moz-placeholder[type=datetime],
+    .wpcf7 input:-moz-placeholder[type=datetime-local],
+    .wpcf7 input:-moz-placeholder[type=color],
+    .wpcf7 input:-moz-placeholder[type=email],
+    .wpcf7 input:-moz-placeholder[type=file],
+    .wpcf7 input:-moz-placeholder[type=submit],
+    .wpcf7 select:-moz-placeholder,
+    .wpcf7 textarea:-moz-placeholder, .wpcf7 .wpcf7-validation-errors:-moz-placeholder, .wpcf7 .form-control::-webkit-input-placeholder, .wpcf7 input[type=text]::-webkit-input-placeholder,
+    .wpcf7 input[type=search]::-webkit-input-placeholder,
+    .wpcf7 input[type=url]::-webkit-input-placeholder,
+    .wpcf7 input[type=tel]::-webkit-input-placeholder,
+    .wpcf7 input[type=number]::-webkit-input-placeholder,
+    .wpcf7 input[type=range]::-webkit-input-placeholder,
+    .wpcf7 input[type=date]::-webkit-input-placeholder,
+    .wpcf7 input[type=month]::-webkit-input-placeholder,
+    .wpcf7 input[type=week]::-webkit-input-placeholder,
+    .wpcf7 input[type=time]::-webkit-input-placeholder,
+    .wpcf7 input[type=datetime]::-webkit-input-placeholder,
+    .wpcf7 input[type=datetime-local]::-webkit-input-placeholder,
+    .wpcf7 input[type=color]::-webkit-input-placeholder,
+    .wpcf7 input[type=email]::-webkit-input-placeholder,
+    .wpcf7 input[type=file]::-webkit-input-placeholder,
+    .wpcf7 input[type=submit]::-webkit-input-placeholder,
+    .wpcf7 select::-webkit-input-placeholder,
+    .wpcf7 textarea::-webkit-input-placeholder, .wpcf7 .wpcf7-validation-errors::-webkit-input-placeholder, .wpcf7 .form-control::placeholder, .wpcf7 input[type=text]::placeholder,
+    .wpcf7 input[type=search]::placeholder,
+    .wpcf7 input[type=url]::placeholder,
+    .wpcf7 input[type=tel]::placeholder,
+    .wpcf7 input[type=number]::placeholder,
+    .wpcf7 input[type=range]::placeholder,
+    .wpcf7 input[type=date]::placeholder,
+    .wpcf7 input[type=month]::placeholder,
+    .wpcf7 input[type=week]::placeholder,
+    .wpcf7 input[type=time]::placeholder,
+    .wpcf7 input[type=datetime]::placeholder,
+    .wpcf7 input[type=datetime-local]::placeholder,
+    .wpcf7 input[type=color]::placeholder,
+    .wpcf7 input[type=email]::placeholder,
+    .wpcf7 input[type=file]::placeholder,
+    .wpcf7 input[type=submit]::placeholder,
+    .wpcf7 select::placeholder,
+    .wpcf7 textarea::placeholder, .wpcf7 .wpcf7-validation-errors::placeholder,
+    .wpcf7 .wpcf7 .wpcf7-validation-errors:-moz-placeholder,
+    .wpcf7 .wpcf7 .wpcf7-validation-errors::-webkit-input-placeholder,
+    .wpcf7 .wpcf7 .wpcf7-validation-errors::placeholder,
+    .wpcf7 .wpcf7 input[type=color]:-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=color]::-webkit-input-placeholder,
+    .wpcf7 .wpcf7 input[type=color]::placeholder,
+    .wpcf7 .wpcf7 input[type=date]:-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=date]::-webkit-input-placeholder,
+    .wpcf7 .wpcf7 input[type=date]::placeholder,
+    .wpcf7 .wpcf7 input[type=datetime-local]:-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=datetime-local]::-webkit-input-placeholder,
+    .wpcf7 .wpcf7 input[type=datetime-local]::placeholder,
+    .wpcf7 .wpcf7 input[type=datetime]:-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=datetime]::-webkit-input-placeholder,
+    .wpcf7 .wpcf7 input[type=datetime]::placeholder,
+    .wpcf7 .wpcf7 input[type=email]:-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=email]::-webkit-input-placeholder,
+    .wpcf7 .wpcf7 input[type=email]::placeholder,
+    .wpcf7 .wpcf7 input[type=file]:-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=file]::-webkit-input-placeholder,
+    .wpcf7 .wpcf7 input[type=file]::placeholder,
+    .wpcf7 .wpcf7 input[type=month]:-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=month]::-webkit-input-placeholder,
+    .wpcf7 .wpcf7 input[type=month]::placeholder,
+    .wpcf7 .wpcf7 input[type=number]:-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=number]::-webkit-input-placeholder,
+    .wpcf7 .wpcf7 input[type=number]::placeholder,
+    .wpcf7 .wpcf7 input[type=range]:-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=range]::-webkit-input-placeholder,
+    .wpcf7 .wpcf7 input[type=range]::placeholder,
+    .wpcf7 .wpcf7 input[type=search]:-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=search]::-webkit-input-placeholder,
+    .wpcf7 .wpcf7 input[type=search]::placeholder,
+    .wpcf7 .wpcf7 input[type=tel]:-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=tel]::-webkit-input-placeholder,
+    .wpcf7 .wpcf7 input[type=tel]::placeholder,
+    .wpcf7 .wpcf7 input[type=text]:-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=text]::-webkit-input-placeholder,
+    .wpcf7 .wpcf7 input[type=text]::placeholder,
+    .wpcf7 .wpcf7 input[type=time]:-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=time]::-webkit-input-placeholder,
+    .wpcf7 .wpcf7 input[type=time]::placeholder,
+    .wpcf7 .wpcf7 input[type=url]:-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=url]::-webkit-input-placeholder,
+    .wpcf7 .wpcf7 input[type=url]::placeholder,
+    .wpcf7 .wpcf7 input[type=week]:-moz-placeholder,
+    .wpcf7 .wpcf7 input[type=week]::-webkit-input-placeholder,
+    .wpcf7 .wpcf7 input[type=week]::placeholder,
+    .wpcf7 .wpcf7 select:-moz-placeholder,
+    .wpcf7 .wpcf7 select::-webkit-input-placeholder,
+    .wpcf7 .wpcf7 select::placeholder,
+    .wpcf7 .wpcf7 textarea:-moz-placeholder,
+    .wpcf7 .wpcf7 textarea::-webkit-input-placeholder,
+    .wpcf7 .wpcf7 textarea::placeholder {
+      color: #000;
+      opacity: 1; }
+  .wpcf7 .wpcf7-list-item label {
+    color: #000; }
+    .wpcf7 .wpcf7-list-item label a {
+      color: #000;
+      text-decoration: underline; }
+
+.btn.btn-outline.btn-outline--orange, .wpcf7 input.btn-outline.btn-outline--orange[type=submit] {
+  border: 2px solid #b2744b;
+  color: #b2744b;
+  padding-left: 32px;
+  padding-right: 32px;
+  background-color: transparent;
+  font-weight: 700;
+  text-transform: uppercase;
+  width: auto;
+  line-height: 1.15em;
+  height: auto;
+  border-radius: 32px;
+  -webkit-transition-property: color, background-color;
+  transition-property: color, background-color;
+  -webkit-transition: 300ms ease;
+  transition: 300ms ease; }
+  .btn.btn-outline.btn-outline--orange:hover, .wpcf7 input.btn-outline.btn-outline--orange:hover[type=submit] {
+    color: #fff;
+    background-color: #b2744b; }
 
 .site-footer {
   background-color: #222120; }

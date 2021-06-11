@@ -15,6 +15,10 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 </div><!-- #page we need this extra closing tag here -->
 
+<?php
+    get_template_part( 'global-templates/novedades' );
+?>
+
 <?php get_template_part( 'sidebar-templates/sidebar', 'footerfull' ); ?>
 
 <div class="wrapper" id="wrapper-footer">
@@ -196,7 +200,14 @@ $container = get_theme_mod( 'understrap_container_type' );
     </footer><!-- #colophon -->
 </div><!-- wrapper end -->
 
-
+<div class="search--wrapper" style="display: none;">
+	<div class="search--inner">
+		<div class="search--row">
+			<p class="text-right"><a class="javascript:void(0);" id="triggerCloseSearchForm"><i class="fas fa-times"></i></a></p>
+			<?php get_search_form(); ?>
+		</div>
+	</div>
+</div>
 
 <?php wp_footer(); ?>
 

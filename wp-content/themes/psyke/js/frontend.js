@@ -368,6 +368,7 @@
 
           // FOLLOW MOUSE 
           // CURSOR
+          if($('html').hasClass('no-touchevents')) {
             var cursor = $(".cursor"),
             follower = $(".cursor-follower");
 
@@ -412,7 +413,9 @@
                 cursor.removeClass("active");
                 follower.removeClass("active");
             });
-          // .FOLLOW MOUSE
+            // .FOLLOW MOUSE
+          }
+            
 
           function inOutAnimation(elementToShow, delayElement, offSetElement) {
             gsap.to(elementToShow, { y: 150, autoAlpha: 0});
@@ -522,8 +525,29 @@
             }
         });
 
-        $('.tab-button').on('click', function() {
+        $('.course-tab .tab-button').on('click', function() {
             $(this).toggleClass('active');
+        });
+        
+        $('.list-tabs .tab-button').on('click', function(e) {
+            e.preventDefault();
+            if ($(this).hasClass('active')) {
+                console.log('escape');
+            } else {
+                console.log('set tab');
+                var tabToActive = $(this).attr('href');
+
+                $('#custom-collpase .collapse.show').slideUp('fast');
+                $('#custom-collpase .collapse.show').removeClass('show');
+                $('.list-tabs .tab-button').removeClass('active');
+                setTimeout( function() {
+                    $(tabToActive).slideDown('fast');
+                    $(tabToActive).addClass('show');
+                }, 200);
+                
+                $(this).addClass('active');
+            }
+            
         });
         
         
