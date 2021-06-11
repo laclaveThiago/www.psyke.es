@@ -550,7 +550,16 @@
             
         });
         
-        
+        $('.trigger-search').on('click', function() {
+            $('.search--wrapper').toggle('fast');
+            $('#page').addClass('pageBlur');
+            $('body').addClass('searchOpened');
+        });
+        $('#triggerCloseSearchForm').on('click', function() {
+            $('.search--wrapper').toggle('fast');
+            $('#page').removeClass('pageBlur');
+            $('body').removeClass('searchOpened');
+        });
         
     /*
     // LOADING AJAX
