@@ -49,6 +49,16 @@
   }
 }
 
+.page-template-blog-page .nav-link {
+  color: $secondary-color;
+  &:after {
+    background-color: $secondary-color;
+  }
+  &:hover:after {
+    background-color: $secondary-color;
+  }
+}
+
 .navbar {
   transition-property: background, padding;
   transition: 300ms ease;

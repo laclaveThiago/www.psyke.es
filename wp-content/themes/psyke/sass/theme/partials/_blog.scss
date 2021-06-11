@@ -5,6 +5,14 @@
         flex-wrap: wrap;
         padding-top: 162px;
      }
+     h1 {
+        padding-left: 24px;
+        padding-right: 24px;
+        @include font-size(52px);
+        text-transform: uppercase;
+        font-family: $font-alternate;
+        color: #453f3f;
+     }
      .bottom-text {
         display: -ms-flexbox;
         display: flex;
@@ -15,5 +23,45 @@
         @include font-size(18px);
         border-top: 2px solid $dark-gray;
         border-bottom: 2px solid $dark-gray;
+        background-color: #fff;
+        text-align: center;
+        justify-content: center;
+        p {
+            margin-bottom: 0;
+            text-align: center;
+        }
      }
+    .nav-categories {
+        ul {
+            padding-legt: 0;
+            list-style: none;
+            text-align: center;
+        }
+        li {
+            display: inline-block;
+            position: relative;
+            padding: 4px 12px;
+        }
+        li + li {
+            
+            &:before {
+                position: absolute;
+                content: '';
+                width: 4px;
+                height: 4px;
+                background-color: $dark-gray;
+                display: inline-block;
+                top: 50%;
+                left: -4px;
+                transform: translate3d(0, -50%, 0);
+            }
+        }
+        li a{
+            font-weight: 700;
+            color: $dark-gray;
+            display: inline-block;
+            padding: 0.5rem;
+            @include font-size(21px);
+        }
+    }
 }

@@ -31,7 +31,7 @@ endif;
 
 	<div id="content">
         <main class="site-main" id="main" role="main">
-
+            
             <?php
             while ( have_posts() ) {
                 the_post();
@@ -43,6 +43,29 @@ endif;
                 }
             }
             ?>
+            
+            <section class="title-blog--section border-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3 class="title-blog text-center">Últimas publicaciones</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <?php get_template_part( 'global-templates/block-blog--lasts-posts' ); ?>
+
+            <section class="title-blog--section border-top border-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3 class="title-blog text-center">Artículos Más Leídos del Blog</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <?php wpp_get_mostpopular(); ?>
+
 
         </main><!-- #main -->
 	</div><!-- #content -->
