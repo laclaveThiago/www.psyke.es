@@ -9420,11 +9420,108 @@ body {
   transition: 300ms all ease-in-out;
   overflow: hidden; }
   #page.pageBlur {
-    -webkit-transform: scale(0.9);
-            transform: scale(0.9);
-    -webkit-filter: blur(15px);
-            filter: blur(15px); }
+    -webkit-transform: scale(0.85);
+            transform: scale(0.85); }
+    #page.pageBlur .marquee .marquee__inner {
+      -webkit-animation-play-state: paused;
+              animation-play-state: paused; }
 
+/*
+// search
+*/
+.search--wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(34, 33, 32, 0.85);
+  -webkit-backdrop-filter: grayscale(1) blur(15px);
+          backdrop-filter: grayscale(1) blur(15px);
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  display: block;
+  padding: 5% 10%; }
+  .search--wrapper .text-right {
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    margin-top: -42px; }
+  .search--wrapper #triggerCloseSearchForm {
+    float: right;
+    width: 42px;
+    height: 42px;
+    display: block;
+    padding: 12px;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    line-height: 1;
+    border-radius: 50%;
+    color: #fff;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: flex;
+    -webkit-transition-property: background, border, color;
+    transition-property: background, border, color;
+    -webkit-transition: 300ms ease;
+    transition: 300ms ease; }
+    .search--wrapper #triggerCloseSearchForm svg {
+      width: 100%; }
+    .search--wrapper #triggerCloseSearchForm:hover {
+      background-color: #8ab1b8;
+      border: 1px solid #8ab1b8; }
+
+.search--wrapper .search--inner {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important; }
+
+.search--row {
+  margin: auto;
+  display: block;
+  width: 100%; }
+
+.search--wrapper .input-group {
+  padding: 12px;
+  background: #fff;
+  border-radius: 3px; }
+
+.search--wrapper .field.form-control, .search--wrapper .wpcf7 input.field[type=text], .wpcf7 .search--wrapper input.field[type=text],
+.search--wrapper .wpcf7 input.field[type=search], .wpcf7 .search--wrapper input.field[type=search],
+.search--wrapper .wpcf7 input.field[type=url], .wpcf7 .search--wrapper input.field[type=url],
+.search--wrapper .wpcf7 input.field[type=tel], .wpcf7 .search--wrapper input.field[type=tel],
+.search--wrapper .wpcf7 input.field[type=number], .wpcf7 .search--wrapper input.field[type=number],
+.search--wrapper .wpcf7 input.field[type=range], .wpcf7 .search--wrapper input.field[type=range],
+.search--wrapper .wpcf7 input.field[type=date], .wpcf7 .search--wrapper input.field[type=date],
+.search--wrapper .wpcf7 input.field[type=month], .wpcf7 .search--wrapper input.field[type=month],
+.search--wrapper .wpcf7 input.field[type=week], .wpcf7 .search--wrapper input.field[type=week],
+.search--wrapper .wpcf7 input.field[type=time], .wpcf7 .search--wrapper input.field[type=time],
+.search--wrapper .wpcf7 input.field[type=datetime], .wpcf7 .search--wrapper input.field[type=datetime],
+.search--wrapper .wpcf7 input.field[type=datetime-local], .wpcf7 .search--wrapper input.field[type=datetime-local],
+.search--wrapper .wpcf7 input.field[type=color], .wpcf7 .search--wrapper input.field[type=color],
+.search--wrapper .wpcf7 input.field[type=email], .wpcf7 .search--wrapper input.field[type=email],
+.search--wrapper .wpcf7 input.field[type=file], .wpcf7 .search--wrapper input.field[type=file],
+.search--wrapper .wpcf7 input.field[type=submit], .wpcf7 .search--wrapper input.field[type=submit],
+.search--wrapper .wpcf7 select.field, .wpcf7 .search--wrapper select.field,
+.search--wrapper .wpcf7 textarea.field, .wpcf7 .search--wrapper textarea.field, .search--wrapper .wpcf7 .field.wpcf7-validation-errors, .wpcf7 .search--wrapper .field.wpcf7-validation-errors {
+  border: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 1.5em;
+  min-height: 44px; }
+
+.search--wrapper .input-group > .input-group-append > .btn,
+.search--wrapper .wpcf7 .input-group > .input-group-append > input[type=submit], .wpcf7 .search--wrapper .input-group > .input-group-append > input[type=submit] {
+  border-radius: 24px;
+  padding: 10px 32px; }
+
+/*
+// end search
+*/
 p:empty {
   display: none;
   visibility: hidden; }
@@ -9591,13 +9688,15 @@ body {
     background-color: white; }
 
 .navbar {
-  -webkit-transition-property: background;
-  transition-property: background;
+  -webkit-transition-property: background, padding;
+  transition-property: background, padding;
   -webkit-transition: 300ms ease;
-  transition: 300ms ease; }
+  transition: 300ms ease;
+  padding-top: 1.5rem; }
 
 .top-nav-collapse.navbar {
-  background-color: white; }
+  background-color: rgba(34, 33, 32, 0.9);
+  padding-top: .5rem; }
 
 .top-nav-collapse .navbar-brand {
   width: 62px;
@@ -9606,12 +9705,17 @@ body {
     opacity: 1; }
 
 .top-nav-collapse .navbar-nav .nav-link {
-  color: #8ab1b8; }
+  color: #fff; }
   .top-nav-collapse .navbar-nav .nav-link:hover:after {
-    background-color: #8ab1b8; }
+    background-color: #fff; }
 
 .top-nav-collapse .navbar-nav .active .nav-link:after {
-  background-color: #8ab1b8; }
+  background-color: #fff; }
+
+@media (min-width: 768px) {
+  .navbar-expand-md .navbar-nav .nav-link {
+    padding-right: .75rem;
+    padding-left: .75rem; } }
 
 /*
 // toogle
@@ -9720,8 +9824,8 @@ body {
   .hero-slide .goToContent--item {
     color: white;
     font-family: "Omnes", "Avenir Next", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-    font-size: 92px;
-    font-size: 5.75rem;
+    font-size: 72px;
+    font-size: 4.5rem;
     line-height: 0.85em;
     display: block;
     padding: 24px 0; }
@@ -10108,8 +10212,7 @@ body {
   color: #fff;
   font-weight: 700;
   font-size: 34px;
-  font-size: 2.125rem;
-  font-family: "Omnes", "Avenir Next", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
+  font-size: 2.125rem; }
   .card-frases .card-body,
   .card-frases .card-footer {
     background-color: transparent;
@@ -11456,6 +11559,41 @@ body {
     .box-contact .contact-info address {
       margin-bottom: 0;
       margin-top: 6px; }
+    .box-contact .contact-info .social-media {
+      margin-top: 12px; }
+      .box-contact .contact-info .social-media li a {
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center; }
+        .box-contact .contact-info .social-media li a img {
+          width: 11px;
+          margin: auto;
+          display: block; }
+
+.hero-pages.hero-blog .hero-inner {
+  min-height: auto;
+  width: 100%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding-top: 162px; }
+
+.hero-pages.hero-blog .bottom-text {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+  padding: 12px 15px;
+  text-transform: uppercase;
+  color: #222120;
+  font-size: 18px;
+  font-size: 1.125rem;
+  border-top: 2px solid #222120;
+  border-bottom: 2px solid #222120; }
 
 .tnp-subscription.tnp {
   max-width: 100%; }

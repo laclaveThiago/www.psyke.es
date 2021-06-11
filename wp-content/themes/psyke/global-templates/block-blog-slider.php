@@ -43,7 +43,7 @@ if( $posts->have_posts() ) :
                                 $posts->the_post(); 
                                     ?>
                                     <div class="slick-item">
-                                        <?php get_template_part( 'loop-templates/content-card--post' ); ?>
+                                        <?php get_template_part( 'loop-templates/content-card--post-minimal' ); ?>
                                     </div>
                                     <?php
                             endwhile;

@@ -1,0 +1,19 @@
+.hero-pages.hero-blog {
+     .hero-inner {
+        min-height: auto;
+        width: 100%;
+        flex-wrap: wrap;
+        padding-top: 162px;
+     }
+     .bottom-text {
+        display: -ms-flexbox;
+        display: flex;
+        flex: 0 0 100%;
+        padding: 12px 15px;
+        text-transform: uppercase;
+        color: $dark-gray;
+        @include font-size(18px);
+        border-top: 2px solid $dark-gray;
+        border-bottom: 2px solid $dark-gray;
+     }
+}
