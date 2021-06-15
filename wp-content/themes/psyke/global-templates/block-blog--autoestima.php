@@ -29,17 +29,18 @@ if( $posts->have_posts() ) :
                 <div class="row justify-content-center">
                     <div class="col-md-12">
                         <div class="slick-posts">
-                        <?php
-                            while( $posts->have_posts() ) : 
-                                $posts->the_post(); 
-                                    ?>
-                                    <div class="slick-item">
-                                        <?php get_template_part( 'loop-templates/content-card--post-default' ); ?>
-                                    </div>
-                                    <?php
-                            endwhile;
-                            wp_reset_postdata();
-                        ?>
+                            <?php
+                                while( $posts->have_posts() ) : 
+                                    $posts->the_post(); 
+                                        ?>
+                                        <div class="slick-item">
+                                            <?php get_template_part( 'loop-templates/content-card--post-default' ); ?>
+                                        </div>
+                                        <?php
+                                endwhile;
+                                wp_reset_postdata();
+                            ?>
+                        </div>
                     </div>
                 </div>
             </div>

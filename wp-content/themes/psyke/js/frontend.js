@@ -106,6 +106,57 @@
                 ]
             });
         }
+        if ($('.slick-posts--style2').length > 0) {
+            $('.slick-posts--style2').slick({
+                dots: true,
+                arrows: false,
+                slidesToShow: 4,
+                autoplay: true,
+                autoplaySpeed: 5000,
+                responsive: [
+                    {
+                        breakpoint: 992,
+                        settings: {
+                            slidesToShow: 2,
+                        }
+                    },
+                    {
+                        breakpoint: 640,
+                        settings: {
+                            slidesToShow: 1,
+                        }
+                    }
+                    // You can unslick at a given breakpoint now by adding:
+                    // settings: "unslick"
+                    // instead of a settings object
+                ]
+            });
+        }
+        
+        if ($('.slick-collumns').length > 0) {
+            $('.slick-collumns').slick({
+                dots: false,
+                arrows: true,
+                slidesToShow: 2,
+                autoplay: true,
+                autoplaySpeed: 5000,
+                prevArrow:'<button class="prev slick-prev"><svg width="51" height="102" viewBox="0 0 51 102" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M-3.73721e-05 51.0416L50.2045 0.837051L50.9117 1.54416L1.30936 51.1464L50.9117 100.749L50.2045 101.456L-3.73721e-05 51.2513L0.104775 51.1464L-3.73721e-05 51.0416Z" fill="black"/></svg></button>',
+                nextArrow:'<button class="next slick-next"><svg width="52" height="102" viewBox="0 0 52 102" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M51.4558 51.0416L1.25125 0.837051L0.544159 1.54416L50.1464 51.1465L0.544159 100.749L1.25125 101.456L51.4558 51.2513L51.351 51.1465L51.4558 51.0416Z" fill="black"/></svg></button>',
+                responsive: [
+                    {
+                        breakpoint: 640,
+                        settings: {
+                            dots: true,
+                            arrows: false,
+                            slidesToShow: 1,
+                        }
+                    }
+                    // You can unslick at a given breakpoint now by adding:
+                    // settings: "unslick"
+                    // instead of a settings object
+                ]
+            });
+        }
         if ($('.slick-meditaciones').length > 0) {
             $('.slick-meditaciones').slick({
                 dots: true,
@@ -513,6 +564,7 @@
             });
         }
 
+
         $('.trigger-course').on('click', function () {
             $(this).toggleClass('active');
             var elementToTogglePointer = $(this).attr('data-tab');
@@ -559,6 +611,13 @@
             $('.search--wrapper').toggle('fast');
             $('#page').removeClass('pageBlur');
             $('body').removeClass('searchOpened');
+        });
+
+        $('.grid-masonry').masonry({
+            gutter: 30,
+            columnWidth: '.grid-sizer',
+            itemSelector: '.grid-item',
+            percentPosition: true
         });
 
         /*

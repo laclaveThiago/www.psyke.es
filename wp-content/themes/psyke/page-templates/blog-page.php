@@ -60,7 +60,7 @@ endif;
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <h3 class="title-blog--link"><a href="https://developlaclave.es/develop/psyke/category/autoestima/">Autoestima</a></h3>
+                            <h3 class="title-blog--link"><a href="<?php echo esc_url( home_url( '/' ) ); ?>category/autoestima/">Autoestima</a></h3>
                         </div>
                     </div>
                 </div>
@@ -71,7 +71,7 @@ endif;
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <h3 class="title-blog--link"><a href="https://developlaclave.es/develop/psyke/category/desarrollo-personal/">Desarrollo personal</a></h3>
+                            <h3 class="title-blog--link"><a href="<?php echo esc_url( home_url( '/' ) ); ?>category/desarrollo-personal/">Desarrollo personal</a></h3>
                         </div>
                     </div>
                 </div>
@@ -94,12 +94,58 @@ endif;
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <h3 class="title-blog--link"><a href="https://developlaclave.es/develop/psyke/category/ansiedad/">Ansiedad</a></h3>
+                            <h3 class="title-blog--link"><a href="<?php echo esc_url( home_url( '/' ) ); ?>category/emociones/">Emociones</a></h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <?php get_template_part( 'global-templates/block-blog--emociones' ); ?>
+
+            <section class="title-blog--section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3 class="title-blog--link"><a href="<?php echo esc_url( home_url( '/' ) ); ?>category/ansiedad/">Ansiedad</a></h3>
                         </div>
                     </div>
                 </div>
             </section>
             <?php get_template_part( 'global-templates/block-blog--ansiedad' ); ?>
+
+            <section class="title-blog--section border-t border-b">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3 class="title-blog--section">Reflexiones</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="slider-frases--blog border-b">
+                <?php get_template_part( 'global-templates/block-frases' ); ?>
+            </div>
+
+            <section class="title-blog--section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3 class="title-blog--link"><a href="<?php echo esc_url( home_url( '/' ) ); ?>category/estres/">Estrés</a></h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <?php get_template_part( 'global-templates/block-blog--estres' ); ?>
+
+            <section class="title-blog--section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3 class="title-blog--link"><a href="<?php echo esc_url( home_url( '/' ) ); ?>category/mente/">Mente</a></h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <?php get_template_part( 'global-templates/block-blog--mente' ); ?>
 
 
         </main><!-- #main -->

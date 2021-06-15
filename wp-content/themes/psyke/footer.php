@@ -56,6 +56,78 @@ $container = get_theme_mod( 'understrap_container_type' );
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="categories-footer-blog">
+                <div class="categories--inner">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="category-footer-list">
+                                    <div class="category-item">
+                                        <ul>
+                                            <li>
+                                                <a href="<?php echo esc_url( home_url( '/' ) ); ?>category/autoestima/">Autoestima</a>
+                                                <ul>
+                                                    <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>category/autoestima/autocompasion/">Autocompasión</a></li>
+                                                    <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>category/autoestima/amor/">Amor</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="category-item">
+                                        <ul>
+                                            <li>
+                                                <a href="<?php echo esc_url( home_url( '/' ) ); ?>category/desarrollo-personal/">Desarrollo personal</a>
+                                                <ul>
+                                                    <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>category/desarrollo-personal/crecimiento-personal/">Crecimiento Personal</a></li>
+                                                    <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>category/desarrollo-personal/autorrealizacion/">Autorrealización</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="category-item">
+                                        <ul>
+                                            <li>
+                                                <a href="<?php echo esc_url( home_url( '/' ) ); ?>category/emociones/">Emociones</a>
+                                                <ul>
+                                                    <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>category/emociones/educacion-emocional/">Educación Emocional</a></li>
+                                                    <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>category/emociones/inteligencial-emocional/">Inteligencia Emocional</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="category-item">
+                                        <ul>
+                                            <li>
+                                                <a href="<?php echo esc_url( home_url( '/' ) ); ?>category/mente/">Mente</a>
+                                                <ul>
+                                                    <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>category/mente/entrenamiento-mental/">Entrenamiento Mental</a></li>
+                                                    <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>category/mente/pensamientos/">Piensamientos</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="category-item">
+                                        <ul>
+                                            <li>
+                                                <a href="<?php echo esc_url( home_url( '/' ) ); ?>category/ansiedad/">Ansiedad</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="category-item">
+                                        <ul>
+                                            <li>
+                                                <a href="<?php echo esc_url( home_url( '/' ) ); ?>category/estres/">Estrés</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
                 <div class="row">
                     <div class="col-md-5">
                         <a class="navbar-brand navbar-brand--footer" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" itemprop="url">

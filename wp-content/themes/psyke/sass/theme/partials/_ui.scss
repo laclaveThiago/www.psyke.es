@@ -86,6 +86,22 @@
         background-image: url('../img/icons/arrow-right.png');
     }
 }
+.slick-collumns {
+    .slick-arrow {
+        width: 52px;
+        height: 102px;
+        z-index: 2;
+        &:before {
+            content: none;
+        }
+        &.slick-prev {
+            left: -62px;
+        }
+        &.slick-next {
+            right: -62px;
+        }
+    }
+}
 .section-blog {
     .bg-tertiary {
         h3 {

@@ -9687,10 +9687,13 @@ body {
     width: 42px;
     background-color: white; }
 
+.group-blog .nav-link,
 .page-template-blog-page .nav-link {
   color: #b2744b; }
+  .group-blog .nav-link:after,
   .page-template-blog-page .nav-link:after {
     background-color: #b2744b; }
+  .group-blog .nav-link:hover:after,
   .page-template-blog-page .nav-link:hover:after {
     background-color: #b2744b; }
 
@@ -10248,6 +10251,10 @@ body {
   .card-post .card-image {
     border-radius: 50%;
     overflow: hidden; }
+    .card-post .card-image .card-image--inner {
+      display: -ms-flexbox;
+      display: -webkit-box;
+      display: flex; }
     .card-post .card-image canvas {
       width: 100%;
       background-size: cover;
@@ -10538,6 +10545,17 @@ body {
 
 .slick-testimonials .slick-next.slick-arrow {
   background-image: url("../img/icons/arrow-right.png"); }
+
+.slick-collumns .slick-arrow {
+  width: 52px;
+  height: 102px;
+  z-index: 2; }
+  .slick-collumns .slick-arrow:before {
+    content: none; }
+  .slick-collumns .slick-arrow.slick-prev {
+    left: -62px; }
+  .slick-collumns .slick-arrow.slick-next {
+    right: -62px; }
 
 .section-blog .bg-tertiary h3 {
   text-transform: uppercase;
@@ -11667,20 +11685,37 @@ body {
   font-size: 21px;
   font-size: 1.3125rem; }
 
+.border-t {
+  border-top: 2px solid #222120; }
+
+.border-b {
+  border-bottom: 2px solid #222120; }
+
 .title-blog--section {
   padding: 24px; }
   .title-blog--section.txt-center {
     text-align: center; }
-  .title-blog--section.border-t {
-    border-top: 2px solid #222120; }
-  .title-blog--section.border-b {
-    border-bottom: 2px solid #222120; }
   .title-blog--section .title-blog {
     font-weight: 700;
     color: #222120;
     font-family: "Garamond", "AGaramond Pro", "Garamond Pro", serif;
     font-size: 32px;
     font-size: 2rem; }
+  .title-blog--section .title-blog--section {
+    font-weight: 700;
+    color: #222120;
+    font-family: "museo-sans", "Avenir Next", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-size: 32px;
+    font-size: 2rem;
+    position: relative; }
+    .title-blog--section .title-blog--section:after {
+      position: absolute;
+      content: '';
+      bottom: 0;
+      left: 24px;
+      width: 62px;
+      height: 4px;
+      background-color: #000; }
   .title-blog--section .title-blog--link {
     font-weight: 700;
     font-family: "Garamond", "AGaramond Pro", "Garamond Pro", serif;
@@ -11710,6 +11745,11 @@ body {
         -webkit-transform: translate3d(0, -50%, 0) rotate(-45deg);
                 transform: translate3d(0, -50%, 0) rotate(-45deg); }
 
+.slider-frases--blog .section-frases {
+  background-color: #fff; }
+  .slider-frases--blog .section-frases .card-frases {
+    color: #000; }
+
 .spacer-blog {
   padding: 24px 0;
   position: relative; }
@@ -11720,6 +11760,66 @@ body {
     border-top: 2px solid #222120; }
   .spacer-blog.border-b {
     border-bottom: 2px solid #222120; }
+
+.page-header--archive h1 {
+  position: relative;
+  display: inline-block;
+  padding-right: 32px;
+  color: #222120;
+  font-family: "Garamond", "AGaramond Pro", "Garamond Pro", serif; }
+  .page-header--archive h1:before, .page-header--archive h1:after {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 2px;
+    border-radius: 3px;
+    background-color: #222120;
+    right: 0;
+    top: 50%;
+    -webkit-transform-origin: center right;
+            transform-origin: center right; }
+  .page-header--archive h1:before {
+    -webkit-transform: translate3d(0, -50%, 0) rotate(45deg);
+            transform: translate3d(0, -50%, 0) rotate(45deg); }
+  .page-header--archive h1:after {
+    -webkit-transform: translate3d(0, -50%, 0) rotate(-45deg);
+            transform: translate3d(0, -50%, 0) rotate(-45deg); }
+
+.page-header--archive .list-child-categories {
+  list-style: none;
+  padding-left: 12px;
+  display: inline-block; }
+  .page-header--archive .list-child-categories li {
+    display: inline-block;
+    padding: 0 6px; }
+    .page-header--archive .list-child-categories li a {
+      font-family: "Garamond", "AGaramond Pro", "Garamond Pro", serif;
+      font-size: 26px;
+      font-size: 1.625rem;
+      color: #A09EAD; }
+
+.grid-sizer,
+.grid-item {
+  width: 25%; }
+  .grid-sizer .card-post,
+  .grid-item .card-post {
+    padding: 0;
+    margin-bottom: 15px; }
+
+@media screen and (max-width: 992px) {
+  .grid-sizer,
+  .grid-item {
+    width: 33.333%; } }
+
+@media screen and (max-width: 767px) {
+  .grid-sizer,
+  .grid-item {
+    width: 25%; } }
+
+@media screen and (max-width: 620px) {
+  .grid-sizer,
+  .grid-item {
+    width: 100%; } }
 
 .tnp-subscription.tnp {
   max-width: 100%; }
@@ -12171,6 +12271,54 @@ body {
   bottom: 0;
   width: 100%;
   z-index: 1; }
+
+.categories-footer-blog {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  padding: 3.875rem 0;
+  margin-bottom: 5.75rem;
+  height: 0;
+  display: none;
+  visibility: hidden; }
+  .categories-footer-blog .category-footer-list {
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: flex;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    width: 100%;
+    margin-left: -15px;
+    margin-right: -15px; }
+  .categories-footer-blog .category-item {
+    padding: 0 15px; }
+    .categories-footer-blog .category-item ul {
+      list-style: none;
+      padding-left: 0; }
+    .categories-footer-blog .category-item li a {
+      color: #fff;
+      font-family: "museo-sans", "Avenir Next", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+      font-size: 24px;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+      display: inline-block; }
+      .categories-footer-blog .category-item li a:hover {
+        text-decoration: underline; }
+    .categories-footer-blog .category-item li ul li a {
+      font-weight: 400;
+      font-size: 16px;
+      font-size: 1rem;
+      margin-bottom: 4px; }
+
+.page-template-blog-page .categories-footer-blog,
+.group-blog .categories-footer-blog,
+.blog .categories-footer-blog {
+  height: auto;
+  display: block;
+  visibility: visible; }
 
 /*
 * Use existing Bootstrap 4 classes and

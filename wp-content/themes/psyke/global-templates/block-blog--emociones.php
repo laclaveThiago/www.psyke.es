@@ -15,7 +15,8 @@ defined( 'ABSPATH' ) || exit;
 $posts = new WP_Query(
     array(
         'post_type'   => 'post',
-        'posts_per_page' => 3
+        'category_name'  => 'emociones',
+        'posts_per_page' => 4
     )
 );
 
@@ -27,13 +28,13 @@ if( $posts->have_posts() ) :
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-12">
-                        <div class="slick-posts">
+                        <div class="slick-collumns">
                             <?php
                                 while( $posts->have_posts() ) : 
                                     $posts->the_post(); 
                                         ?>
                                         <div class="slick-item">
-                                            <?php get_template_part( 'loop-templates/content-card--post-left' ); ?>
+                                            <?php get_template_part( 'loop-templates/content-card--post-default' ); ?>
                                         </div>
                                         <?php
                                 endwhile;

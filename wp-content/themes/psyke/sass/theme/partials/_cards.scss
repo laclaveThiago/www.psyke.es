@@ -37,6 +37,10 @@
     .card-image {
         border-radius: 50%;
         overflow: hidden;
+        .card-image--inner {
+            display: -ms-flexbox;
+            display: flex;
+        }
         canvas {
             width: 100%;
             background-size: cover;

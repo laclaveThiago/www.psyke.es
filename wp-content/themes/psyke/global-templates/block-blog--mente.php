@@ -15,6 +15,7 @@ defined( 'ABSPATH' ) || exit;
 $posts = new WP_Query(
     array(
         'post_type'   => 'post',
+        'category_name'  => 'mente',
         'posts_per_page' => 3
     )
 );
@@ -33,7 +34,7 @@ if( $posts->have_posts() ) :
                                     $posts->the_post(); 
                                         ?>
                                         <div class="slick-item">
-                                            <?php get_template_part( 'loop-templates/content-card--post-left' ); ?>
+                                            <?php get_template_part( 'loop-templates/content-card--post-default' ); ?>
                                         </div>
                                         <?php
                                 endwhile;
