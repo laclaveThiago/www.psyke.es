@@ -309,7 +309,3 @@ add_filter( 'get_the_archive_title', function ($title) {
 });
 
 
-add_image_size( 'thumbnailMaterial', 620, 920, true);
-add_image_size( 'thumbnailMaterial', 620, 400, true);
-add_image_size( 'thumbnailQuad', 620, 620, true);
-

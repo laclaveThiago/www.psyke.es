@@ -208,6 +208,11 @@ function address_textbox_callback($args) {  // Textbox Callback
 //require_once( dirname( __FILE__ ) . 'includes/schema.php');
 require_once('includes/schema.php');
 
+//
+add_image_size( 'thumbnailMaterial', 620, 920, TRUE);
+add_image_size( 'thumbnailMaterial', 620, 400, TRUE);
+add_image_size( 'thumbnailQuad', 620, 620, TRUE);
+
 
 add_filter( 'get_the_archive_title', 'remove_archive_title' );
 /**

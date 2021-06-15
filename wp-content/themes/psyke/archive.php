@@ -66,7 +66,7 @@ $container = get_theme_mod( 'understrap_container_type' );
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="padding-large">
+                                <div class="padding-large grid-masonry--container">
                                     <div class="grid-masonry">
                                         <div class="grid-sizer"></div>
                                     <?php

@@ -181,7 +181,8 @@
 }
 
 .page-template-blog-page .categories-footer-blog,
-.group-blog .categories-footer-blog,
+.archive.category .categories-footer-blog,
+.single-post .categories-footer-blog,
 .blog .categories-footer-blog {
   height: auto;
   display: block;

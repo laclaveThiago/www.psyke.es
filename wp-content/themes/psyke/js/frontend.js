@@ -614,7 +614,6 @@
         });
 
         $('.grid-masonry').masonry({
-            gutter: 30,
             columnWidth: '.grid-sizer',
             itemSelector: '.grid-item',
             percentPosition: true

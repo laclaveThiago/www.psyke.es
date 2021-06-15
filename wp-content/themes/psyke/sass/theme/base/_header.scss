@@ -49,15 +49,30 @@
   }
 }
 
-.group-blog .nav-link,
-.page-template-blog-page .nav-link {
-  color: $secondary-color;
-  &:after {
-    background-color: $secondary-color;
+.single-post,
+.archive.category,
+.page-template-blog-page {
+  .navbar {
+    .nav-link {
+      color: $secondary-color;
+      &:after {
+        background-color: $secondary-color;
+      }
+      &:hover:after {
+        background-color: $secondary-color;
+      }
+    }
+    &.top-nav-collapse {
+      color: #fff;
+      &:after {
+        background-color: #fff;
+      }
+      &:hover:after {
+        background-color: #fff;
+      }
+    }
   }
-  &:hover:after {
-    background-color: $secondary-color;
-  }
+  
 }
 
 .navbar {
