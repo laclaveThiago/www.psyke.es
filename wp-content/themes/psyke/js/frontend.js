@@ -59,6 +59,11 @@
         }
     }
 
+    function mainMenuMobile() {
+        var menuSupport = $('#setOnMainMenu').html();
+        $('.navbar-collapse').append(menuSupport);
+    }
+
     jQuery(document).ready(function () {
 
         $(function () {
@@ -66,6 +71,7 @@
         });
 
         setPaddingBottomBody();
+        mainMenuMobile();
 
         if ($('.slick-frases').length > 0) {
             $('.slick-frases').slick({
@@ -162,6 +168,7 @@
                 dots: true,
                 arrows: false,
                 slidesToShow: 4,
+                slidesToScroll: 4,
                 autoplay: true,
                 autoplaySpeed: 5000,
                 responsive: [
@@ -169,12 +176,14 @@
                         breakpoint: 992,
                         settings: {
                             slidesToShow: 2,
+                            slidesToScroll: 2,
                         }
                     },
                     {
                         breakpoint: 640,
                         settings: {
                             slidesToShow: 1,
+                            slidesToScroll: 1,
                         }
                     }
                     // You can unslick at a given breakpoint now by adding:
@@ -191,8 +200,37 @@
                     slidesToShow: 1,
                     slidesToScroll: 1
                 });
+                $(this).on('beforeChange', function(event, slick, currentSlide, nextSlide){
+                    console.log(`Este é o slider atual: ${currentSlide}`);
+                    console.log(`Este é o próximo slider: ${nextSlide}`);
+                    
+                    var cardPointer = $(this).attr('card-terapia-slick');
+                    var cardElement = '#card-terapias-' + cardPointer;
+                    
+                    var thisCard = $(cardElement);
+                    var thisElement = $(cardElement).find('.collumn-color');
+                    
+                    /*
+                    var cardID = $(this);
+                    console.log(cardID);
+                    */
+
+                    if(currentSlide) {
+                        //Value 0 - 
+                        console.log('Close animation');
+                        thisCard.removeClass('in');
+                        gsap.to(thisElement, { height: '100%', duration: 0.65, ease: "power4.out" });
+                    } else {
+                        console.log('Open animation');
+                        thisCard.addClass('in');
+                        gsap.to(thisElement, { height: 0, duration: 0.65, ease: "power4.out" });
+                    }
+                });
             });
         }
+
+
+
         if ($('.slick-testimonials').length > 0) {
             $('.slick-testimonials').each(function () {
                 $(this).slick({
@@ -237,51 +275,6 @@
 
         gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-        /*
-        gsap.utils.toArray(".hero-slide").forEach((panel, i) => {
-            ScrollTrigger.create({
-                trigger: panel,
-                start: "top top", 
-                pin: true, 
-                pinSpacing: false
-            });
-        });
-         ScrollTrigger.create({
-            snap: 1/3 // snap whole page to the closest section!
-        });
-        */
-
-
-        /* WORKS
-        ScrollTrigger.create({
-            trigger: "#slide-01",
-            start: "top top", 
-            end: "bottom 150px",
-            pin: "#hero-content-01"
-            //pinReparent: true
-          });
-          
-          ScrollTrigger.create({
-            trigger: "#slide-02",
-            start: "top top", 
-            end: "bottom 150px",
-            pin: "#hero-content-02"
-            //pinReparent: true
-          });
-
-          ScrollTrigger.create({
-            trigger: "#slide-03",
-            start: "top top", 
-            end: "bottom 150px",
-            pin: "#hero-content-03"
-            //pinReparent: true
-          });
-
-          ScrollTrigger.create({
-            snap: 1 / 3 // snap whole page to the closest section!
-         });
-
-         */
 
         if ($('body').hasClass('home')) {
             ScrollTrigger.create({
@@ -417,57 +410,6 @@
         });
 
 
-        // FOLLOW MOUSE 
-        // CURSOR
-        if ($('html').hasClass('no-touchevents')) {
-            var cursor = $(".cursor"),
-                follower = $(".cursor-follower");
-
-            var posX = 0,
-                posY = 0;
-
-            var mouseX = 0,
-                mouseY = 0;
-
-            TweenMax.to({}, 0.016, {
-                repeat: -1,
-                onRepeat: function () {
-                    posX += (mouseX - posX) / 9;
-                    posY += (mouseY - posY) / 9;
-
-                    TweenMax.set(follower, {
-                        css: {
-                            left: posX - 12,
-                            top: posY - 12
-                        }
-                    });
-
-                    TweenMax.set(cursor, {
-                        css: {
-                            left: mouseX,
-                            top: mouseY
-                        }
-                    });
-                }
-            });
-
-            $(document).on("mousemove", function (e) {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-            });
-            // yellow circle
-            $(".link").on("mouseenter", function () {
-                cursor.addClass("active");
-                follower.addClass("active");
-            });
-            $(".link").on("mouseleave", function () {
-                cursor.removeClass("active");
-                follower.removeClass("active");
-            });
-            // .FOLLOW MOUSE
-        }
-
-
         function inOutAnimation(elementToShow, delayElement, offSetElement) {
             gsap.to(elementToShow, { y: 150, autoAlpha: 0 });
             elementToShow.waypoint(function (direction) {
@@ -503,7 +445,16 @@
         }
         if ($('.section-frases').length > 0) {
             var element = $('.section-frases--inner');
-            showSection(element, 0, 'bottom-in-view');
+            //showSection(element, 0, 'bottom-in-view');
+            gsap.set(element, { opacity: 0 });
+            //gsap.to(element, { opacity: 0 });
+            element.waypoint(function (direction) {
+                if (direction === 'down') {
+                    gsap.to(element, { opacity: 1, duration: 0.5, delay: 0, ease: "power4.out" });
+                }
+            }, {
+                offset: '50%'
+            })
         }
 
         if ($('.section-blog').length > 0) {
@@ -546,6 +497,7 @@
 
 
         if ($('.card-terapias').length > 0) {
+            /*
             $('.card-terapias').each(function () {
                 var thisElement = $(this).find('.collumn-color');
                 var thisCard = $(this);
@@ -562,6 +514,7 @@
                     offset: '50%'
                 })
             });
+            */
         }
 
 
@@ -613,11 +566,126 @@
             $('body').removeClass('searchOpened');
         });
 
-        $('.grid-masonry').masonry({
-            columnWidth: '.grid-sizer',
-            itemSelector: '.grid-item',
-            percentPosition: true
+        var $grid = $('.grid-masonry').masonry({
+                    columnWidth: '.grid-sizer',
+                    itemSelector: '.grid-item',
+                    percentPosition: true,
+                    horizontalOrder: true
+                });
+
+        $('.grid-masonry--container').imagesLoaded().done( function( instance ) {
+            setTimeout( function(){
+                 $grid.masonry('layout');
+            }, 300);
         });
+
+        if($('#setModalCV').length > 0) {
+            var modalHTML = $('#setModalCV').html();
+            $('#setModalCV').remove();
+            $('#insertModal').html(modalHTML);
+        }
+
+
+        function arrayRemove(arr, value) { 
+            return arr.filter(function(ele){ 
+                return ele != value; 
+            });
+        }
+        
+        var cursosArray = [];
+        var retirosArray = [];
+        var setCursos = false;
+        var setRetiros = false;
+        $('.checkbox-component').on('click', function() {
+            $(this).toggleClass('active');
+            if($(this).hasClass('active')) {
+                console.log('Add');
+                if ($(this).attr('data-type') == 'curso') {
+                    cursosArray.push($(this).find('.checkbox-text').text());
+                    $('#cursos').val(cursosArray);
+                }
+                if ($(this).attr('data-type') == 'retiro') {
+                    retirosArray.push($(this).find('.checkbox-text').text());
+                    $('#retiros').val(retirosArray);
+                }
+            } else {
+                console.log('Remove');
+                if ($(this).attr('data-type') == 'curso') {
+                    cursosArray = arrayRemove(cursosArray, $(this).find('.checkbox-text').text());
+                    $('#cursos').val(cursosArray);
+                }
+                if ($(this).attr('data-type') == 'retiro') {
+                    retirosArray = arrayRemove(retirosArray, $(this).find('.checkbox-text').text());
+                    $('#retiros').val(retirosArray);
+                }
+            }
+        });
+
+        $('.trigger-courses').on('click', function() {
+            $(this).toggleClass('active');
+            if(!setCursos) {
+                setCursos = true;
+            } else {
+                setCursos = false;
+            }
+            console.log(setCursos);
+            $('.select-courses').toggle('fast');
+
+            if(!setCursos) {
+                $('.checkbox-component[data-type="curso"]').removeClass('active');
+                cursosArray = [];
+                $('#cursos').val(cursosArray);
+            }
+        });
+
+        $('.trigger-retiros').on('click', function() {
+            $(this).toggleClass('active');
+            if(!setRetiros) {
+                setRetiros = true;
+            } else {
+                setRetiros = false;
+            }
+            console.log(setRetiros);
+            $('.select-retiros').toggle('fast');
+
+            if(!setRetiros) {
+                $('.checkbox-component[data-type="retiro"]').removeClass('active');
+                retirosArray = [];
+                $('#retiros').val(retirosArray);
+            }
+        });
+
+        /*
+        // animate logo Psyke page
+        */
+        if($('body').hasClass('page-id-39')) {
+            //console.log('Page ID = 39');
+            var logotype = $('.anim-logotipo-psyke');
+            var logotypeWidth = 620;
+
+            if ($(window).width() > 340 && $(window).width() < 768) {
+                logotypeWidth = 320;
+            } else {
+                logotypeWidth = 240;
+            }
+
+            var positionFinal = $('#main-nav .navbar-brand').offset();
+            var finalX = positionFinal.left;
+            var finalY = positionFinal.top;
+            var initialX = finalX;
+
+            var initialY = $('.hero-psyke').height() - logotypeWidth - 42;
+            var initialYStart = initialY + 250;
+
+            gsap.set(logotype, { y: initialYStart, x: initialX, width: logotypeWidth});
+
+            gsap.to(logotype, {autoAlpha: 1, y: initialY, duration: 0.75, delay: 1.5, ease: "power4.out"});
+            gsap.to(logotype, {y: finalY, width: 96, duration: 0.3, delay: 2.75, ease: "power4.out"});
+            gsap.to(logotype, {autoAlpha: 0, duration: 0.3, delay: 3, ease: "power4.out"});
+
+            gsap.to( $('.page-id-39 .navbar-brand'), {autoAlpha: 1, scale: 1, duration: 0.3, delay: 3.1, ease: "power4.out"});
+
+        }
 
         /*
         // LOADING AJAX
@@ -645,43 +713,14 @@
             }, false);
         }
 
-        function getData() {
-            var nameValue = $('#name').val();
-            var nameArray = nameValue.split(' ');
-            var name = nameArray[0];
-            var surname = '';
-            if (nameArray.length > 1) {
-                for (var i = 1; i < nameArray.length; i++) {
-                    surname += nameArray[i];
-                }
-            }
-            return {
-                name: name,
-                surname: surname,
-                email: $('#email').val(),
-                phone: $('#phone').val(),
-                newsletter: $('[name="newsletter[]"]').val(),
-                message: $('#message').val(),
-                acceptance: $('[name="acceptance-588"]').val(),
-                status: 'confirmed'
-            }
+        //form contact
+        if ($('#wpcf7-f5-p80-o1').length > 0) {
+            document.addEventListener('wpcf7mailsent', function (event) {
+                location = `${baseURL}/gracias-por-ponerte-en-contacto/`;
+            }, false);
         }
+        
 
-        $('.wpcf7-form').submit((e) => {
-            e.preventDefault();
-            var clientKey = '1a4d55902571c6fa665f5d7554a3bd3514fb9a51';
-            var clientSecret = 'e6d98dec3c6979e168a88c5cf41e05c56f6c300c';
-            var data = getData();
-            $.ajax({
-                type: 'POST',
-                url: `${baseURL}/wp-json/newsletter/v2/subscribers?client_key=${clientKey}&client_secret=${clientSecret}`,
-                data: data,
-                success: function () {
-                    location = `${baseURL}/gracias-por-ponerte-en-contacto/`;
-                    return true;
-                }
-            })
-        });
     });	//ready
 
     $(window).scroll(collapseNavbar);

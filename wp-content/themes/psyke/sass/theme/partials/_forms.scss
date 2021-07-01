@@ -7,6 +7,11 @@
         width: 1%;
         border-top-left-radius: 2px;
         border-bottom-left-radius: 2px;
+        &:focus,
+        &:focus-visible {
+            outline: none;
+            border: 1px solid $secondary-color;
+        }
     }
     .input-group input[type="submit"] {
         width: auto;
@@ -88,5 +93,80 @@
     &:hover {
         color: #fff;
         background-color: $secondary-color;
+    }
+}
+
+.tnp-subscription.tnp .es-field-wrap label {
+    color: #222120;
+}
+.tnp-subscription input[type=text], .tnp-subscription input[type=email] {
+    &:focus,
+    &:focus-visible {
+        outline: none!important;
+        border: 1px solid $secondary-color!important;
+    }
+}
+
+
+.no-results.not-found {
+    .input-group>.form-control {
+            height: calc(2.75em + .75rem + 2px);
+    }
+}
+
+.checkbox-trigger,
+.checkbox-component {
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    &.active {
+        .checkbox-box:after {
+            transform: translate3d(-50%,-50%,0) scale(1);
+        }
+    }
+    &.trigger-courses,
+    &.trigger-retiros {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+}
+.checkbox-box {
+    flex: 0 0 18px;
+    height: 18px;
+    border: 2px solid;
+    border-radius: 50%;
+    position: relative;
+    &:after {
+        position: absolute;
+        content: '';
+        top: 50%;
+        left: 50%;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: $secondary-color;
+        transform-origin: center center;
+        transform: translate3d(-50%,-50%,0) scale(0);
+        transition: 300ms transform ease;
+    }
+}
+.checkbox-text {
+    padding-left: 8px;
+}
+
+.box-radios {
+    background-color: #fff;
+    border-radius: 3px;
+    padding: 24px;
+    margin-top: 8px;
+    .row .form-group:last-of-type {
+        margin-bottom: 0;
+    }
+}
+
+.form-checkbox {
+    .wpcf7-list-item {
+        margin-left: 0;
     }
 }

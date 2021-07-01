@@ -88,7 +88,21 @@ endif;
                     </div>
                 </div>
             </section>
-            <?php wpp_get_mostpopular(); ?>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                    <?php
+                        $args = array(
+                            'post_type' => 'post',
+                            'limit' => 5,
+                            'thumbnail_width' => 75,
+                            'thumbnail_height' => 75
+                        );
+                        wpp_get_mostpopular($args);
+                    ?>
+                    </div>
+                </div>
+            </div>
 
             <section class="title-blog--section">
                 <div class="container">

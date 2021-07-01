@@ -48,4 +48,8 @@ if ( is_front_page() ) {
 </div><!-- #full-width-page-wrapper -->
 
 <?php
+    get_template_part( 'global-templates/novedades' );
+?>
+
+<?php
 get_footer();

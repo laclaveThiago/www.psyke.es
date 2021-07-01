@@ -26,7 +26,7 @@ if( $posts->have_posts() ) :
         <div class="padding-regular bg-tertiary anim-blog-block-01">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-md-12">
+                    <div class="col-md-8">
                         <h3 class="text-center text-alternate text-terracota-dark anim-blog-block-02">Lunes Mindful en Psyke</h3>
                         <p class="text-center text-white text-uppercase anim-blog-block-03">Reflexiones terapéuticas para iniciar la semana con la intención de vivir el presente y aspirar a una vida plena con sentido</p>
                     </div>
@@ -57,7 +57,7 @@ if( $posts->have_posts() ) :
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-8">
-                        <p class="text-center"><a href="/blog" class="btn btn-outline btn-outline--primary">Ver todas</a></p>
+                        <p class="text-center"><a href="<?php echo esc_url( home_url( '/' ) ); ?>blog" class="btn btn-outline btn-outline--primary">Ver blog</a></p>
                     </div>
                 </div>
             </div>

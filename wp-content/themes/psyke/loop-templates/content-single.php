@@ -198,7 +198,7 @@ defined( 'ABSPATH' ) || exit;
                 continue;
                 $termsRelatedList = $termsRelatedList.$termRelated->name;
                 //  Add comma (except after the last theme)
-                echo ($i < count($termsRelated))? " / " : "";
+                echo ($i < count($termsRelated))? " , " : "";
                 // Increment counter
                 $i++;
             }
@@ -214,6 +214,7 @@ defined( 'ABSPATH' ) || exit;
                                 'taxonomy' => 'category', // the custom vocabulary
                                 'field'    => 'name',          // term_id, slug or name  (Define by what you want to search the below term)    
                                 'terms'    => array($termsRelatedList),      // provide the term slugs
+                                //'terms'    => wp_get_post_categories( $post->ID ),      // provide the term slugstermsRelated
                             ),
                         ),
                 )

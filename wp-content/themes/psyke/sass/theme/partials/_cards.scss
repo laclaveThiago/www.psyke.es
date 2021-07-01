@@ -112,6 +112,31 @@
         }
     }
 }
+.card-post.card-post--search {
+    .card-image {
+        border-radius: 0;
+        .card-image--inner {
+            position: relative;
+        }
+        canvas {
+            border-radius: 0;
+        }
+    }
+    .label.label-primary {
+        position: absolute;
+        top: 16px;
+        left: 16px;
+        background-color: $primary-color;
+        z-index: 2;
+        padding: 4px 6px;
+        color: #000;
+        border-radius: 2px;
+    }
+    .card-header p {
+        color: #454545;
+        text-transform: none;
+    }
+}
 
 .card-meditaciones {
     height: inherit;
@@ -178,11 +203,15 @@
     }
     .card-body {
         color: black;
+        p:last-of-type{
+            margin-bottom: 0;
+        }
     }
     .card-footer {
         margin-top: auto;
         align-self: flex-end;
         color: #a09ead;
+        padding-top: 16px;
         .meditation-time {
             font-weight: 400;
             text-transform: uppercase;
@@ -210,7 +239,31 @@
         }
     }
 }
-
+.grid-masonry {
+    .card-meditaciones {
+        height: auto;
+        width: 100%;
+        display: block;
+        .card-post--inner {
+            height: auto;
+            width: 100%;
+            display: block;
+        }
+        .card-image,
+        .card-header,
+        .card-body,
+        .card-footer {
+            width: 100%;
+            display: block;
+        }
+        .card-footer {
+            padding-bottom: 16px;
+            margin-bottom: 16px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            border-radius: 0;
+        }
+    }
+}
 .card-icon {
     padding-top: 12px;
     padding-bottom: 12px;

@@ -25,23 +25,16 @@ function theme_enqueue_styles() {
 	
     wp_enqueue_script( 'jquery');
     wp_enqueue_script( 'child-understrap-scripts', get_stylesheet_directory_uri() . '/js/child-theme.min.js', array(), $the_theme->get( 'Version' ), true );
-	wp_enqueue_script( 'modernizr-scripts', get_stylesheet_directory_uri() . '/plugins/modernizr/modernizr-custom.js', array(), $the_theme->get( 'Version' ), true );
-	wp_enqueue_script( 'masonry-scripts', get_stylesheet_directory_uri() . '/plugins/masonry/masonry.pkgd.min.js', array(), $the_theme->get( 'Version' ), true );
-
-	
+	wp_enqueue_script( 'imagesLoaded-plugins', get_stylesheet_directory_uri() . '/plugins/imagesloaded.pkgd.min.js', array(), $the_theme->get( 'Version' ), true );
+	wp_enqueue_script( 'masonry-scripts', get_stylesheet_directory_uri() . '/plugins/masonry/masonry.pkgd.min.js', array('imagesLoaded-plugins'), $the_theme->get( 'Version' ), true );
 	wp_enqueue_script( 'slick-scripts', get_stylesheet_directory_uri() . '/plugins/slick/slick.min.js', array(), $the_theme->get( 'Version' ), true );
 	wp_enqueue_script( 'jquery-easings', get_stylesheet_directory_uri() . '/plugins/jquery-easings/jquery-easing.min.js', array(), $the_theme->get( 'Version' ), true );
-	//wp_enqueue_script( 'typed-scripts', get_stylesheet_directory_uri() . '/plugins/typed/typed.min.js', array(), $the_theme->get( 'Version' ), true );
 	wp_enqueue_script( 'waypoints-scripts', get_stylesheet_directory_uri() . '/plugins/waypoints/jquery.waypoints.min.js', array(), $the_theme->get( 'Version' ), true );
 	wp_enqueue_script( 'waypoints-debug-scripts', get_stylesheet_directory_uri() . '/plugins/waypoints/waypoints.debug.js', array(), $the_theme->get( 'Version' ), true );
-
 	
-	
-
 	wp_enqueue_script( 'gsap', get_stylesheet_directory_uri() . '/js/gsap/gsap.min.js', array(), $the_theme->get( 'Version' ), true );
 	wp_enqueue_script( 'gsap-scrollTop', get_stylesheet_directory_uri() . '/js/gsap/ScrollToPlugin.min.js', array(), $the_theme->get( 'Version' ), true );
 	wp_enqueue_script( 'gsap-scroll-trigger', get_stylesheet_directory_uri() . '/js/gsap/ScrollTrigger.min.js', array(), $the_theme->get( 'Version' ), true );
-
 	
 	wp_enqueue_script( 'psyke-scripts', get_stylesheet_directory_uri() . '/js/frontend.js', array('jquery'), $the_theme->get( 'Version' ), true );
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -94,6 +87,12 @@ function whitespider_private_posts_subscribers(){
     $subRole->add_cap( 'read_private_pages' );
 }
 add_action( 'init', 'whitespider_private_posts_subscribers' );
+
+// Add SoundCloud oEmbed
+function add_oembed_soundcloud(){
+	wp_oembed_add_provider( 'http://soundcloud.com/*', 'http://soundcloud.com/oembed' );
+}
+add_action('init','add_oembed_soundcloud');
 
 
 /**

@@ -28,9 +28,6 @@ defined( 'ABSPATH' ) || exit;
             <?php $author = get_the_author(); ?>
             <p>By <?php echo $author; ?></p>
         </div>
-        <div class="card-footer">
-            <strong class="btn-link btn-fk">Leer más<?php //_e( 'Read more', 'understrap' ); ?></strong>
-        </div>
     </a>
 </div>
 

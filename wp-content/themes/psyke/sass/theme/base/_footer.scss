@@ -92,7 +92,6 @@
     color: #fff;
     display: -ms-flexbox;
     display: flex;
-
     svg {
       width: 10px;
       margin: auto;
@@ -108,6 +107,7 @@
   font-family: $font-alternate;
   color: #fff;
   padding: 15px 0;
+  padding-top: 32px;
   h4 {
     @include font-size(34px);
     margin: 0;
@@ -179,6 +179,25 @@
     }
   }
 }
+
+footer.site-footer .tnp-subscription input[type=text], .tnp-subscription input[type=email], .tnp-subscription select {
+  border-radius: 2px;
+}
+footer.site-footer .tnp-subscription input[type=text] {
+  padding-right: 115px;
+}
+ footer.site-footer .tnp-subscription input[type=submit] {
+  background-color: #000;
+  color: #fff;
+  position: absolute;
+  top: 40px;
+  right: 21px;
+  height: 48px;
+  width: 100px;
+  font-family: $font-alternate;
+  font-size: 20px;
+  font-weight: 700;
+ }
 
 .page-template-blog-page .categories-footer-blog,
 .archive.category .categories-footer-blog,

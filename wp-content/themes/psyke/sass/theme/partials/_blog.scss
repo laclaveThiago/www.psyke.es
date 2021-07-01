@@ -33,7 +33,7 @@
      }
     .nav-categories {
         ul {
-            padding-legt: 0;
+            padding-left: 0;
             list-style: none;
             text-align: center;
         }
@@ -85,6 +85,7 @@
         color: $dark-gray;
         font-family: $font-alternate;
         @include font-size(32px);
+        margin-bottom: 0;
     }
     .title-blog--section {
         font-weight: 700;
@@ -279,6 +280,7 @@
     }
 } 
 .share_toolbox {
+    margin-bottom: 16px;
     .share_toolbox--btn {
         display: inline-block;
         width: 46px;
@@ -315,6 +317,7 @@
             padding: 12px 24px;
             border: 1px solid #000;
             margin-bottom: 18px;
+            margin-top: 18px;
             @include font-size(18px);
             font-weight: 700;
             font-family: $font-alternate;
@@ -374,5 +377,42 @@
         &:after {
             transform: translate3d(0, -50%, 0) rotate(-45deg);
         }
+    }
+}
+
+.wpp-list {
+    padding-left: 0;
+    counter-reset: popular;
+    padding: 32px 0;
+    li {
+        @include font-size(32px);
+        display: -ms-flexbox;
+        display: flex;
+        align-items: center;
+        a {
+            color: #000;
+            font-size: 24px;
+            max-width: 620px;
+            display: inline-block;
+            order: 2;
+            margin-left: 15px;
+            font-family: $font-scala;
+            font-weight: 700;
+            &.wpp-post-title {
+                order: 1;
+            }
+        }
+
+    }
+    li:before {
+        counter-increment: popular;
+        content: counter(popular) '.';
+        font-family: $font-alternate;
+        color: #000;
+        font-size: 82px;
+    }
+    .wpp-meta.post-stats {
+        display: none;
+        overflow: hidden;
     }
 }

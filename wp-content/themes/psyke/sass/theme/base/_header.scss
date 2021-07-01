@@ -23,7 +23,7 @@
 .navbar-nav {
   .active .nav-link {
     &:after {
-      width: 42px;
+      width: calc(100% - 1.16rem);
       background-color: white;
     }
   }
@@ -44,15 +44,17 @@
     transition: 300ms ease;
   }
   &:hover:after {
-    width: 42px;
+    width: calc(100% - 1.16rem);
     background-color: white;
   }
 }
 
 .single-post,
+.single-meditaciones,
 .archive.category,
-.page-template-blog-page {
-  .navbar {
+.page-template-blog-page,
+.post-type-archive-meditaciones {
+  .navbar-nav {
     .nav-link {
       color: $secondary-color;
       &:after {
@@ -61,18 +63,21 @@
       &:hover:after {
         background-color: $secondary-color;
       }
-    }
-    &.top-nav-collapse {
-      color: #fff;
-      &:after {
-        background-color: #fff;
-      }
-      &:hover:after {
-        background-color: #fff;
+    }  
+  }
+  .top-nav-collapse {
+    .navbar-nav {
+      .nav-link {
+        color: #fff;
+        &:after {
+          background-color: #fff;
+        }
+        &:hover:after {
+          background-color: #fff;
+        }
       }
     }
   }
-  
 }
 
 .navbar {
@@ -127,7 +132,7 @@
     position: relative;
     line-height: 0;
     &:before {
-      content: "Menu";
+      //content: "Menu";
       position: absolute;
       left: -12px;
       top: 50%;
@@ -169,5 +174,28 @@
   }
 }
 
+
+.page-id-39 .navbar-brand {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.anim-logotipo-psyke {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    opacity: 0;
+  
+  max-width: 320px;
+
+  transition: 300ms all ease;
+  .smile-base {
+    fill: $primary-color;
+  }
+  .smile-group path {
+    fill: black;
+  }
+}
 
 

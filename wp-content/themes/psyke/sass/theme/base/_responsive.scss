@@ -1,0 +1,263 @@
+.navbar-collapse .menuSupportUser {
+    display: none;
+}
+@media screen and (max-width: 992px) {
+    #main-menu {
+        padding-top: 0;
+    }
+    .navbar-nav .nav-link:after {
+        left: 0;
+        transform: translate3d(0, 0, 0);
+    }
+    body .mc-main table {
+        width: 100%!important;
+        margin-left: 0; 
+    }
+    body .mc-main .my-calendar-header {
+        margin-left: 0; 
+    }
+    .navbar-collapse {
+        background-color: rgba(0,0,0,0.85);
+        padding: 16px;
+    } 
+
+    .top-nav-collapse {
+        .navbar-collapse {
+            background-color: rgba(0,0,0,0);
+            padding: 0;
+        }   
+        #main-menu {
+            padding-top: 24px;
+        }
+    }
+
+
+    .navbar-collapse .menuSupportUser {
+        display: -ms-flexbox;
+        display: flex;
+        padding-left: 0;
+        list-style: none;
+        li {
+            padding: 4px 4px 4px 0;
+        }
+        .nav-link {
+            width: 46px;
+            padding: 0;
+            svg {
+                width: 100%;
+            }
+        }
+    }
+    .fixed-menu {
+        display: none;
+        visibility: hidden;
+    }
+
+
+
+    .hero-slide .hero-content {
+        width: 65%;
+    }
+    .hero-slide .goToContent--item {
+        @include font-size(52px);
+        padding: 16px 0;
+        padding-right: 16px;
+    }
+    .hero-slide .hero-container:before {
+        background-image: none;
+    }
+    .hero-slide .goToContent--item p {
+        @include font-size(16px);
+    }
+    .card-frases {
+        @include font-size(24px);
+    }
+    .section-blog .bg-tertiary h3 {
+        @include font-size(42px);
+    }
+
+    /*
+    // Thais
+    */
+    .hero-pages .hero-thais .hero-page-inner .col-content {
+        width: 55%;
+        flex: 0 0 55%;
+    }
+    .hero-pages .hero-thais .col-content--inner {
+        padding: 52px 32px;   
+    }
+    .blockquote-thais .bg-blue cite {
+        line-height: 1.15em;
+        @include font-size(28px);
+    }
+    .blockquote-thais .bg-blue .cite-author {
+        @include font-size(28px);
+    }
+
+    /*
+    // Psyke
+    */
+    .hero-pages .hero-psyke .hero-page-inner {
+        padding: 0 15px;
+        width: 100%;
+    }
+    .hero-pages .hero-psyke .text-hero-01,
+    .hero-pages .hero-psyke .text-hero-02,
+    .hero-pages .hero-psyke .text-hero-03,
+    .hero-pages .hero-psyke .text-hero-04 {
+        display: -ms-flexbox;
+        display: flex;
+        width: 100%;
+        flex: 0 0 100%;
+        text-align: right;
+        align-items: flex-end;
+        flex-direction: column;            
+    }
+    .hero-pages .hero-psyke .text-hero-01 {
+        @include font-size(62px);
+    }
+    .hero-pages .hero-psyke .text-hero-02 {
+        @include font-size(92px);
+        padding-left: 0;
+        padding-right: 32px;
+    }
+    .hero-pages .hero-psyke .text-hero-03 {
+        @include font-size(92px);
+        padding-left: 0;
+        padding-right: 64px;
+        @include font-size(62px);
+    }
+    .hero-pages .hero-psyke .text-hero-04 {
+
+    }
+    .col-image-yoga {
+        min-height: 240px;
+    }
+    .component-valores {
+        padding: 32px 0;
+    }
+    .card-valores {
+        padding: 12px 0;
+    }
+
+    /*
+    // Formación
+    */
+    .hero-pages .hero-formacion .hero-page-inner {
+        padding-bottom: 300px;
+    }
+    .hero-pages .hero-formacion {
+        .btn, .btn-primary, 
+        .wpcf7 input[type=submit] {
+            padding: 10px 22px;
+            @include font-size(16px);
+        }
+    }
+    .hero-formacion h1 {
+        @include font-size(42px);
+    }
+    .hero-formacion h2 {
+        @include font-size(42px);
+    }
+    
+    .course-intro h2 {
+        @include font-size(42px);
+    }
+    .course-intro h3 {
+        @include font-size(32px);
+    }
+
+    .slick-testimonials .slick-prev {
+        left: -5px;
+    }
+    .slick-testimonials .slick-next {
+        right: -5px;
+    }
+
+    /*
+    // Retiros
+    */
+    .hero-retiros {
+        .btn, .btn-primary, .wpcf7 input[type=submit] {
+            padding: 10px 22px;
+            @include font-size(16px);
+        }
+    }
+
+    /*
+    // Blog/Meditaciones
+    */
+    .hero-pages.hero-blog .title-hero {
+        @include font-size(32px);
+    }
+    .d-flex.audio-flex {
+        flex-wrap: wrap;
+        .audio-image {
+            padding: 0;
+            width: 42px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+    }
+    .single-post h1 {
+        @include font-size(32px);
+    }
+    .next-content h3 {
+        @include font-size(32px);
+    }
+    .categories-footer-blog .category-footer-list {
+        flex-wrap: wrap;
+    }
+    .categories-footer-blog .category-item {
+        flex-basis: 50%;
+    }
+
+    #accordion-empresas .card,
+    #accordion .card {
+        padding: 0 32px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+
+    /*
+    // Thais
+    */
+    .hero-pages .hero-thais .hero-page-inner {
+        flex-wrap: wrap;
+    }
+    .hero-pages .hero-thais .hero-page-inner .col-image {
+        width: 100%;
+        flex: 0 0 100%;
+        height: 480px;    
+        background-position: left bottom;
+        background-size: contain;
+    }
+    .hero-pages .hero-thais .hero-page-inner .col-content {
+        width: 100%;
+        flex: 0 0 100%;
+        height: auto;
+        padding-top: 0;
+    }
+    .hero-pages .hero-thais .col-content--inner {
+        padding: 42px 32px;
+    }
+    .section-thais--cc.bg-secondary {
+        .d-flex {
+            flex-wrap: wrap;
+            .content-cv {
+                width: 100%;
+                flex: 0 0 100%;
+            }
+            .download-cv {
+                margin: auto;
+            }
+        }
+    }
+
+    #accordion-empresas .card,
+    #accordion .card {
+        padding: 0 16px;
+    }
+    
+}

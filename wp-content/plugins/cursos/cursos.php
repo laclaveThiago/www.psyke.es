@@ -90,7 +90,12 @@ class configCursoMetabox {
 			'default' => '',
 			'type' => 'wysiwyg',
 		),
-		
+		array(
+			'label' => 'Fechas',
+			'id' => 'datesCourse',
+			'default' => '',
+			'type' => 'wysiwyg',
+		),
 	);
 	public function __construct() {
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );

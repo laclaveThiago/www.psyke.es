@@ -16,7 +16,7 @@ $meditaciones = new WP_Query(
     array(
         'post_type'   => 'meditaciones',
         'posts_per_page' => 8,
-        'order' => 'ASC' 
+        'order' => 'DESC' 
     )
 );
 
@@ -65,7 +65,7 @@ if( $meditaciones->have_posts() ) :
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-8">
-                        <p class="text-center"><a href="/mditaciones" class="btn btn-outline btn-outline--primary">Ver todas las meditaciones</a></p>
+                        <p class="text-center"><a href="<?php echo esc_url( home_url( '/' ) ); ?>meditaciones" class="btn btn-outline btn-outline--primary">Ver meditaciones</a></p>
                     </div>
                 </div>
             </div>

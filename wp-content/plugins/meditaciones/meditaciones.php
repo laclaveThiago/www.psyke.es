@@ -248,6 +248,7 @@ if (class_exists('configMeditationMetabox')) {
 // ./ Campos personalizados
 
 //Plantilla single
+
 function get_custom_meditaciones_template($single_template) {
      global $post;
 
@@ -257,6 +258,7 @@ function get_custom_meditaciones_template($single_template) {
      return $single_template;
 }
 add_filter( 'single_template', 'get_custom_meditaciones_template' );
+
 
 /*
 //Plantilla Archive

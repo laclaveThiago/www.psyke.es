@@ -15,10 +15,6 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 </div><!-- #page we need this extra closing tag here -->
 
-<?php
-    get_template_part( 'global-templates/novedades' );
-?>
-
 <?php get_template_part( 'sidebar-templates/sidebar', 'footerfull' ); ?>
 
 <div class="wrapper" id="wrapper-footer">
@@ -37,22 +33,8 @@ $container = get_theme_mod( 'understrap_container_type' );
                         </div>
                         <div class="col-md-7 align-self-center">
                             <div class="tnp tnp-subscription">
-                                <form method="post" action="https://developlaclave.es/develop/psyke/?na=s">
-                                    <input type="hidden" name="nlang" value="">
-                                    <div class="input-group mb-3">
-                                        <input type="email" class="form-control" name="ne" value="" required placeholder="Email" aria-label="Email" aria-describedby="button-addon2">
-                                        <div class="input-group-append tnp-field-button">
-                                            <input class="btn btn-outline-secondary" type="submit" id="button-addon2" value="Unirse">
-                                        </div>
-                                    </div>
-                                    <div class="tnp-field tnp-privacy-field">
-                                        <label>
-                                            <input type="checkbox" name="ny" required class="tnp-privacy"> Si continúas, aceptas la <a target="_blank" href="https://developlaclave.es/develop/psyke/politica-privacidad/">política de privacidad</a>
-                                        </label>
-                                    </div>
-                                </form>
+                                <?php echo do_shortcode('[email-subscribers-form id="1"]'); ?>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -102,7 +84,7 @@ $container = get_theme_mod( 'understrap_container_type' );
                                                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>category/mente/">Mente</a>
                                                 <ul>
                                                     <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>category/mente/entrenamiento-mental/">Entrenamiento Mental</a></li>
-                                                    <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>category/mente/pensamientos/">Piensamientos</a></li>
+                                                    <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>category/mente/pensamientos/">Pensamientos</a></li>
                                                 </ul>
                                             </li>
                                         </ul>
@@ -284,6 +266,8 @@ $container = get_theme_mod( 'understrap_container_type' );
 		</div>
 	</div>
 </div>
+
+<div id="insertModal"></div>
 
 <?php wp_footer(); ?>
 

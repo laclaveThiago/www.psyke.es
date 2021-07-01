@@ -18,7 +18,34 @@ if ( is_front_page() ) {
 }
 ?>
 
-<div class="wrapper wrapper-login bg-white" id="full-width-page-wrapper">
+<div class="hero-pages hero-login has-overlay" style="background-image: url('<?php echo $featured_img_url; ?>');">
+    <div class="hero-inner">
+        <div class="hero-page-content hero-formacion">
+            <div class="hero-page-inner">
+                <div class="container">
+                    <div class="row justify-content-end">
+                        <div class="col-md-9 align-self-center">
+                            <h1 data-animation="true" data-duration="0.5" data-delay="0" data-offset="100%" style="opacity: 0;">Programa de Formación en Mindfulness Profundo</h1>
+                            <ul class="list-anchor-courses">
+                                <li data-animation="true" data-duration="0.5" data-delay="0.2" data-offset="100%" style="opacity: 0;"><a href="#iniciacion" class="page-scroll btn btn-outline">1 Iniciación MBSR</a></li>
+                                <li data-animation="true" data-duration="0.5" data-delay="0.4" data-offset="100%" style="opacity: 0;"><a href="#avanzado" class="page-scroll btn btn-outline">2 Avanzado</a></li>
+                                <li data-animation="true" data-duration="0.5" data-delay="0.6" data-offset="100%" style="opacity: 0;"><a href="#profundizacion" class="page-scroll btn btn-outline">3 Profundización</a></li>
+                            </ul>
+                            <h2 data-animation="true" data-duration="0.5" data-delay="0.8" data-offset="100%" style="opacity: 0;">Formación <br>para empresas</h2>
+                        </div>    
+                    </div>    
+                </div>
+            </div>
+            <div class="stamp--page">
+                <div class="stamp">
+                    <div class="stamp--inner"> (nº13619/2013)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="wrapper wrapper-login bg-white padding-large" id="full-width-page-wrapper">
 
 	<div class="<?php echo esc_attr( $container ); ?>" id="content">
 

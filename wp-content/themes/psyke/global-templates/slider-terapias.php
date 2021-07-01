@@ -33,7 +33,7 @@ if( $terapias->have_posts() ) :
                         $terapias->the_post(); 
                             ?>
                             
-                                <div class="card-terapias" id="card-terapias-<?php echo get_the_id();?>">
+                                <div class="card-terapias" id="card-terapias-<?php echo get_the_id();?>" card-terapia="<?php echo get_the_id();?>">
                                     <?php 
                                         $backgroundImg = wp_get_attachment_image_src( get_post_thumbnail_id(get_the_id()), 'full' );
                                     ?>
@@ -43,7 +43,7 @@ if( $terapias->have_posts() ) :
                                     </div>
                                     <div class="card-body" style="background-color:<?php echo get_post_meta( get_the_id(), 'colorDark', true); ?>">
                                         <div class="align-self-center">
-                                            <div class="slick-terapias--vertical">
+                                            <div class="slick-terapias--vertical" card-terapia-slick="<?php echo get_the_id();?>">
                                                 <?php the_content(); ?>
                                             </div>
                                         </div>
