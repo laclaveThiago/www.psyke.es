@@ -52,6 +52,7 @@ endif;
 <?php
         get_template_part( 'global-templates/block-frases' );
         get_template_part( 'global-templates/slider-terapias' );
+        echo do_shortcode('[testimonios_slider numero-testimonios="6" categoria-testimonios="terapias"]');
 ?>
 
 <?php
