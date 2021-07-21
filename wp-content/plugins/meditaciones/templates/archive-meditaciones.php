@@ -45,6 +45,7 @@ $container = get_theme_mod( 'understrap_container_type' );
                     <div class="grid-masonry">
                         <div class="grid-sizer"></div>
                             <?php
+                                $pointerGrid = 1;
                                 // Start the loop.
                                 while ( have_posts() ) :
                                     the_post();
@@ -53,9 +54,15 @@ $container = get_theme_mod( 'understrap_container_type' );
                                     * If you want to override this in a child theme, then include a file
                                     * called content-___.php (where ___ is the Post Format name) and that will be used instead.
                                     */
-                                    echo '<div class="grid-item">';
+                                    if ($pointerGrid == 3 || $pointerGrid == 4 || $pointerGrid == 9 || $pointerGrid == 10) :
+                                        //echo '<div class="grid-item grid-item--width2">';
+                                        echo '<div class="grid-item">';
+                                    else:
+                                        echo '<div class="grid-item">';
+                                    endif;
                                     get_template_part( 'loop-templates/content-card--meditaciones' );
                                     echo '</div>';
+                                    $pointerGrid++;
                                 endwhile;
                             ?>
                         

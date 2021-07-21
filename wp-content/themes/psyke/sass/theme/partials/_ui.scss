@@ -1416,3 +1416,21 @@
     height: auto;
     min-height: auto;
 }
+
+
+.box-courses-form {
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: nowrap;
+    .box-card {
+        flex: 0 0 35%;
+    }
+    .box-form {
+        flex: 0 0 65%;
+    }
+}
+
+.back-to-blog {
+    text-decoration: none;
+    color: #453f3f;
+}

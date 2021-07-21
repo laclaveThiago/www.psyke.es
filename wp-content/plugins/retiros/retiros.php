@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: Cursos
+ * Plugin Name: Retiros
  * Plugin URI: https://laclave.es
- * Description: Gestionar cursos
+ * Description: Gestionar retiros
  * Author: laclave
  * Author URI: https://www.laclave.es
  * Version: 1.0.0
@@ -13,23 +13,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 // Crear Custom Post Type
-function cursos_post_type() {
+function retiros_post_type() {
 
 	$labels = array(
-		'name'                  => _x( 'Cursos', 'Post Type General Name', 'text_domain' ),
-		'singular_name'         => _x( 'Curso', 'Post Type Singular Name', 'text_domain' ),
-		'menu_name'             => __( 'Cursos', 'text_domain' ),
-		'name_admin_bar'        => __( 'Cursos', 'text_domain' ),
+		'name'                  => _x( 'Retiros', 'Post Type General Name', 'text_domain' ),
+		'singular_name'         => _x( 'Retiro', 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'             => __( 'Retiros', 'text_domain' ),
+		'name_admin_bar'        => __( 'Retiros', 'text_domain' ),
 		'archives'              => __( 'Item Archives', 'text_domain' ),
 		'parent_item_colon'     => __( 'Parent Item:', 'text_domain' ),
-		'all_items'             => __( 'Todos los cursos', 'text_domain' ),
+		'all_items'             => __( 'Todos los Retiros', 'text_domain' ),
 		'add_new_item'          => __( 'Añadir nuevo', 'text_domain' ),
 		'add_new'               => __( 'Añadir nuevo', 'text_domain' ),
-		'new_item'              => __( 'Nuevo Curso', 'text_domain' ),
-		'edit_item'             => __( 'Editar Curso', 'text_domain' ),
-		'update_item'           => __( 'Actualizar Curso', 'text_domain' ),
-		'view_item'             => __( 'Ver Curso', 'text_domain' ),
-		'search_items'          => __( 'Buscar Curso', 'text_domain' ),
+		'new_item'              => __( 'Nuevo Retiros', 'text_domain' ),
+		'edit_item'             => __( 'Editar Retiros', 'text_domain' ),
+		'update_item'           => __( 'Actualizar Retiros', 'text_domain' ),
+		'view_item'             => __( 'Ver Retiros', 'text_domain' ),
+		'search_items'          => __( 'Buscar Retiros', 'text_domain' ),
 		'not_found'             => __( 'Not found', 'text_domain' ),
 		'not_found_in_trash'    => __( 'Not found in the trash', 'text_domain' ),
 		'featured_image'        => __( 'Imagen destacada', 'text_domain' ),
@@ -43,16 +43,16 @@ function cursos_post_type() {
 		'filter_items_list'     => __( 'Filter items list', 'text_domain' ),
 	);
 	$args = array(
-		'label'                 => __( 'Cursos', 'text_domain' ),
-		'description'           => __( 'Cursos', 'text_domain' ),
+		'label'                 => __( 'Retiros', 'text_domain' ),
+		'description'           => __( 'Retiros', 'text_domain' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'custom-fields' ),
 		'hierarchical'          => true,
 		'public'                => true,
 		'show_ui'               => true,
 		'show_in_menu'          => true,
-		'menu_position'         => 5,
-		'menu_icon'             => 'dashicons-welcome-learn-more',
+		'menu_position'         => 4,
+		'menu_icon'             => 'dashicons-universal-access',
 		'show_in_admin_bar'     => true,
 		'show_in_nav_menus'     => true,
 		'can_export'            => true,
@@ -61,29 +61,29 @@ function cursos_post_type() {
 		'publicly_queryable'    => true,
 		'capability_type'       => 'page',
 		'show_in_rest'          => true,
-  		'rest_base'             => 'cursos',
+  		'rest_base'             => 'retiros',
   		'rest_controller_class' => 'WP_REST_Posts_Controller',
   		'rewrite' => true,
 		// This is where we add taxonomies to our CPT
-		'taxonomies'          => array( 'categorias', 'post_tag' ),
+		'taxonomies'          => array( 'categoria-retiro', 'post_tag' ),
 	);
-	register_post_type('cursos', $args);
+	register_post_type('retiros', $args);
 }
-add_action( 'init', 'cursos_post_type', 0 );
+add_action( 'init', 'retiros_post_type', 0 );
 // ./Crear Custom Post Type
 
 
 // Let us create Taxonomy for Custom Post Type
-add_action( 'init', 'categoria_type_init', 0 );
+add_action( 'init', 'retiro_type_init', 0 );
 
 //create a custom taxonomy name it "type" for your posts
-function categoria_type_init() {
+function retiro_type_init() {
 
   $labels = array(
-    'name' => _x( 'Categoría del curso', 'taxonomy general name' ),
-    'singular_name' => _x( 'Categoría del curso', 'taxonomy singular name' ),
-    'search_items' =>  __( 'Buscar categoría del curso' ),
-    'all_items' => __( 'Todas categorías del curso' ),
+    'name' => _x( 'Categoría', 'taxonomy general name' ),
+    'singular_name' => _x( 'Categoría', 'taxonomy singular name' ),
+    'search_items' =>  __( 'Buscar categoría de retiro' ),
+    'all_items' => __( 'Todas categorías de retiros' ),
     'parent_item' => __( 'Parent Type' ),
     'parent_item_colon' => __( 'Parent Type:' ),
     'edit_item' => __( 'Editar categoría' ),
@@ -94,7 +94,7 @@ function categoria_type_init() {
   );
 
 //'rewrite' => array( 'slug' => $post_slug );
-  register_taxonomy('categorias',array('cursos'), array(
+  register_taxonomy('categoria-retiro',array('retiros'), array(
     'hierarchical' => true,
     'labels' => $labels,
     'show_ui' => true,
@@ -102,7 +102,7 @@ function categoria_type_init() {
     'query_var' => true,
     //'rewrite' => true,
     'rewrite'         => array(
-		'slug'      => '/categoria-curso',
+		'slug'      => '/categoria-retiro',
 		//'slug'      => $category_ingrediente_slug,
 		'with_front'  => false,
 		'hierarchical' => true
@@ -113,63 +113,68 @@ function categoria_type_init() {
 
 
 // Campos personalizados
-
-class configCursoMetabox {
+class configRetiroMetabox {
 	private $screen = array(
-		'cursos',
+		'retiros',
 	);
 	private $meta_fields = array(
 		array(
 			'label' => 'Título',
-			'id' => 'courseTitle',
+			'id' => 'retreatTitle',
 			'default' => '',
 			'type' => 'text',
 		),
 		array(
 			'label' => 'Subtítulo',
-			'id' => 'courseSubTitle',
+			'id' => 'retreatSubTitle',
 			'default' => '',
 			'type' => 'wysiwyg',
 		),
 		array(
 			'label' => 'Precio',
-			'id' => 'coursePrice',
+			'id' => 'retreatPrice',
 			'default' => '',
 			'type' => 'text',
 		),
 		array(
-			'label' => 'Precio para el curso completo',
-			'id' => 'courseFullPriceSourse',
+			'label' => 'Precio para el retiro completo',
+			'id' => 'retreatFullPriceSourse',
 			'default' => 'true',
 			'type' => 'checkbox',
 		),
 		array(
-			'label' => 'Modalidad del curso (Presencial)',
-			'id' => 'courseClassroom',
+			'label' => 'Modalidad del retiro (Presencial)',
+			'id' => 'retreatClassroom',
 			'default' => 'true',
 			'type' => 'checkbox',
 		),
 		array(
-			'label' => 'Modalidad del curso (Online)',
-			'id' => 'courseOnline',
+			'label' => 'Modalidad del retiro (Online)',
+			'id' => 'retreatOnline',
 			'default' => 'true',
 			'type' => 'checkbox',
+		),
+		array(
+			'label' => 'Local de celebración',
+			'id' => 'retreatPlace',
+			'default' => '',
+			'type' => 'wysiwyg',
 		),
 		array(
 			'label' => 'Sesiones y hora',
-			'id' => 'courseSessionsAndHour',
+			'id' => 'retreatSessionsAndHour',
 			'default' => '',
 			'type' => 'wysiwyg',
 		),
         array(
 			'label' => 'Fechas',
-			'id' => 'courseDates',
+			'id' => 'retreatDates',
 			'default' => '',
 			'type' => 'wysiwyg',
 		),
 		array(
 			'label' => 'Idioma principal',
-			'id' => 'courseMainLanguage',
+			'id' => 'retreatMainLanguage',
 			'type' => 'select',
 			'options' => array(
 				'Español',
@@ -178,43 +183,43 @@ class configCursoMetabox {
 		),
 		array(
 			'label' => 'Idiomas',
-			'id' => 'courseLanguage',
-			'default' => 'Español, Inglés',
+			'id' => 'retreatLanguage',
+			'default' => '',
 			'type' => 'text',
 		),
 		array(
 			'label' => 'Número de plazas',
-			'id' => 'courseSeats',
+			'id' => 'retreatSeats',
 			'default' => '',
 			'type' => 'text',
 		),
 		array(
 			'label' => 'Plazas limitadas',
-			'id' => 'courseLimitedSeat',
+			'id' => 'retreatLimitedSeat',
 			'default' => 'true',
 			'type' => 'checkbox',
 		),
 		array(
-			'label' => 'Curso impartido por:',
-			'id' => 'courseTeacher',
+			'label' => 'Retiro impartido por:',
+			'id' => 'retreatTeacher',
 			'default' => '',
 			'type' => 'text',
 		),
 		array(
 			'label' => 'Texto del botón(Call to action)',
-			'id' => 'courseTextCTA',
+			'id' => 'retreatTextCTA',
 			'default' => 'Preinscripción',
 			'type' => 'text',
 		),
 		array(
 			'label' => 'Metodo de pago',
-			'id' => 'coursePaymentMethod',
+			'id' => 'retreatPaymentMethod',
 			'default' => '',
 			'type' => 'wysiwyg',
 		),
 		array(
 			'label' => 'Información adicional',
-			'id' => 'courseGeneralInfo',
+			'id' => 'retreatGeneralInfo',
 			'default' => '',
 			'type' => 'wysiwyg',
 		),
@@ -228,8 +233,8 @@ class configCursoMetabox {
 	public function add_meta_boxes() {
 		foreach ( $this->screen as $single_screen ) {
 			add_meta_box(
-				'configTrainer',
-				__( 'Información del curso', 'textdomain' ),
+				'configRetiro',
+				__( 'Información del retiro', 'textdomain' ),
 				array( $this, 'meta_box_callback' ),
 				$single_screen,
 				'advanced',
@@ -238,7 +243,7 @@ class configCursoMetabox {
 		}
 	}
 	public function meta_box_callback( $post ) {
-		wp_nonce_field( 'configTreatment_data', 'configTreatment_nonce' );
+		wp_nonce_field( 'configRetiro_data', 'configRetiro_nonce' );
 		$this->field_generator( $post );
 	}
 	public function media_fields() {
@@ -247,7 +252,7 @@ class configCursoMetabox {
 				if ( typeof wp.media !== 'undefined' ) {
 					var _custom_media = true,
 					_orig_send_attachment = wp.media.editor.send.attachment;
-					$('.configTrainer-media').click(function(e) {
+					$('.configRetiro-media').click(function(e) {
 						var send_attachment_bkp = wp.media.editor.send.attachment;
 						var button = $(this);
 						var id = button.attr('id').replace('_button', '');
@@ -279,7 +284,7 @@ class configCursoMetabox {
 			switch ( $meta_field['type'] ) {
 				case 'media':
 					$input = sprintf(
-						'<input style="width: 80%%" id="%s" name="%s" type="text" value="%s"> <input style="width: 19%%" class="button configTrainer-media" id="%s_button" name="%s_button" type="button" value="Upload" />',
+						'<input style="width: 80%%" id="%s" name="%s" type="text" value="%s"> <input style="width: 19%%" class="button configRetiro-media" id="%s_button" name="%s_button" type="button" value="Upload" />',
 						$meta_field['id'],
 						$meta_field['id'],
 						$meta_value,
@@ -336,10 +341,10 @@ class configCursoMetabox {
 		return '<tr><th>'.$label.'</th><td>'.$input.'</td></tr>';
 	}
 	public function save_fields( $post_id ) {
-		if ( ! isset( $_POST['configTreatment_nonce'] ) )
+		if ( ! isset( $_POST['configRetiro_nonce'] ) )
 			return $post_id;
-		$nonce = $_POST['configTreatment_nonce'];
-		if ( !wp_verify_nonce( $nonce, 'configTreatment_data' ) )
+		$nonce = $_POST['configRetiro_nonce'];
+		if ( !wp_verify_nonce( $nonce, 'configRetiro_data' ) )
 			return $post_id;
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
 			return $post_id;
@@ -360,11 +365,31 @@ class configCursoMetabox {
 		}
 	}
 }
-if (class_exists('configCursoMetabox')) {
-	new configCursoMetabox;
+if (class_exists('configRetiroMetabox')) {
+	new configRetiroMetabox;
 };
 // ./ Campos personalizados
 
+// Add custom fields on REST API wordpress
+add_action( 'rest_api_init', 'create_api_posts_meta_field' );
+ 
+function create_api_posts_meta_field() {
+ 
+    // register_rest_field ( 'name-of-post-type', 'name-of-field-to-return', array-of-callbacks-and-schema() )
+    register_rest_field( 'retiros', 'post-meta-fields', array(
+           'get_callback'    => 'get_post_meta_for_api',
+           'schema'          => null,
+        )
+    );
+}
+ 
+function get_post_meta_for_api( $object ) {
+    //get the id of the post object array
+    $post_id = $object['id'];
+ 
+    //return the post meta
+    return get_post_meta( $post_id );
+}
 
 
 /**
@@ -372,37 +397,38 @@ if (class_exists('configCursoMetabox')) {
  *
  * @return null
  */
- function register_shortcodes_cursos() {
-    add_shortcode( 'cursos_slider', 'shortcode_slider_cursos' );
+ function register_shortcodes_retiros() {
+    add_shortcode( 'retiros_slider', 'shortcode_slider_retiros' );
 }
-add_action( 'init', 'register_shortcodes_cursos' );
+add_action( 'init', 'register_shortcodes_retiros' );
 
 /**
- * Cursos Shortcode Callback
+ * Retiros Shortcode Callback
  * 
  * @param Array $atts
  *
  * @return string
  */
-function shortcode_slider_cursos( $atts ) {
+function shortcode_slider_retiros( $atts ) {
 	ob_start();
     global $wp_query,
         $post;
 
     $atts = shortcode_atts( array(
-        'categoria-curso' => '',
-        'numero-cursos' => '',
+        'categoria-retiro' => '',
+        'numero-retiros' => '',
     ), $atts );
 
     $loop = new WP_Query( array(
-        'posts_per_page'    => sanitize_title( $atts['numero-cursos'] ),
-        'post_type'         => 'cursos',
+        'posts_per_page'    => sanitize_title( $atts['numero-retiros'] ),
+        'post_type'         => 'retiros',
+		'order' => 'ASC',
         'tax_query'         => array( 
         	'relation' => 'AND',
         	array(
-            	'taxonomy'  => 'categorias',
+            	'taxonomy'  => 'categoria-retiro',
             	'field'     => 'slug',
-            	'terms'     => array( sanitize_title( $atts['categoria-curso'] ) )
+            	'terms'     => array( sanitize_title( $atts['categoria-retiro'] ) )
         	)
         )
     ) );
@@ -414,69 +440,69 @@ function shortcode_slider_cursos( $atts ) {
 	?>
 	<div class="row">
 		<div class="col-md-12">
-			<div class="slick-cursos slick-card-courses">
+			<div class="slick-retiros slick-card-courses">
 				<?php
 					while( $loop->have_posts() ) :
 						$loop->the_post();
 						?>
-							<div class="card-default card-default--course">
+							<div class="card-default card-default--retreat">
 								<div class="card-inner">
 									<div class="card-header">
-										<?php if( get_post_meta( get_the_id(), 'courseTitle', true) ) : ?>	
-											<h3><?php echo get_post_meta(get_the_id(), 'courseTitle', true); ?></h3>
+										<?php if( get_post_meta( get_the_id(), 'retreatTitle', true) ) : ?>	
+											<h3><?php echo get_post_meta(get_the_id(), 'retreatTitle', true); ?></h3>
 										<?php else: ?>
 											<h3><?php the_title(); ?></h3>
 										<?php endif; ?>
-										<?php if( get_post_meta( get_the_id(), 'courseSubTitle', true) ) : ?>	
+										<?php if( get_post_meta( get_the_id(), 'retreatSubTitle', true) ) : ?>	
 											<div class="sub-header">
-												<?php echo do_shortcode(get_post_meta(get_the_id(), 'courseSubTitle', true)); ?>
+												<?php echo do_shortcode(get_post_meta(get_the_id(), 'retreatSubTitle', true)); ?>
 											</div>
 										<?php endif; ?>
 									</div>
 									<div class="card-body">
-									
-										<?php if( get_post_meta( get_the_id(), 'courseSessionsAndHour', true) ) : ?>	
+										<?php if( get_post_meta( get_the_id(), 'retreatDates', true) ) : ?>	
 											<div class="info-item info-item--dates">
 												<div class="info-item--icon"></div>
 												<div class="info-item--body">
-													<?php echo do_shortcode(get_post_meta(get_the_id(), 'courseSessionsAndHour', true)); ?>
+													<?php echo do_shortcode(get_post_meta(get_the_id(), 'retreatDates', true)); ?>
 												</div>
 											</div>
 										<?php endif; ?>
-
-
-										<div class="info-item info-item--classroom">
-											<div class="info-item--icon"></div>
-											<div class="info-item--body">
-												<?php
-													if( get_post_meta( get_the_id(), 'courseOnline', true) ) :
-														if( get_post_meta( get_the_id(), 'courseClassroom', true) ) :
-															echo 'Online o Presencial';
-														else:
-															echo 'Online';
-														endif;
-													else:
-														if( get_post_meta( get_the_id(), 'courseClassroom', true) ):
-															echo 'Presencial';
-														endif;
-													endif;
-												?>
-											</div>
-										</div>
-
-										<?php if( get_post_meta( get_the_id(), 'courseLanguage', true) ) : ?>	
-											<div class="info-item info-item--language">
+										<?php if( get_post_meta( get_the_id(), 'retreatPlace', true) ) : ?>	
+											<div class="info-item info-item--place">
 												<div class="info-item--icon"></div>
-												<div class="info-item--body"><?php echo get_post_meta(get_the_id(), 'courseLanguage', true); ?></div>
+												<div class="info-item--body"><?php echo do_shortcode(get_post_meta( get_the_id(), 'retreatPlace', true)); ?></div>
 											</div>
 										<?php endif; ?>
-										
-										<?php if( get_post_meta( get_the_id(), 'coursePrice', true) ) : ?>	
+										<?php if( get_post_meta( get_the_id(), 'retreatSeats', true) ) : ?>	
+											<div class="info-item info-item--seats">
+												<div class="info-item--icon"></div>
+												<div class="info-item--body">
+													<?php echo get_post_meta( get_the_id(), 'retreatSeats', true); ?>
+													<?php if( get_post_meta( get_the_id(), 'retreatLimitedSeat', true) ) : ?>
+														<span>Plazas Limitadas</span>	
+													<?php endif; ?>
+												</div>
+											</div>
+										<?php endif; ?>
+										<?php if( get_post_meta( get_the_id(), 'retreatLanguage', true) ) : ?>	
+											<div class="info-item info-item--language">
+												<div class="info-item--icon"></div>
+												<div class="info-item--body"><?php echo get_post_meta(get_the_id(), 'retreatLanguage', true); ?></div>
+											</div>
+										<?php endif; ?>
+										<?php if( get_post_meta( get_the_id(), 'retreatTeacher', true) ) : ?>	
+											<div class="info-item info-item--teacher">
+												<div class="info-item--icon"></div>
+												<div class="info-item--body"><?php echo get_post_meta(get_the_id(), 'retreatTeacher', true); ?></div>
+											</div>
+										<?php endif; ?>
+										<?php if( get_post_meta( get_the_id(), 'retreatPrice', true) ) : ?>	
 											<div class="info-item info-item--price">
 												<div class="info-item--icon"></div>
 												<div class="info-item--body">
-													<div class="price"><?php echo get_post_meta(get_the_id(), 'coursePrice', true); ?></div>
-													<?php if( get_post_meta( get_the_id(), 'coursePaymentMethod', true) ) : ?>
+													<div class="price"><?php echo get_post_meta(get_the_id(), 'retreatPrice', true); ?></div>
+													<?php if( get_post_meta( get_the_id(), 'retreatPaymentMethod', true) ) : ?>
 														<button type="button" class="link-payment-method" data-toggle="modal" data-target="#openModalCourse<?php echo get_the_id(); ?>">
 															* ver modalidad de pago
 														</button>
@@ -484,29 +510,23 @@ function shortcode_slider_cursos( $atts ) {
 												</div>
 											</div>
 										<?php endif; ?>
-
-										<?php if( get_post_meta( get_the_id(), 'courseDates', true) ) : ?>	
-											<div class="info-item info-item--course-dates">
-												<?php echo do_shortcode(get_post_meta(get_the_id(), 'courseDates', true)); ?>
-											</div>
-										<?php endif; ?>
 										
-										<?php if( get_post_meta( get_the_id(), 'courseGeneralInfo', true) ) : ?>	
+										<?php if( get_post_meta( get_the_id(), 'retreatGeneralInfo', true) ) : ?>	
 											<div class="info-item info-item--general">
-												<?php echo do_shortcode(get_post_meta(get_the_id(), 'courseGeneralInfo', true)); ?>
+												<?php echo do_shortcode(get_post_meta(get_the_id(), 'retreatGeneralInfo', true)); ?>
 											</div>
 										<?php endif; ?>
 									</div>
 									<div class="card-footer">
-										<a class="btn btn-outline btn-outline--primary btn-sm" href="<?php echo esc_url( home_url( '/' ) ); ?>form-curso?curso=<?php echo get_the_id(); ?>">
-											<?php echo get_post_meta( get_the_id(), 'courseTextCTA', true); ?>
+										<a class="btn btn-outline btn-outline--primary btn-sm" href="<?php echo esc_url( home_url( '/' ) ); ?>form-retiro?retiro=<?php echo get_the_id(); ?>">
+											<?php echo get_post_meta( get_the_id(), 'retreatTextCTA', true); ?>
 										</a>
 									</div>
 								</div>
 							</div>
 
 						<!-- modal -->
-						<?php if( get_post_meta( get_the_id(), 'coursePaymentMethod', true) ) : ?>
+						<?php if( get_post_meta( get_the_id(), 'retreatPaymentMethod', true) ) : ?>
 							<div class="modal-course--container">
 								<div class="modal fade" id="openModalCourse<?php echo get_the_id(); ?>" tabindex="-1" role="dialog" aria-labelledby="openModalCourseLabel<?php echo get_the_id(); ?>" aria-hidden="true">
 									<div class="modal-dialog modal-dialog-centered" role="document">
@@ -518,7 +538,7 @@ function shortcode_slider_cursos( $atts ) {
 												</button>
 											</div>
 											<div class="modal-body">
-												<?php echo do_shortcode(get_post_meta(get_the_id(), 'coursePaymentMethod', true)); ?>
+												<?php echo do_shortcode(get_post_meta(get_the_id(), 'retreatPaymentMethod', true)); ?>
 											</div>
 										</div>
 									</div>

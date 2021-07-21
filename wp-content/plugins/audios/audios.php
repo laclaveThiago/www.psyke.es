@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: Meditaciones
+ * Plugin Name: Audios
  * Plugin URI: https://laclave.es
- * Description: Gestionar meditaciones
+ * Description: Gestionar audios
  * Author: laclave
  * Author URI: https://www.laclave.es
  * Version: 1.0.0
@@ -13,23 +13,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 // Crear Custom Post Type
-function meditaciones_post_type() {
+function audios_post_type() {
 
 	$labels = array(
-		'name'                  => _x( 'Meditaciones', 'Post Type General Name', 'text_domain' ),
-		'singular_name'         => _x( 'Material', 'Post Type Singular Name', 'text_domain' ),
-		'menu_name'             => __( 'Meditaciones', 'text_domain' ),
-		'name_admin_bar'        => __( 'Meditaciones', 'text_domain' ),
+		'name'                  => _x( 'Audios', 'Post Type General Name', 'text_domain' ),
+		'singular_name'         => _x( 'Audio', 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'             => __( 'Audios', 'text_domain' ),
+		'name_admin_bar'        => __( 'Audios', 'text_domain' ),
 		'archives'              => __( 'Item Archives', 'text_domain' ),
 		'parent_item_colon'     => __( 'Parent Item:', 'text_domain' ),
-		'all_items'             => __( 'Todas las Meditaciones', 'text_domain' ),
+		'all_items'             => __( 'Todas los Audios', 'text_domain' ),
 		'add_new_item'          => __( 'Añadir nuevo', 'text_domain' ),
 		'add_new'               => __( 'Añadir nuevo', 'text_domain' ),
-		'new_item'              => __( 'Nueva Meditación', 'text_domain' ),
-		'edit_item'             => __( 'Editar Meditación', 'text_domain' ),
-		'update_item'           => __( 'Actualizar Meditación', 'text_domain' ),
-		'view_item'             => __( 'Ver Meditación', 'text_domain' ),
-		'search_items'          => __( 'Buscar Meditación', 'text_domain' ),
+		'new_item'              => __( 'Nuevo Audio', 'text_domain' ),
+		'edit_item'             => __( 'Editar Audio', 'text_domain' ),
+		'update_item'           => __( 'Actualizar Audio', 'text_domain' ),
+		'view_item'             => __( 'Ver Audio', 'text_domain' ),
+		'search_items'          => __( 'Buscar Audio', 'text_domain' ),
 		'not_found'             => __( 'Not found', 'text_domain' ),
 		'not_found_in_trash'    => __( 'Not found in the trash', 'text_domain' ),
 		'featured_image'        => __( 'Imagen destacada', 'text_domain' ),
@@ -43,8 +43,8 @@ function meditaciones_post_type() {
 		'filter_items_list'     => __( 'Filter items list', 'text_domain' ),
 	);
 	$args = array(
-		'label'                 => __( 'Meditaciones', 'text_domain' ),
-		'description'           => __( 'Meditaciones', 'text_domain' ),
+		'label'                 => __( 'Audios', 'text_domain' ),
+		'description'           => __( 'Audios', 'text_domain' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'custom-fields' ),
 		'hierarchical'          => true,
@@ -61,44 +61,38 @@ function meditaciones_post_type() {
 		'publicly_queryable'    => true,
 		'capability_type'       => 'post',
 		'show_in_rest'          => true,
-  		'rest_base'             => 'meditaciones',
+  		'rest_base'             => 'audios',
   		'rest_controller_class' => 'WP_REST_Posts_Controller',
   		'rewrite' => true,
 	);
-	register_post_type('meditaciones', $args);
+	register_post_type('audios', $args);
 }
-add_action( 'init', 'meditaciones_post_type', 0 );
+add_action( 'init', 'audios_post_type', 0 );
 // ./Crear Custom Post Type
 
 
 // Campos personalizados
 
-class configMeditationMetabox {
+class configAudioMetabox {
 	private $screen = array(
-		'meditaciones',
+		'audios',
 	);
 	private $meta_fields = array(
 		array(
-			'label' => 'Número de la meditación',
-			'id' => 'numberMeditation',
-			'default' => '',
-			'type' => 'text',
-		),
-		array(
 			'label' => 'Tiempo (Duración)',
-			'id' => 'timeMeditation',
+			'id' => 'timeAudio',
 			'default' => '',
 			'type' => 'text',
 		),
 		array(
 			'label' => 'Descripción corta',
-			'id' => 'descriptionMeditation',
+			'id' => 'descriptionAudio',
 			'default' => '',
 			'type' => 'wysiwyg',
 		),
 		array(
-            'label' => 'Audio meditación',
-            'id' => 'audioMeditation',
+            'label' => 'Audio ',
+            'id' => 'fileAudio',
             'type' => 'media',
         ),
 	);
@@ -110,8 +104,8 @@ class configMeditationMetabox {
 	public function add_meta_boxes() {
 		foreach ( $this->screen as $single_screen ) {
 			add_meta_box(
-				'configMeditation',
-				__( 'Información de la meditación', 'textdomain' ),
+				'configAudio',
+				__( 'Información del audio', 'textdomain' ),
 				array( $this, 'meta_box_callback' ),
 				$single_screen,
 				'advanced',
@@ -120,7 +114,7 @@ class configMeditationMetabox {
 		}
 	}
 	public function meta_box_callback( $post ) {
-		wp_nonce_field( 'configMeditation_data', 'configMeditation_nonce' );
+		wp_nonce_field( 'configAudio_data', 'configAudio_nonce' );
 		$this->field_generator( $post );
 	}
 	public function media_fields() {
@@ -129,7 +123,7 @@ class configMeditationMetabox {
 				if ( typeof wp.media !== 'undefined' ) {
 					var _custom_media = true,
 					_orig_send_attachment = wp.media.editor.send.attachment;
-					$('.configMeditation-media').click(function(e) {
+					$('.configAudio-media').click(function(e) {
 						var send_attachment_bkp = wp.media.editor.send.attachment;
 						var button = $(this);
 						var id = button.attr('id').replace('_button', '');
@@ -161,7 +155,7 @@ class configMeditationMetabox {
 			switch ( $meta_field['type'] ) {
 				case 'media':
 					$input = sprintf(
-						'<input style="width: 80%%" id="%s" name="%s" type="text" value="%s"> <input style="width: 19%%" class="button configMeditation-media" id="%s_button" name="%s_button" type="button" value="Upload" />',
+						'<input style="width: 80%%" id="%s" name="%s" type="text" value="%s"> <input style="width: 19%%" class="button configAudio-media" id="%s_button" name="%s_button" type="button" value="Upload" />',
 						$meta_field['id'],
 						$meta_field['id'],
 						$meta_value,
@@ -218,10 +212,10 @@ class configMeditationMetabox {
 		return '<tr><th>'.$label.'</th><td>'.$input.'</td></tr>';
 	}
 	public function save_fields( $post_id ) {
-		if ( ! isset( $_POST['configMeditation_nonce'] ) )
+		if ( ! isset( $_POST['configAudio_nonce'] ) )
 			return $post_id;
-		$nonce = $_POST['configMeditation_nonce'];
-		if ( !wp_verify_nonce( $nonce, 'configMeditation_data' ) )
+		$nonce = $_POST['configAudio_nonce'];
+		if ( !wp_verify_nonce( $nonce, 'configAudio_data' ) )
 			return $post_id;
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
 			return $post_id;
@@ -242,49 +236,35 @@ class configMeditationMetabox {
 		}
 	}
 }
-if (class_exists('configMeditationMetabox')) {
-	new configMeditationMetabox;
+if (class_exists('configAudioMetabox')) {
+	new configAudioMetabox;
 };
 // ./ Campos personalizados
 
 //Plantilla single
 
-function get_custom_meditaciones_template($single_template) {
+function get_custom_audios_template($single_template) {
      global $post;
 
-     if ($post->post_type == 'meditaciones') {
-          $single_template = dirname( __FILE__ ) . '/templates/single-meditaciones.php';
+     if ($post->post_type == 'audios') {
+          $single_template = dirname( __FILE__ ) . '/templates/single-audios.php';
      }
      return $single_template;
 }
-add_filter( 'single_template', 'get_custom_meditaciones_template' );
+add_filter( 'single_template', 'get_custom_audios_template' );
 
 
 /*
 //Plantilla Archive
 */
-function get_custom_meditaciones_archive_template($archive_template) {
+function get_custom_audios_archive_template($archive_template) {
      global $post;
 
-     if ($post->post_type == 'meditaciones') {
-          $archive_template = dirname( __FILE__ ) . '/templates/archive-meditaciones.php';
+     if ($post->post_type == 'audios') {
+          $archive_template = dirname( __FILE__ ) . '/templates/archive-audios.php';
      }
      return $archive_template;
 }
-add_filter( 'archive_template', 'get_custom_meditaciones_archive_template' );
-
-
-
-add_action( 'pre_get_posts', 'meditaciones_change_sort_order'); 
-function meditaciones_change_sort_order($query){
-	if(is_archive()):
-		//If you wanted it for the archive of a custom post type use: is_post_type_archive( $post_type )
-		is_post_type_archive( 'meditaciones' );
-		//Set the order ASC or DESC
-		$query->set( 'order', 'ASC' );
-		//Set the orderby
-		$query->set( 'orderby', 'title' );
-	endif;    
-};
+add_filter( 'archive_template', 'get_custom_audios_archive_template' );
 
 

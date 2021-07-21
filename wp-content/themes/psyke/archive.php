@@ -93,12 +93,19 @@ $container = get_theme_mod( 'understrap_container_type' );
                     </div>
 			</main><!-- #main -->
 
+            <section class="pagination-section padding-regular--top padding-large--bottom">
+            <div class="container">
+            <div class="row">
+            <div class="col-md-12">
 			<?php
 			// Display the pagination component.
 			understrap_pagination();
 			// Do the right sidebar check.
-			
 			?>
+            </div>
+            </div>
+            </div>
+            </section>
 
 	</div><!-- #content -->
 

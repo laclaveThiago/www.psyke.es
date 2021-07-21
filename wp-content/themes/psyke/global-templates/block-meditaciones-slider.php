@@ -16,7 +16,7 @@ $meditaciones = new WP_Query(
     array(
         'post_type'   => 'meditaciones',
         'posts_per_page' => 8,
-        'order' => 'DESC' 
+        'order' => 'ASC' 
     )
 );
 

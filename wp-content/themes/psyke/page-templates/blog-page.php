@@ -91,10 +91,12 @@ endif;
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
+                    <div class="follow-thumbnail"></div>
                     <?php
                         $args = array(
                             'post_type' => 'post',
                             'limit' => 5,
+                            'order_by '=> 'views',
                             'thumbnail_width' => 75,
                             'thumbnail_height' => 75
                         );

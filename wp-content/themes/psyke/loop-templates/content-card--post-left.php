@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
 
 <div class="card-post card-post--default">
     <a href="<?php the_permalink(); ?>" class="card-post--inner">
-        <div class="card-image">
+        <div class="card-image card-image--rounded">
             <div class="card-image--inner">
                 <?php 
                     if (has_post_thumbnail()) :

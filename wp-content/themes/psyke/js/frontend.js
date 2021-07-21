@@ -244,6 +244,15 @@
             });
         }
 
+        
+        if ($('.modal-course--container').length > 0) {
+            $('.modal-course--container').each( function() {
+                var htmlCourseModal = $(this).html();
+                $(this).remove();
+                $('#insertModalCourses').append(htmlCourseModal);
+            });
+        }
+
         if ($('.slick-brands').length > 0) {
             $('.slick-brands').slick({
                 dots: false,
@@ -517,6 +526,56 @@
             */
         }
 
+        function checkFunctionSlider(el) {
+            console.log('trigger Slick');
+            var elSlick = el + ' .slick-card-courses';
+            //console.log(el);
+            //console.log(el.find('.slick-card-courses'));
+
+            var cardsSize = elSlick.length;
+            console.log(cardsSize);
+            
+            if ($(elSlick).length > 0) {
+                setTimeout( function() {
+                    $(elSlick).each(function () {
+                        console.log($(this));
+                        if ($(this).hasClass('slick-initialized')) {
+                            $(this).slick('unslick');
+                        }
+                        
+                        $(this).not('.slick-initialized').slick({
+                            dots: false,
+                            arrows: true,
+                            infinite: false,
+                            slidesToShow: 3,
+                            slidesToScroll: 3,
+                            prevArrow:'<button class="prev slick-prev slick-circle"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-left" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-arrow-left fa-w-14"><path fill="currentColor" d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z" class="" fill="#89b1b7"></path></svg></button>',
+                            nextArrow:'<button class="next slick-next slick-circle"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-arrow-right fa-w-14"><path fill="currentColor" d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z" class="" fill="#89b1b7"></path></svg></button>',
+                            responsive: [
+                                {
+                                    breakpoint: 992,
+                                    settings: {
+                                        slidesToShow: 2,
+                                        slidesToScroll: 2,
+                                    }
+                                },
+                                {
+                                    breakpoint: 640,
+                                    settings: {
+                                        slidesToShow: 1,
+                                        slidesToScroll: 1,
+                                    }
+                                }
+                                // You can unslick at a given breakpoint now by adding:
+                                // settings: "unslick"
+                                // instead of a settings object
+                            ]
+                        });
+                    });
+                }, 500);
+                
+            }
+        }
 
         $('.trigger-course').on('click', function () {
             $(this).toggleClass('active');
@@ -528,6 +587,7 @@
             if (elementToTogglePointer == '#company-tab') {
                 $('.slick-brands').slick('reinit');
             }
+            checkFunctionSlider(elementToTogglePointer);
         });
 
         $('.course-tab .tab-button').on('click', function () {
@@ -661,7 +721,8 @@
         if($('body').hasClass('page-id-39')) {
             //console.log('Page ID = 39');
             var logotype = $('.anim-logotipo-psyke');
-            var logotypeWidth = 620;
+            var logotypeNavbar = $('.page-id-39 .navbar-brand');
+            var logotypeWidth = 720;
 
             if ($(window).width() > 340 && $(window).width() < 768) {
                 logotypeWidth = 320;
@@ -670,23 +731,72 @@
             }
 
             var positionFinal = $('#main-nav .navbar-brand').offset();
-            var finalX = positionFinal.left;
-            var finalY = positionFinal.top;
+            var finalX = positionFinal.left - 48;
+            console.log(`FinalX ${finalX}`);
+            var finalY = positionFinal.top - 48;
             var initialX = finalX;
+            console.log(`FinalY ${finalY}`);
 
             var initialY = $('.hero-psyke').height() - logotypeWidth - 42;
             var initialYStart = initialY + 250;
 
-            gsap.set(logotype, { y: initialYStart, x: initialX, width: logotypeWidth});
+            gsap.set(logotype, { y: initialYStart, x: initialX, width: logotypeWidth, transformOrigin: "50% 50%"});
+            gsap.set(logotypeNavbar, {opacity: 0, transformOrigin: "50% 50%"}); 
 
-            gsap.to(logotype, {autoAlpha: 1, y: initialY, duration: 0.75, delay: 1.5, ease: "power4.out"});
-            gsap.to(logotype, {y: finalY, width: 96, duration: 0.3, delay: 2.75, ease: "power4.out"});
-            gsap.to(logotype, {autoAlpha: 0, duration: 0.3, delay: 3, ease: "power4.out"});
+            gsap.to(logotype, {autoAlpha: 1, y: initialY, duration: 0.75, delay: 1.5, ease: "power2.out"});
+            //gsap.to(logotype, {y: finalY, width: 96, duration: 0.3, delay: 2.75, ease: "power4.out"});
+            gsap.to(logotype, {autoAlpha: 0, y: initialYStart, duration: 0.75, delay: 4, ease: "power2.out"});
 
-            gsap.to( $('.page-id-39 .navbar-brand'), {autoAlpha: 1, scale: 1, duration: 0.3, delay: 3.1, ease: "power4.out"});
+            gsap.to(logotypeNavbar, {opacity: 1, duration: 0.75, delay: 4, ease: "power2.out"});
 
         }
 
+        if($('body').hasClass('no-touchevents')) {
+            if($('.follow-thumbnail').length > 0) {
+                var cursor = $(".follow-thumbnail");
+                console.log(`Cursor ${cursor}`);
+                var posX = 0,
+                    posY = 0;
+
+                var mouseX = 0,
+                    mouseY = 0;
+
+                //TweenMax.to({}, 0.016, {
+                gsap.to({}, 0.016, {
+                    repeat: -1,
+                    onRepeat: function () {
+                        posX += (mouseX - posX) / 9;
+                        posY += (mouseY - posY) / 9;
+
+                        gsap.set(cursor, {
+                            css: {
+                                left: mouseX,
+                                top: mouseY
+                            }
+                        });
+                    }
+                });
+
+                $(document).on("mousemove", function (e) {
+                    mouseX = e.clientX;
+                    mouseY = e.clientY;
+                });
+                // yellow circle
+                $(".wpp-list li").on("mouseenter", function () {
+                    cursor.addClass("active");
+                    var elImageSource = $(this).find('img').attr('src');
+                    console.log(`URL image: ${elImageSource}`);
+                    cursor.css({
+                        'background-image' : elImageSource
+                    });
+                });
+                $(".wpp-list li").on("mouseleave", function () {
+                    cursor.removeClass("active");
+                });
+                // .FOLLOW MOUSE
+            }
+        }
+ 
         /*
         // LOADING AJAX
         //
@@ -718,6 +828,144 @@
             document.addEventListener('wpcf7mailsent', function (event) {
                 location = `${baseURL}/gracias-por-ponerte-en-contacto/`;
             }, false);
+        }
+
+        //form retiro
+        if ($('#form-retiro').length > 0) {
+            
+            var courseDatesSpaces = $('.info-item--dates .info-item--body').text();
+            var courseDates = $.trim(courseDatesSpaces);
+
+            var courseLanguageSpaces = $('.info-item--language .info-item--body').text();
+            var courseLanguage = $.trim(courseLanguageSpaces);
+
+            var coursePlaceSpaces = $('.info-item--place .info-item--body').text();
+            var coursePlace = $.trim(coursePlaceSpaces);
+
+            var coursePriceSpaces = $('.info-item--price .info-item--body').text();
+            var coursePrice = $.trim(coursePriceSpaces);
+
+            var courseTitle = $('.card-header h3').text()
+            
+            $('#courseID').val($('.card-default--retreat').attr('data-retiro'));
+            $('#courseTitle').val(courseTitle);
+            $('#courseDates').val(courseDates);
+            $('#courselanguage').val(courseLanguage);
+            $('#coursePlace').val(coursePlace);
+            $('#coursePrice').val(coursePrice);
+
+            var payment = $('#retreatPaymentMethod').attr('data-payment');
+            if (payment) {
+                $('#payment-method--info .payment-method--info-text').html($('#retreatPaymentMethod').html());
+            } else {
+                $('#payment-method--info').remove();
+            }
+            
+            var classRoom = $('#retreatClassroom').attr('data-classroom');
+            var online = $('#retreatOnline').attr('data-online');
+
+            if (classRoom === 'true' && online === 'true') {
+                
+            } else {
+                if (classRoom === 'true') {
+                   $('#modeRetreat .wpcf7-list-item.last input').click();
+                } 
+                if (online === 'true') {
+                   $('#modeRetreat .wpcf7-list-item.first input').click();
+                } 
+                $('#modeRetreat').css({
+                    'display' : 'none'
+                });
+            }
+
+            //submit form
+            document.addEventListener('wpcf7mailsent', function (event) {
+                var courseTitleURL = encodeURI(courseTitle);
+                location = `${baseURL}/gracias-retiros/?retiro=${courseTitleURL}`;
+            }, false);
+            
+        }
+        //form curso
+        if ($('#form-curso').length > 0) {
+            
+            var courseDatesSpaces = $('.info-item--dates .info-item--body').text();
+            var courseDates = $.trim(courseDatesSpaces);
+
+            var courseLanguageSpaces = $('.info-item--language .info-item--body').text();
+            var courseLanguage = $.trim(courseLanguageSpaces);
+
+            var coursePlaceSpaces = $('.info-item--place .info-item--body').text();
+            var coursePlace = $.trim(coursePlaceSpaces);
+
+            var coursePriceSpaces = $('.info-item--price .info-item--body').text();
+            var coursePrice = $.trim(coursePriceSpaces);
+
+            var courseTitle = $('.card-header h3').text()
+            
+            $('#courseID').val($('.card-default--course').attr('data-course'));
+            $('#courseTitle').val(courseTitle);
+            $('#courseDates').val(courseDates);
+            $('#courselanguage').val(courseLanguage);
+            $('#coursePlace').val(coursePlace);
+            $('#coursePrice').val(coursePrice);
+
+            var payment = $('#coursePaymentMethod').attr('data-payment');
+            if (payment) {
+                $('#payment-method--info .payment-method--info-text').html($('#coursePaymentMethod').html());
+            } else {
+                $('#payment-method--info').remove();
+            }
+            
+            var classRoom = $('#courseClassroom').attr('data-classroom');
+            var online = $('#courseOnline').attr('data-online');
+
+            if (classRoom === 'true' && online === 'true') {
+                
+            } else {
+                if (classRoom === 'true') {
+                   $('#modeCourse .wpcf7-list-item.last input').click();
+                } 
+                if (online === 'true') {
+                   $('#modeCourse .wpcf7-list-item.first input').click();
+                } 
+                $('#modeCourse').css({
+                    'display' : 'none'
+                });
+            }
+
+            //submit form
+            document.addEventListener('wpcf7mailsent', function (event) {
+                var courseTitleURL = encodeURI(courseTitle);
+                location = `${baseURL}/gracias-cursos/?curso=${courseTitleURL}`;
+            }, false);
+            
+        }
+
+
+        var getUrlParameter = function getUrlParameter(sParam) {
+            var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : sParameterName[1];
+                }
+            }
+        };
+        
+        
+        if ($('body').hasClass('page-id-3812')) {
+            var retreatName = getUrlParameter('retiro');
+            $('#retiroName').text(decodeURI(retreatName));
+        }
+
+        if ($('body').hasClass('page-id-3922')) {
+            var courseName = getUrlParameter('curso');
+            $('#courseName').text(decodeURI(courseName));
         }
         
 

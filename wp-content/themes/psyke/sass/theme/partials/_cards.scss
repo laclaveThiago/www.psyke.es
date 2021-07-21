@@ -37,6 +37,10 @@
     .card-image {
         border-radius: 50%;
         overflow: hidden;
+        &.card-image--rounded {
+            border-radius: 50%;
+            overflow: hidden;
+        }
         .card-image--inner {
             display: -ms-flexbox;
             display: flex;
@@ -106,6 +110,10 @@
         text-align: left;
         .card-image {
             border-radius: 0;
+            &.card-image--rounded {
+                border-radius: 50%;
+                overflow: hidden;
+            }
             canvas {
                 border-radius: 0;
             }
@@ -278,5 +286,159 @@
         p:last-of-type {
             margin-bottom: 0;
         }
+    }
+}
+
+.card-default {
+    padding: 15px;
+    .card-inner {
+        border-radius: 0;
+        border: 2px solid #000;
+        width: 100%;
+    }
+    .card-header {
+        background-color: #f2f0eb;
+        border-radius: 0;
+        border: none;
+        border-bottom: 2px solid #000;
+        padding: 24px;
+        h3 {
+            color: #333;
+            font-family: $font-alternate;
+            background-color: #f2f0eb;
+            @include font-size(24px);
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+        .sub-header {
+            margin-top: 10px;
+            @include font-size(16px);
+            color: #000;
+            font-weight: 200;
+            font-family: $font-scala;
+            p:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+    }
+    .card-body {
+        padding: 24px;
+        background: transparent;
+        color: #000;
+        .info-item {
+            display: -ms-flexbox;
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            p:last-of-type {
+                margin-bottom: 0;
+            }
+            &.info-item--course-dates {
+                flex-wrap: wrap;
+                @include font-size(14px);
+                font-weight: 400;
+                font-family: $font-scala;
+                ul {
+                    padding-left: 15px;
+                    width: 100%;
+                }
+                p {
+                    width: 100%;
+                }
+            }
+            &.info-item--general {
+                font-family: $font-scala;
+            }
+        }
+        .info-item--icon {
+            width: 24px;
+            height: 24px;
+            flex: 0 0 24px;
+            background-repeat: no-repeat;
+            background-size: 24px 24px;
+        }
+        .info-item--body {
+            padding-left: 8px;
+            @include font-size(24px);
+            font-family: $font-alternate;
+            font-weight: 700;
+        }
+        .info-item + .info-item {
+            margin-top: calculateRem(8px);
+        }
+        .link-payment-method {
+            padding: 0;
+            border: none;
+            background: transparent;
+            @include font-size(13px);
+            text-decoration: none;
+            color: #8ab1b8;
+            margin-top: 8px;
+            display: block;
+        }
+    }
+    .card-footer {
+        padding: 24px;
+        padding-top: 0;
+        background: transparent;
+        border: none;
+        border-top: none;
+    }
+}
+
+
+.info-item--classroom .info-item--icon {
+    background-image: url('../img/icons/icono-screen.jpg');
+}
+.info-item--dates .info-item--icon {
+    background-image: url('../img/icons/icono-calendario.jpg');
+}
+.info-item--place .info-item--icon {
+    background-image: url('../img/icons/icono-ubicacion.jpg');
+}
+.info-item--seats .info-item--icon {
+    background-image: url('../img/icons/icono-plazas-limitadas.jpg');
+}
+.info-item--language .info-item--icon {
+    background-image: url('../img/icons/icono-idioma-2.jpg');
+}
+.info-item--teacher .info-item--icon {
+    background-image: url('../img/icons/icono-instructor.jpg');
+}
+.info-item--price .info-item--icon {
+    background-image: url('../img/icons/icono-tarjeta.jpg');
+    align-self: flex-start;
+    background-position: left top 4px;
+}
+.slick-circle {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    border: 1px solid #89b1b7;
+    bottom: -82px;
+    top: auto;
+    z-index: 2;
+    color: #89b1b7;
+    background-color: transparent;
+    transition: 300ms color ease, 300ms background-color ease;
+    &::before {
+        content: none;
+    }
+    &.slick-prev {
+        left: auto;
+        right: 64px;
+    }
+    &.slick-next {
+        right: 0;
+    }
+    svg {
+        fill: #89b1b7;
+        width: 14px;
+        height: auto;
+    }
+    &:hover,
+    &:focus {
+        color: #89b1b7;
+        background-color: rgba(50,50,50,0.035);
     }
 }

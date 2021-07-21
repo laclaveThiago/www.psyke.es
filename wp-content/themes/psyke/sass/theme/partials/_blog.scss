@@ -225,6 +225,9 @@
 .grid-sizer,
 .grid-item {
     width: 25%;
+    &.grid-item--width2 {
+        width: 50%;
+    }
     .card-post {
         .card-header {
             padding-bottom: 24px;
@@ -237,19 +240,28 @@
 @media screen and (max-width: 992px) {
     .grid-sizer,
     .grid-item {
-            width: 33.333%;
+        width: 33.333%;
+        &.grid-item--width2 {
+            width: 66.666%;
+        }
     }   
 }
 @media screen and (max-width: 767px) {
     .grid-sizer,
     .grid-item {
-            width: 50%;
+        width: 50%;
+        &.grid-item--width2 {
+            width: 100%;
+        }
     }   
 }
 @media screen and (max-width: 620px) {
     .grid-sizer,
     .grid-item {
+        width: 100%;
+        &.grid-item--width2 {
             width: 100%;
+        }
     }   
 }
 

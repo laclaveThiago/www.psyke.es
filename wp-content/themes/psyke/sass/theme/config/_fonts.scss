@@ -5,8 +5,8 @@ $font-name: "Omnes" !default;
 /* REGULAR */
 @font-face {
   font-family: #{$font-name};
-  src: url("#{$fonts-path}/#{$font-name}_regular.woff2") format("woff2"),
-    url("#{$fonts-path}/#{$font-name}_regular.woff") format("woff");
+  src: url("#{$fonts-path}/#{$font-name}_medium.woff2") format("woff2"),
+    url("#{$fonts-path}/#{$font-name}_medium.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -55,6 +55,18 @@ $font-name: "Omnes" !default;
   font-style: normal;
   font-display: swap;
 }
+
+/* Medium */
+/*
+@font-face {
+  font-family: #{$font-name};
+  src: url("#{$fonts-path}/#{$font-name}_medium.woff2") format("woff2"),
+    url("#{$fonts-path}/#{$font-name}_medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+*/
 
 
 $font-scala-path: "../fonts/scala-sans" !default;

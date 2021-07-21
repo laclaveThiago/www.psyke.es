@@ -170,3 +170,31 @@
         margin-left: 0;
     }
 }
+
+#form-curso,
+#form-retiro {
+    .form-checkbox {
+        margin-top: 15px;
+    }
+}
+#payment-method--info {
+    .padding-inner {
+        padding: 24px;
+    }
+    h4 {
+        text-transform: uppercase;
+        color: #453f3f;
+        @include font-size(14px);
+        font-weight: 700;
+    }
+    .payment-method--info-text {
+        color: #453f3f;
+        @include font-size(16px);
+    }
+}
+#modeCourse label.form-label,
+#modeRetreat label.form-label {
+    color: #453f3f;
+    @include font-size(14px);
+    margin-top: 16px;
+}

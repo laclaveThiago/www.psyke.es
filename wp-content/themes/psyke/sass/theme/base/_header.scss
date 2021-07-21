@@ -22,17 +22,28 @@
 
 .navbar-nav {
   .active .nav-link {
-    &:after {
+    &:before {
       width: calc(100% - 1.16rem);
       background-color: white;
     }
+  }
+  .dropdown-toggle {
+    border: none;
+    box-shadow: 0 30px 60px -30px rgba(0,0,0,0.25), 0 25px 100px -25px rgba(0, 0, 0,0.25);
+  }
+  
+  .dropdown-toggle::after {
+    vertical-align: .175em;
+    border-top: .25em solid;
+    border-right: .25em solid transparent;
+    border-left: .25em solid transparent;
   }
 }
 .navbar-nav .nav-link {
   color: #fff;
   @include font-size(20px);
   position: relative;
-  &:after {
+  &:before {
     position: absolute;
     content: '';
     width: 0;
@@ -43,7 +54,7 @@
     transition-property: width, background-color;
     transition: 300ms ease;
   }
-  &:hover:after {
+  &:hover:before {
     width: calc(100% - 1.16rem);
     background-color: white;
   }
@@ -56,12 +67,12 @@
 .post-type-archive-meditaciones {
   .navbar-nav {
     .nav-link {
-      color: $secondary-color;
-      &:after {
-        background-color: $secondary-color;
+      color: #453f3f;
+      &:before {
+        background-color: #453f3f;
       }
-      &:hover:after {
-        background-color: $secondary-color;
+      &:hover:before {
+        background-color: #453f3f;
       }
     }  
   }
@@ -69,10 +80,10 @@
     .navbar-nav {
       .nav-link {
         color: #fff;
-        &:after {
+        &:before {
           background-color: #fff;
         }
-        &:hover:after {
+        &:hover:before {
           background-color: #fff;
         }
       }
@@ -92,8 +103,8 @@
     padding-top: .5rem;
   }
   .navbar-brand {
-    width: 62px;
-    height: 62px;
+    width: 45px;
+    height: 45px;
     svg .smile-base {
       opacity: 1;
     }
@@ -101,14 +112,23 @@
   .navbar-nav {
     .nav-link {
       color: #fff;
-      &:hover:after {
+      &:hover:before {
         background-color: #fff;
       }
     }
     .active .nav-link {
-      &:after {
+      &:before {
         background-color: #fff;
       }
+    }
+  }
+}
+
+.page-id-39 {
+  .top-nav-collapse {
+    .navbar-brand {
+      width: 45px!important;
+      height: 45px!important;
     }
   }
 }
@@ -177,7 +197,7 @@
 
 .page-id-39 .navbar-brand {
   opacity: 0;
-  transform: scale(0);
+  //transform: scale(0);
 }
 
 .anim-logotipo-psyke {
