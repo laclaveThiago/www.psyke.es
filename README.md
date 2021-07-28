@@ -4,10 +4,18 @@
 <p>Para actualizar el tema hijo o mirar la documentación: <a href="https://github.com/understrap/understrap-child">https://github.com/understrap/understrap-child</a></p>
 
 <h2>Instalación</h2>
-<ul>
-	<li>Instalar node.js</li>
-	<li>Instalar la dependencias npm en la carpeta eibol <code>npm install</code></li>
-	<li>Instalar los assets gulp <code>gulp copy-assets</code></li>
-	<li>Para compilar los estilos ejecutar en la carpeta <strong>eibol</strong> el comando <code>gulp watch</code></li>
-</ul>
+1. Instalar node.js
+2. Instalar la dependencias npm en la carpeta <strong>'wp-content/themes/psyke'</strong>
+	```
+		npm install
+	```
+3. Instalar los assets gulp 
+```
+gulp copy-assets
+```
+4. Para compilar los estilos ejecutar en la carpeta <strong>'wp-content/themes/psyke'</strong> el comando 
+```
+gulp watch
+```
+
  
