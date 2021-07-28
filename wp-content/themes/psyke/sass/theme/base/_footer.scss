@@ -93,13 +93,16 @@
     display: -ms-flexbox;
     display: flex;
     svg {
-      width: 10px;
+      width: 1rem;
       margin: auto;
     }
     &:hover {
       background-color: $secondary-color;
       color: #fff;
     }
+  }
+  .facebook a svg {
+    max-width: 10px;
   }
 }
 
@@ -206,4 +209,31 @@ footer.site-footer .tnp-subscription input[type=text] {
   height: auto;
   display: block;
   visibility: visible;
+}
+
+.fast-links {
+  padding-top: calculateRem(32px);
+  margin-top: calculateRem(32px);
+  border-top: 1px solid rgba(25,25,25,0.15);
+  .menu-badge {
+    display: -ms-flexbox;
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    margin-left: -4px;
+    margin-right: -4px;
+  }
+  .badge-link {
+    border: 2px solid rgba(25,25,25,0.15);
+    color: rgba(25,25,25,0.65);
+    padding: 8px 16px;
+    border-radius: 24px;
+    @include font-size(14px);
+    margin: 4px;
+    &:hover {
+      text-decoration: none;
+      background-color:rgba(25,25,25,0.65);
+      color: #fff;
+    }
+  }
 }

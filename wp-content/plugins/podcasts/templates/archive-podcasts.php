@@ -20,14 +20,14 @@ $container = get_theme_mod( 'understrap_container_type' );
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
-                    <h2 class="title-hero text-center">Meditaciones</h2>
-                    <p class="text-center text-dark-gray">Cada vez que nos sentamos durante unos minutos a meditar, cultivamos nuestra capacidad de estar más presentes. Aprendemos a calmar nuestra mente y soltar aquello en lo que se ha detenido. A través de la práctica diaria de Mindfulness vamos consolidando la potencia de nuestra atención, para llevarla a lo que de verdad importa.</p>
+                    <h2 class="title-hero text-center">Podcasts</h2>
+                    <p class="text-center text-dark-gray">Espacio para ir construyendo la base más esencial de la práctica de Mindfulness: el hábito de practicar a diario. A través de charlas y meditaciones guiadas aspiramos a generar el interés y la motivación necesaria para mantener una práctica regular en nuestra vida cotidiana.</p>
                 </div>    
             </div>    
         </div>
         <section class="bottom-text">
             <div class="bottom-text--inner">
-                <p class="text-center">ENCUENTRA TU MOMENTO Y TU LUGAR PARA MEDITAR</p>
+                <p class="text-center">EXPANDE EL MINDFULNESS A TODAS LAS ÁREAS DE TU VIDA</p>
             </div>
         </section>
     </div>
@@ -41,9 +41,9 @@ $container = get_theme_mod( 'understrap_container_type' );
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="padding-large">
-                    <div class="row">
-                        
+                <div class="padding-large grid-masonry--container">
+                    <div class="grid-masonry">
+                        <div class="grid-sizer"></div>
                             <?php
                                 $pointerGrid = 1;
                                 // Start the loop.
@@ -56,11 +56,11 @@ $container = get_theme_mod( 'understrap_container_type' );
                                     */
                                     if ($pointerGrid == 3 || $pointerGrid == 4 || $pointerGrid == 9 || $pointerGrid == 10) :
                                         //echo '<div class="grid-item grid-item--width2">';
-                                        echo '<div class="col-md-3 mb-3">';
+                                        echo '<div class="grid-item">';
                                     else:
-                                        echo '<div class="col-md-3 mb-3">';
+                                        echo '<div class="grid-item">';
                                     endif;
-                                    get_template_part( 'loop-templates/content-card--meditaciones' );
+                                    get_template_part( 'loop-templates/content-card--podcasts' );
                                     echo '</div>';
                                     $pointerGrid++;
                                 endwhile;

@@ -38,6 +38,14 @@
     border-right: .25em solid transparent;
     border-left: .25em solid transparent;
   }
+
+  .dropdown-menu {
+    border: none;
+  }
+  .dropdown-menu .dropdown-item:hover {
+      color: #fff;
+      background-color: $primary-color;
+  }
 }
 .navbar-nav .nav-link {
   color: #fff;
@@ -60,31 +68,44 @@
   }
 }
 
-.single-post,
-.single-meditaciones,
-.archive.category,
-.page-template-blog-page,
-.post-type-archive-meditaciones {
-  .navbar-nav {
-    .nav-link {
-      color: #453f3f;
-      &:before {
-        background-color: #453f3f;
-      }
-      &:hover:before {
-        background-color: #453f3f;
-      }
-    }  
-  }
-  .top-nav-collapse {
+
+
+@media screen and (min-width: 992px) {
+  .single-post,
+  .single-meditaciones,
+  .archive.category,
+  .page-template-blog-page,
+  .post-type-archive-meditaciones,
+  .post-type-archive-articulos,
+  .single-articulos,
+  .post-type-archive-podcasts,
+  .single-podcasts,
+  .post-type-archive-videos,
+  .single-videos {
     .navbar-nav {
       .nav-link {
-        color: #fff;
+        color: #453f3f;
         &:before {
-          background-color: #fff;
+          background-color: #453f3f;
         }
         &:hover:before {
-          background-color: #fff;
+          background-color: #453f3f;
+        }
+      }  
+      .dropdown-menu .dropdown-item{
+        /* color: #453f3f; */
+      }
+    }
+    .top-nav-collapse {
+      .navbar-nav {
+        .nav-link {
+          color: #fff;
+          &:before {
+            background-color: #fff;
+          }
+          &:hover:before {
+            background-color: #fff;
+          }
         }
       }
     }
@@ -140,6 +161,35 @@
   }
 }
 
+@media screen and (max-width: 992px) {
+  .navbar-collapse--inner {
+    max-width: 232px;
+    text-align: right;
+    background-color: rgba(0,0,0,.85);
+    padding: 16px;
+  }
+  .navbar-collapse {
+    background-color: rgba(0,0,0,0);
+    .dropdown-item {
+      text-align: right;
+    }
+  }
+  .navbar-nav .nav-link {
+    width: auto;
+    display: inline-block;
+    padding: 0.15rem 1rem;
+  }
+  .menuSupportUser {
+    justify-content: flex-end;
+    padding-top: 8px;
+    margin: 0;
+    padding-bottom: 0;
+  }
+  .navbar-collapse .menuSupportUser li {
+    padding: 4px 0 4px 16px;
+  }
+}
+
 
 
 /*
@@ -176,9 +226,13 @@
       width: 70%;
       text-align: center;
 
-      -moz-transition: 300ms width ease;
-      -webkit-transition: 300ms width ease;
-      transition: 300ms width ease;
+      -moz-transition-property: width, transform, opacity;
+      -webkit-transition-property: width, transform, opacity;
+      transition-property: width, transform, opacity;
+
+      -moz-transition: 300ms ease;
+      -webkit-transition: 300ms ease;
+      transition: 300ms ease;
     }
     .icon--line-2 {
       width: 100%;
@@ -190,6 +244,18 @@
     }
     .navbar-toggler-icon .icon--line {
       width: 100%;
+    }
+  }
+  &[aria-expanded="true"] {
+    .icon--line {
+      width: 100%;
+      transform: rotate(45deg) translate3d(4px, 6px, 0);
+    }
+    .icon--line-2 {
+      opacity: 0;
+    }
+    .icon--line-3 {
+      transform: rotate(-45deg) translate3d(3px, -4px, 0);
     }
   }
 }
@@ -207,9 +273,9 @@
 
     opacity: 0;
   
-  max-width: 320px;
+  //max-width: 320px;
 
-  transition: 300ms all ease;
+  /*transition: 300ms all ease;*/
   .smile-base {
     fill: $primary-color;
   }

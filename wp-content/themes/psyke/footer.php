@@ -92,14 +92,7 @@ $container = get_theme_mod( 'understrap_container_type' );
                                     <div class="category-item">
                                         <ul>
                                             <li>
-                                                <a href="<?php echo esc_url( home_url( '/' ) ); ?>category/ansiedad/">Ansiedad</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="category-item">
-                                        <ul>
-                                            <li>
-                                                <a href="<?php echo esc_url( home_url( '/' ) ); ?>category/estres/">Estrés</a>
+                                                <a href="<?php echo esc_url( home_url( '/' ) ); ?>category/ansiedad-estres/">Ansiedad - Estrés</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -238,13 +231,7 @@ $container = get_theme_mod( 'understrap_container_type' );
                             ?>
                             <p><a href="tel:<?php echo $phone1; ?>"><?php echo get_option('address_phone1', ''); ?></a></p>
                             <p><a href="mailto:psyke@psyke.es">psyke.es</a></p>
-                            <ul class="social-media">
-                                <li class="facebook">
-                                    <a href="<?php echo get_option('facebook_url', ''); ?>" target="_blank" rel="noopener">
-                                        <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook-f" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="svg-inline--fa fa-facebook-f fa-w-10"><path fill="currentColor" d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z" class=""></path></svg>
-                                    </a>
-                                </li>
-                            </ul>
+                            <?php echo do_shortcode('[web_social_media]'); ?>
                         </div>
                     </div>
                 </div>
@@ -268,6 +255,12 @@ $container = get_theme_mod( 'understrap_container_type' );
     </div>
 
     <?php wp_footer(); ?>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
     <div id="insertModal"></div>
     <div id="insertModalCourses"></div>
 </body>

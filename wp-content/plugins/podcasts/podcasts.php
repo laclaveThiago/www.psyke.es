@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: Vídeos
+ * Plugin Name: Podcasts
  * Plugin URI: https://laclave.es
- * Description: Gestionar vídeos
+ * Description: Gestionar podcasts
  * Author: laclave
  * Author URI: https://www.laclave.es
  * Version: 2.0.0
@@ -13,23 +13,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 // Crear Custom Post Type
-function videos_post_type() {
+function podcasts_post_type() {
 
 	$labels = array(
-		'name'                  => _x( 'Vídeos', 'Post Type General Name', 'text_domain' ),
-		'singular_name'         => _x( 'Vídeo', 'Post Type Singular Name', 'text_domain' ),
-		'menu_name'             => __( 'Vídeos', 'text_domain' ),
-		'name_admin_bar'        => __( 'Vídeos', 'text_domain' ),
+		'name'                  => _x( 'Podcasts', 'Post Type General Name', 'text_domain' ),
+		'singular_name'         => _x( 'Podcast', 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'             => __( 'Podcast', 'text_domain' ),
+		'name_admin_bar'        => __( 'Podcast', 'text_domain' ),
 		'archives'              => __( 'Item Archives', 'text_domain' ),
 		'parent_item_colon'     => __( 'Parent Item:', 'text_domain' ),
-		'all_items'             => __( 'Todas los Vídeos', 'text_domain' ),
+		'all_items'             => __( 'Todas los Podcasts', 'text_domain' ),
 		'add_new_item'          => __( 'Añadir nuevo', 'text_domain' ),
 		'add_new'               => __( 'Añadir nuevo', 'text_domain' ),
-		'new_item'              => __( 'Nuevo Vídeo', 'text_domain' ),
-		'edit_item'             => __( 'Editar Vídeo', 'text_domain' ),
-		'update_item'           => __( 'Actualizar Vídeo', 'text_domain' ),
-		'view_item'             => __( 'Ver Vídeo', 'text_domain' ),
-		'search_items'          => __( 'Buscar Vídeo', 'text_domain' ),
+		'new_item'              => __( 'Nuevo Podcast', 'text_domain' ),
+		'edit_item'             => __( 'Editar Podcast', 'text_domain' ),
+		'update_item'           => __( 'Actualizar Podcast', 'text_domain' ),
+		'view_item'             => __( 'Ver Podcast', 'text_domain' ),
+		'search_items'          => __( 'Buscar Podcast', 'text_domain' ),
 		'not_found'             => __( 'Not found', 'text_domain' ),
 		'not_found_in_trash'    => __( 'Not found in the trash', 'text_domain' ),
 		'featured_image'        => __( 'Imagen destacada', 'text_domain' ),
@@ -43,8 +43,8 @@ function videos_post_type() {
 		'filter_items_list'     => __( 'Filter items list', 'text_domain' ),
 	);
 	$args = array(
-		'label'                 => __( 'Vídeos', 'text_domain' ),
-		'description'           => __( 'Vídeos', 'text_domain' ),
+		'label'                 => __( 'Podcasts', 'text_domain' ),
+		'description'           => __( 'Podcasts', 'text_domain' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'custom-fields' ),
 		'hierarchical'          => true,
@@ -52,7 +52,7 @@ function videos_post_type() {
 		'show_ui'               => true,
 		'show_in_menu'          => true,
 		'menu_position'         => 5,
-		'menu_icon'             => 'dashicons-video-alt2',
+		'menu_icon'             => 'dashicons-controls-volumeon',
 		'show_in_admin_bar'     => true,
 		'show_in_nav_menus'     => true,
 		'can_export'            => true,
@@ -61,38 +61,38 @@ function videos_post_type() {
 		'publicly_queryable'    => true,
 		'capability_type'       => 'post',
 		'show_in_rest'          => true,
-  		'rest_base'             => 'videos',
+  		'rest_base'             => 'podcasts',
   		'rest_controller_class' => 'WP_REST_Posts_Controller',
   		'rewrite' => true,
 	);
-	register_post_type('videos', $args);
+	register_post_type('podcasts', $args);
 }
-add_action( 'init', 'videos_post_type', 0 );
+add_action( 'init', 'podcasts_post_type', 0 );
 // ./Crear Custom Post Type
 
 
 // Campos personalizados
 
-class configVideoMetabox {
+class configPodcastMetabox {
 	private $screen = array(
-		'videos',
+		'podcasts',
 	);
 	private $meta_fields = array(
 		array(
 			'label' => 'Tiempo (Duración)',
-			'id' => 'timeVideo',
+			'id' => 'timeAudio',
 			'default' => '',
 			'type' => 'text',
 		),
 		array(
 			'label' => 'Descripción corta',
-			'id' => 'descriptionVideo',
+			'id' => 'descriptionAudio',
 			'default' => '',
 			'type' => 'wysiwyg',
 		),
 		array(
-            'label' => 'Video (.mp4)',
-            'id' => 'fileVideo',
+            'label' => 'Audio ',
+            'id' => 'fileAudio',
             'type' => 'media',
         ),
 	);
@@ -104,8 +104,8 @@ class configVideoMetabox {
 	public function add_meta_boxes() {
 		foreach ( $this->screen as $single_screen ) {
 			add_meta_box(
-				'configVideo',
-				__( 'Información del audio', 'textdomain' ),
+				'configPodcast',
+				__( 'Información del podcast', 'textdomain' ),
 				array( $this, 'meta_box_callback' ),
 				$single_screen,
 				'advanced',
@@ -114,7 +114,7 @@ class configVideoMetabox {
 		}
 	}
 	public function meta_box_callback( $post ) {
-		wp_nonce_field( 'configVideo_data', 'configVideo_nonce' );
+		wp_nonce_field( 'configPodcast_data', 'configPodcast_nonce' );
 		$this->field_generator( $post );
 	}
 	public function media_fields() {
@@ -123,7 +123,7 @@ class configVideoMetabox {
 				if ( typeof wp.media !== 'undefined' ) {
 					var _custom_media = true,
 					_orig_send_attachment = wp.media.editor.send.attachment;
-					$('.configVideo-media').click(function(e) {
+					$('.configPodcast-media').click(function(e) {
 						var send_attachment_bkp = wp.media.editor.send.attachment;
 						var button = $(this);
 						var id = button.attr('id').replace('_button', '');
@@ -155,7 +155,7 @@ class configVideoMetabox {
 			switch ( $meta_field['type'] ) {
 				case 'media':
 					$input = sprintf(
-						'<input style="width: 80%%" id="%s" name="%s" type="text" value="%s"> <input style="width: 19%%" class="button configVideo-media" id="%s_button" name="%s_button" type="button" value="Upload" />',
+						'<input style="width: 80%%" id="%s" name="%s" type="text" value="%s"> <input style="width: 19%%" class="button configPodcast-media" id="%s_button" name="%s_button" type="button" value="Upload" />',
 						$meta_field['id'],
 						$meta_field['id'],
 						$meta_value,
@@ -212,10 +212,10 @@ class configVideoMetabox {
 		return '<tr><th>'.$label.'</th><td>'.$input.'</td></tr>';
 	}
 	public function save_fields( $post_id ) {
-		if ( ! isset( $_POST['configVideo_nonce'] ) )
+		if ( ! isset( $_POST['configPodcast_nonce'] ) )
 			return $post_id;
-		$nonce = $_POST['configVideo_nonce'];
-		if ( !wp_verify_nonce( $nonce, 'configVideo_data' ) )
+		$nonce = $_POST['configPodcast_nonce'];
+		if ( !wp_verify_nonce( $nonce, 'configPodcast_data' ) )
 			return $post_id;
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
 			return $post_id;
@@ -236,35 +236,35 @@ class configVideoMetabox {
 		}
 	}
 }
-if (class_exists('configVideoMetabox')) {
-	new configVideoMetabox;
+if (class_exists('configPodcastMetabox')) {
+	new configPodcastMetabox;
 };
 // ./ Campos personalizados
 
 //Plantilla single
 
-function get_custom_videos_template($single_template) {
+function get_custom_podcasts_template($single_template) {
      global $post;
 
-     if ($post->post_type == 'videos') {
-          $single_template = dirname( __FILE__ ) . '/templates/single-videos.php';
+     if ($post->post_type == 'podcasts') {
+          $single_template = dirname( __FILE__ ) . '/templates/single-podcasts.php';
      }
      return $single_template;
 }
-add_filter( 'single_template', 'get_custom_videos_template' );
+add_filter( 'single_template', 'get_custom_podcasts_template' );
 
 
 /*
 //Plantilla Archive
 */
-function get_custom_videos_archive_template($archive_template) {
+function get_custom_podcasts_archive_template($archive_template) {
      global $post;
 
-     if ($post->post_type == 'videos') {
-          $archive_template = dirname( __FILE__ ) . '/templates/archive-videos.php';
+     if ($post->post_type == 'podcasts') {
+          $archive_template = dirname( __FILE__ ) . '/templates/archive-podcasts.php';
      }
      return $archive_template;
 }
-add_filter( 'archive_template', 'get_custom_videos_archive_template' );
+add_filter( 'archive_template', 'get_custom_podcasts_archive_template' );
 
 

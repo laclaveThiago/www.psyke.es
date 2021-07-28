@@ -57,7 +57,7 @@ function cursos_post_type() {
 		'show_in_nav_menus'     => true,
 		'can_export'            => true,
 		'has_archive'           => true,
-		'exclude_from_search'   => false,
+		'exclude_from_search'   => true,
 		'publicly_queryable'    => true,
 		'capability_type'       => 'page',
 		'show_in_rest'          => true,
@@ -512,7 +512,7 @@ function shortcode_slider_cursos( $atts ) {
 									<div class="modal-dialog modal-dialog-centered" role="document">
 										<div class="modal-content">
 											<div class="modal-header">
-												<h5 class="modal-title" id="openModalCourseLabel<?php echo get_the_id(); ?>">Metodo de pago</h5>
+												<h5 class="modal-title" id="openModalCourseLabel<?php echo get_the_id(); ?>">Modalidad de pago</h5>
 												<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 													<span aria-hidden="true">&times;</span>
 												</button>

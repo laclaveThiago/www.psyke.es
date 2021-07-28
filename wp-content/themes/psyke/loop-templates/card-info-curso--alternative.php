@@ -39,7 +39,7 @@ defined( 'ABSPATH' ) || exit;
         while( $curso->have_posts() ) : 
             $curso->the_post(); 
         ?>
-            <div class="card-default card-default--course" data-course="<?php echo get_the_id(); ?>">
+            <div class="card-default card-default--course card-default--course-alternative" data-course="<?php echo get_the_id(); ?>">
                 <div class="card-inner">
                     <div class="card-header">
                         <?php if( get_post_meta( get_the_id(), 'courseTitle', true) ) : ?>	
@@ -52,9 +52,8 @@ defined( 'ABSPATH' ) || exit;
                                 <?php echo do_shortcode(get_post_meta(get_the_id(), 'courseSubTitle', true)); ?>
                             </div>
                         <?php endif; ?>
-                        <button class="open-card-body circle"></button>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body sr-only">
 
                         <?php if( get_post_meta( get_the_id(), 'courseSessionsAndHour', true) ) : ?>	
                             <div class="info-item info-item--dates">

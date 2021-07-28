@@ -79,29 +79,31 @@ endif;
             <?php get_template_part( 'global-templates/block-blog--desarrollo-personal' ); ?>
 
 
-            <section class="title-blog--section txt-center border-t border-b">
+            <div class="sr-only">
+                <section class="title-blog--section txt-center border-t border-b">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3 class="title-blog text-center">Artículos Más Leídos del Blog</h3>
+                            </div>
+                        </div>
+                    </div>
+                </section>
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <h3 class="title-blog text-center">Artículos Más Leídos del Blog</h3>
+                        <div class="follow-thumbnail"></div>
+                        <?php
+                            $args = array(
+                                'post_type' => 'post',
+                                'limit' => 5,
+                                'order_by '=> 'views',
+                                'thumbnail_width' => 75,
+                                'thumbnail_height' => 75
+                            );
+                            wpp_get_mostpopular($args);
+                        ?>
                         </div>
-                    </div>
-                </div>
-            </section>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                    <div class="follow-thumbnail"></div>
-                    <?php
-                        $args = array(
-                            'post_type' => 'post',
-                            'limit' => 5,
-                            'order_by '=> 'views',
-                            'thumbnail_width' => 75,
-                            'thumbnail_height' => 75
-                        );
-                        wpp_get_mostpopular($args);
-                    ?>
                     </div>
                 </div>
             </div>
@@ -121,7 +123,7 @@ endif;
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <h3 class="title-blog--link"><a href="<?php echo esc_url( home_url( '/' ) ); ?>category/ansiedad/">Ansiedad</a></h3>
+                            <h3 class="title-blog--link"><a href="<?php echo esc_url( home_url( '/' ) ); ?>category/ansiedad-estres/">Ansiedad</a></h3>
                         </div>
                     </div>
                 </div>
@@ -140,17 +142,6 @@ endif;
             <div class="slider-frases--blog border-b">
                 <?php get_template_part( 'global-templates/block-frases' ); ?>
             </div>
-
-            <section class="title-blog--section">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h3 class="title-blog--link"><a href="<?php echo esc_url( home_url( '/' ) ); ?>category/estres/">Estrés</a></h3>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <?php get_template_part( 'global-templates/block-blog--estres' ); ?>
 
             <section class="title-blog--section">
                 <div class="container">

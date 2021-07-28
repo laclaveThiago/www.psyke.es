@@ -146,6 +146,7 @@
     }
 }
 
+.card-articulos,
 .card-meditaciones {
     height: inherit;
     padding-left: 15px;
@@ -360,8 +361,13 @@
         .info-item--body {
             padding-left: 8px;
             @include font-size(24px);
+            @include font-size(16px);
             font-family: $font-alternate;
+            font-family: $font-scala;
             font-weight: 700;
+            .price {
+                padding-top: 6px;
+            }
         }
         .info-item + .info-item {
             margin-top: calculateRem(8px);
@@ -374,6 +380,7 @@
             text-decoration: none;
             color: #8ab1b8;
             margin-top: 8px;
+            margin-top: 6px;
             display: block;
         }
     }
@@ -442,3 +449,60 @@
         background-color: rgba(50,50,50,0.035);
     }
 }
+.slick-cursos {
+    .slick-circle.slick-next {
+        right: 16px;
+    }
+}
+
+button.circle {
+    display: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid #453f3f;
+    position: absolute;
+    bottom: 24px;
+    margin: 0;
+    -webkit-transition: .3s -webkit-transform ease;
+    transition: .3s -webkit-transform ease;
+    transition: .3s transform ease;
+    transition: .3s transform ease,.3s -webkit-transform ease;
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+
+    margin-bottom: -42px;
+    background-color: #f2f0eb;
+
+    box-shadow: 0 4px 0 rgba(50,50,50,0.1);
+
+    &:after, &:before {
+        content: '';
+        width: 17px;
+        height: 2px;
+        left: 50%;
+        top: 50%;
+        position: absolute;
+        -webkit-transform: translate3d(-50%,-50%,0);
+        transform: translate3d(-50%,-50%,0);
+        display: inline-block;
+        background-color: #453f3f;
+        -webkit-transition: .3s -webkit-transform ease;
+        transition: .3s -webkit-transform ease;
+        transition: .3s transform ease;
+        transition: .3s transform ease,.3s -webkit-transform ease;
+    }
+    &:after {
+        -webkit-transform: translate3d(-50%,-50%,0) rotate(90deg);
+        transform: translate3d(-50%,-50%,0) rotate(90deg);
+    }
+    &.active {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+        &:after {
+            -webkit-transform: translate3d(-50%,-50%,0) rotate(0);
+            transform: translate3d(-50%,-50%,0) rotate(0);
+        }
+    }
+}
+    

@@ -1,7 +1,7 @@
 .navbar-collapse .menuSupportUser {
     display: none;
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 991px) {
     #main-menu {
         padding-top: 0;
     }
@@ -17,7 +17,7 @@
         margin-left: 0; 
     }
     .navbar-collapse {
-        background-color: rgba(0,0,0,0.85);
+        /* background-color: rgba(0,0,0,0.85); */
         padding: 16px;
     } 
 
@@ -37,9 +37,6 @@
         display: flex;
         padding-left: 0;
         list-style: none;
-        li {
-            padding: 4px 4px 4px 0;
-        }
         .nav-link {
             width: 46px;
             padding: 0;
@@ -216,9 +213,60 @@
     #accordion .card {
         padding: 0 32px;
     }
+
+    .col-image-yoga {
+        background-size: cover!important;
+        background-repeat: no-repeat!important;
+        background-position: right center!important;
+        background-attachment: initial!important;
+    }
+
+    .box-courses-form {
+        flex-wrap: wrap;
+    }
+    .box-courses-form .box-card {
+        width: 100%;
+        flex: 0 0 100%;
+        .card-default .card-header {
+            position: relative;
+        }
+    }
+    .box-courses-form .box-form {
+        width: 100%;
+        flex: 0 0 100%;
+    }
+    
+    button.circle {
+        display: block;
+    }
+
+    /*
+    // blog
+    */ 
+    .hero-pages.hero-blog .nav-categories li a {
+        @include font-size(16px);
+    }
+    .hero-pages.hero-blog .nav-categories li {
+        padding: 4px 2px;
+    }
+
+    .map-desktop {
+        display: none;
+    }
+    .map-mobile {
+        display: block;
+        margin-top: 24px;
+    }
 }
 
 @media screen and (max-width: 767px) {
+
+    /*
+    // home
+    */
+    .hero-slide.hero-slide-02 .hero-container {
+        background-position: center right -220px;
+    }
 
     /*
     // Thais
@@ -259,5 +307,18 @@
     #accordion .card {
         padding: 0 16px;
     }
+
+    /*
+    // Psyke
+    */
+    .section-terapias--slider .collumn-image h3 {
+        font-size: 32px;
+    }
+    .section-terapias--slider .slick-padding h3 {
+        font-size: 26px;
+    }
     
+    .component-valores h3 {
+        @include font-size(42px);
+    }
 }

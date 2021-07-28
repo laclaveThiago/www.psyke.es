@@ -1,11 +1,11 @@
 <?php
 /**
- * Plugin Name: Vídeos
+ * Plugin Name: Articulos
  * Plugin URI: https://laclave.es
- * Description: Gestionar vídeos
+ * Description: Gestionar articulos
  * Author: laclave
  * Author URI: https://www.laclave.es
- * Version: 2.0.0
+ * Version: 1.0.0
  */
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // error when open direct link on browser
@@ -13,23 +13,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 // Crear Custom Post Type
-function videos_post_type() {
+function articulos_post_type() {
 
 	$labels = array(
-		'name'                  => _x( 'Vídeos', 'Post Type General Name', 'text_domain' ),
-		'singular_name'         => _x( 'Vídeo', 'Post Type Singular Name', 'text_domain' ),
-		'menu_name'             => __( 'Vídeos', 'text_domain' ),
-		'name_admin_bar'        => __( 'Vídeos', 'text_domain' ),
+		'name'                  => _x( 'Artículos', 'Post Type General Name', 'text_domain' ),
+		'singular_name'         => _x( 'Artículo', 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'             => __( 'Artículos', 'text_domain' ),
+		'name_admin_bar'        => __( 'Artículos', 'text_domain' ),
 		'archives'              => __( 'Item Archives', 'text_domain' ),
 		'parent_item_colon'     => __( 'Parent Item:', 'text_domain' ),
-		'all_items'             => __( 'Todas los Vídeos', 'text_domain' ),
+		'all_items'             => __( 'Todas los Artículos', 'text_domain' ),
 		'add_new_item'          => __( 'Añadir nuevo', 'text_domain' ),
 		'add_new'               => __( 'Añadir nuevo', 'text_domain' ),
-		'new_item'              => __( 'Nuevo Vídeo', 'text_domain' ),
-		'edit_item'             => __( 'Editar Vídeo', 'text_domain' ),
-		'update_item'           => __( 'Actualizar Vídeo', 'text_domain' ),
-		'view_item'             => __( 'Ver Vídeo', 'text_domain' ),
-		'search_items'          => __( 'Buscar Vídeo', 'text_domain' ),
+		'new_item'              => __( 'Nuevo Audio', 'text_domain' ),
+		'edit_item'             => __( 'Editar Artículo', 'text_domain' ),
+		'update_item'           => __( 'Actualizar Artículo', 'text_domain' ),
+		'view_item'             => __( 'Ver Artículo', 'text_domain' ),
+		'search_items'          => __( 'Buscar Artículo', 'text_domain' ),
 		'not_found'             => __( 'Not found', 'text_domain' ),
 		'not_found_in_trash'    => __( 'Not found in the trash', 'text_domain' ),
 		'featured_image'        => __( 'Imagen destacada', 'text_domain' ),
@@ -43,8 +43,8 @@ function videos_post_type() {
 		'filter_items_list'     => __( 'Filter items list', 'text_domain' ),
 	);
 	$args = array(
-		'label'                 => __( 'Vídeos', 'text_domain' ),
-		'description'           => __( 'Vídeos', 'text_domain' ),
+		'label'                 => __( 'Artículos', 'text_domain' ),
+		'description'           => __( 'Artículos', 'text_domain' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'custom-fields' ),
 		'hierarchical'          => true,
@@ -52,7 +52,7 @@ function videos_post_type() {
 		'show_ui'               => true,
 		'show_in_menu'          => true,
 		'menu_position'         => 5,
-		'menu_icon'             => 'dashicons-video-alt2',
+		'menu_icon'             => 'dashicons-text-page',
 		'show_in_admin_bar'     => true,
 		'show_in_nav_menus'     => true,
 		'can_export'            => true,
@@ -61,38 +61,32 @@ function videos_post_type() {
 		'publicly_queryable'    => true,
 		'capability_type'       => 'post',
 		'show_in_rest'          => true,
-  		'rest_base'             => 'videos',
+  		'rest_base'             => 'articulos',
   		'rest_controller_class' => 'WP_REST_Posts_Controller',
   		'rewrite' => true,
 	);
-	register_post_type('videos', $args);
+	register_post_type('articulos', $args);
 }
-add_action( 'init', 'videos_post_type', 0 );
+add_action( 'init', 'articulos_post_type', 0 );
 // ./Crear Custom Post Type
 
 
 // Campos personalizados
 
-class configVideoMetabox {
+class configArticuloMetabox {
 	private $screen = array(
-		'videos',
+		'articulos',
 	);
 	private $meta_fields = array(
 		array(
-			'label' => 'Tiempo (Duración)',
-			'id' => 'timeVideo',
-			'default' => '',
-			'type' => 'text',
-		),
-		array(
 			'label' => 'Descripción corta',
-			'id' => 'descriptionVideo',
+			'id' => 'descriptionAudio',
 			'default' => '',
 			'type' => 'wysiwyg',
 		),
 		array(
-            'label' => 'Video (.mp4)',
-            'id' => 'fileVideo',
+            'label' => 'Artículo [.pdf]',
+            'id' => 'fileArticle',
             'type' => 'media',
         ),
 	);
@@ -104,8 +98,8 @@ class configVideoMetabox {
 	public function add_meta_boxes() {
 		foreach ( $this->screen as $single_screen ) {
 			add_meta_box(
-				'configVideo',
-				__( 'Información del audio', 'textdomain' ),
+				'configArticulo',
+				__( 'Información del artículo', 'textdomain' ),
 				array( $this, 'meta_box_callback' ),
 				$single_screen,
 				'advanced',
@@ -114,7 +108,7 @@ class configVideoMetabox {
 		}
 	}
 	public function meta_box_callback( $post ) {
-		wp_nonce_field( 'configVideo_data', 'configVideo_nonce' );
+		wp_nonce_field( 'configArticulo_data', 'configArticulo_nonce' );
 		$this->field_generator( $post );
 	}
 	public function media_fields() {
@@ -123,7 +117,7 @@ class configVideoMetabox {
 				if ( typeof wp.media !== 'undefined' ) {
 					var _custom_media = true,
 					_orig_send_attachment = wp.media.editor.send.attachment;
-					$('.configVideo-media').click(function(e) {
+					$('.configArticulo-media').click(function(e) {
 						var send_attachment_bkp = wp.media.editor.send.attachment;
 						var button = $(this);
 						var id = button.attr('id').replace('_button', '');
@@ -155,7 +149,7 @@ class configVideoMetabox {
 			switch ( $meta_field['type'] ) {
 				case 'media':
 					$input = sprintf(
-						'<input style="width: 80%%" id="%s" name="%s" type="text" value="%s"> <input style="width: 19%%" class="button configVideo-media" id="%s_button" name="%s_button" type="button" value="Upload" />',
+						'<input style="width: 80%%" id="%s" name="%s" type="text" value="%s"> <input style="width: 19%%" class="button configArticulo-media" id="%s_button" name="%s_button" type="button" value="Upload" />',
 						$meta_field['id'],
 						$meta_field['id'],
 						$meta_value,
@@ -212,10 +206,10 @@ class configVideoMetabox {
 		return '<tr><th>'.$label.'</th><td>'.$input.'</td></tr>';
 	}
 	public function save_fields( $post_id ) {
-		if ( ! isset( $_POST['configVideo_nonce'] ) )
+		if ( ! isset( $_POST['configArticulo_nonce'] ) )
 			return $post_id;
-		$nonce = $_POST['configVideo_nonce'];
-		if ( !wp_verify_nonce( $nonce, 'configVideo_data' ) )
+		$nonce = $_POST['configArticulo_nonce'];
+		if ( !wp_verify_nonce( $nonce, 'configArticulo_data' ) )
 			return $post_id;
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
 			return $post_id;
@@ -236,35 +230,33 @@ class configVideoMetabox {
 		}
 	}
 }
-if (class_exists('configVideoMetabox')) {
-	new configVideoMetabox;
+if (class_exists('configArticuloMetabox')) {
+	new configArticuloMetabox;
 };
 // ./ Campos personalizados
 
 //Plantilla single
 
-function get_custom_videos_template($single_template) {
+function get_custom_articulos_template($single_template) {
      global $post;
 
-     if ($post->post_type == 'videos') {
-          $single_template = dirname( __FILE__ ) . '/templates/single-videos.php';
+     if ($post->post_type == 'articulos') {
+          $single_template = dirname( __FILE__ ) . '/templates/single-articulos.php';
      }
      return $single_template;
 }
-add_filter( 'single_template', 'get_custom_videos_template' );
+add_filter( 'single_template', 'get_custom_articulos_template' );
 
 
 /*
 //Plantilla Archive
 */
-function get_custom_videos_archive_template($archive_template) {
+function get_custom_articulos_archive_template($archive_template) {
      global $post;
 
-     if ($post->post_type == 'videos') {
-          $archive_template = dirname( __FILE__ ) . '/templates/archive-videos.php';
+     if ($post->post_type == 'articulos') {
+          $archive_template = dirname( __FILE__ ) . '/templates/archive-articulos.php';
      }
      return $archive_template;
 }
-add_filter( 'archive_template', 'get_custom_videos_archive_template' );
-
-
+add_filter( 'archive_template', 'get_custom_articulos_archive_template' );

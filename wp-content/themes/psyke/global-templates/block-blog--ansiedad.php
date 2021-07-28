@@ -15,7 +15,7 @@ defined( 'ABSPATH' ) || exit;
 $posts = new WP_Query(
     array(
         'post_type'   => 'post',
-        'category_name'  => 'ansiedad',
+        'category_name'  => 'ansiedad-estres',
         'posts_per_page' => 6
     )
 );

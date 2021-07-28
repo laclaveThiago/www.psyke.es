@@ -131,6 +131,18 @@
         padding-bottom: 15px;
     }
 }
+
+.checkbox-trigger:hover,
+.checkbox-component:hover {
+    cursor: pointer;
+    color:#222120;
+}
+.checkbox-component.active:hover,
+.checkbox-trigger.active:hover {
+    .checkbox-box::after {
+        background-color: #222120;
+    }
+}
 .checkbox-box {
     flex: 0 0 18px;
     height: 18px;
@@ -153,6 +165,18 @@
 }
 .checkbox-text {
     padding-left: 8px;
+    small {
+        color: gray;
+    }
+    small::after {
+        display: inline-block;
+        margin-left: .255em;
+        content: "";
+        vertical-align: .175em;
+        border-top: .25em solid;
+        border-right: .25em solid transparent;
+        border-left: .25em solid transparent;
+    }
 }
 
 .box-radios {
@@ -162,6 +186,11 @@
     margin-top: 8px;
     .row .form-group:last-of-type {
         margin-bottom: 0;
+    }
+    h4 {
+        font-size: 16px;
+        font-weight: 700;
+        color: gray;
     }
 }
 
@@ -197,4 +226,41 @@
     color: #453f3f;
     @include font-size(14px);
     margin-top: 16px;
+}
+
+.btn-icon--right {
+    
+    .icon {
+        display: inline-block;
+        margin-left: 8px;
+    }
+}
+.btn-icon--left {
+    
+    .icon {
+        display: inline-block;
+        margin-right: 8px;
+    }
+}
+
+
+.btn-link {
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.25);
+    box-shadow: none;
+    &.btn-link--sm {
+        padding: 8px 24px;
+        border-radius: 4px;
+        @include font-size(14px);
+    }
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.form-404 {
+    .field.form-control {
+        height: 56px;
+    }
 }

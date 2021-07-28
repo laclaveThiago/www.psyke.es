@@ -62,6 +62,22 @@
     function mainMenuMobile() {
         var menuSupport = $('#setOnMainMenu').html();
         $('.navbar-collapse').append(menuSupport);
+        $('.navbar-collapse').wrapInner( "<div class='navbar-collapse--inner ml-auto'></div>");
+    }
+
+    function setCardBodyVisibility() {
+        
+        if ($('.box-courses-form').length > 0) {
+            if ($(window).width() > 991) {
+                $('.card-body').css({
+                    'display' : 'block'
+                });
+            } else {
+                $('.card-body').css({
+                    'display' : 'none'
+                });
+            }
+        }
     }
 
     jQuery(document).ready(function () {
@@ -72,6 +88,7 @@
 
         setPaddingBottomBody();
         mainMenuMobile();
+        setCardBodyVisibility();
 
         if ($('.slick-frases').length > 0) {
             $('.slick-frases').slick({
@@ -195,14 +212,14 @@
         if ($('.slick-terapias--vertical').length > 0) {
             $('.slick-terapias--vertical').each(function () {
                 $(this).slick({
-                    dots: true,
-                    arrows: false,
+                    dots: false,
+                    arrows: true,
                     slidesToShow: 1,
-                    slidesToScroll: 1
+                    slidesToScroll: 1,
+                    prevArrow:'<button class="prev slick-prev slick-circle"><svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="chevron-left" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" class="svg-inline--fa fa-chevron-left fa-w-8 fa-3x"><path fill="currentColor" d="M238.475 475.535l7.071-7.07c4.686-4.686 4.686-12.284 0-16.971L50.053 256 245.546 60.506c4.686-4.686 4.686-12.284 0-16.971l-7.071-7.07c-4.686-4.686-12.284-4.686-16.97 0L10.454 247.515c-4.686 4.686-4.686 12.284 0 16.971l211.051 211.05c4.686 4.686 12.284 4.686 16.97-.001z" fill="#89b1b7"></path></svg></button>',
+                    nextArrow:'<button class="next slick-next slick-circle"><svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="chevron-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" class="svg-inline--fa fa-chevron-right fa-w-8 fa-3x"><path fill="currentColor" d="M17.525 36.465l-7.071 7.07c-4.686 4.686-4.686 12.284 0 16.971L205.947 256 10.454 451.494c-4.686 4.686-4.686 12.284 0 16.971l7.071 7.07c4.686 4.686 12.284 4.686 16.97 0l211.051-211.05c4.686-4.686 4.686-12.284 0-16.971L34.495 36.465c-4.686-4.687-12.284-4.687-16.97 0z" fill="#89b1b7"></path></svg></button>'
                 });
                 $(this).on('beforeChange', function(event, slick, currentSlide, nextSlide){
-                    console.log(`Este é o slider atual: ${currentSlide}`);
-                    console.log(`Este é o próximo slider: ${nextSlide}`);
                     
                     var cardPointer = $(this).attr('card-terapia-slick');
                     var cardElement = '#card-terapias-' + cardPointer;
@@ -216,12 +233,9 @@
                     */
 
                     if(currentSlide) {
-                        //Value 0 - 
-                        console.log('Close animation');
                         thisCard.removeClass('in');
                         gsap.to(thisElement, { height: '100%', duration: 0.65, ease: "power4.out" });
                     } else {
-                        console.log('Open animation');
                         thisCard.addClass('in');
                         gsap.to(thisElement, { height: 0, duration: 0.65, ease: "power4.out" });
                     }
@@ -255,9 +269,10 @@
 
         if ($('.slick-brands').length > 0) {
             $('.slick-brands').slick({
-                dots: false,
-                arrows: true,
+                dots: true,
+                arrows: false,
                 slidesToShow: 4,
+                slidesToScroll: 4,
                 infinite: true,
                 autoplay: true,
                 autoplaySpeed: 5000,
@@ -266,12 +281,14 @@
                         breakpoint: 992,
                         settings: {
                             slidesToShow: 3,
+                            slidesToScroll: 3,
                         }
                     },
                     {
                         breakpoint: 640,
                         settings: {
                             slidesToShow: 2,
+                            slidesToScroll: 2,
                         }
                     }
                     // You can unslick at a given breakpoint now by adding:
@@ -719,36 +736,45 @@
         // animate logo Psyke page
         */
         if($('body').hasClass('page-id-39')) {
+
             //console.log('Page ID = 39');
             var logotype = $('.anim-logotipo-psyke');
             var logotypeNavbar = $('.page-id-39 .navbar-brand');
-            var logotypeWidth = 720;
+            var logotypeWidth = 520;
 
-            if ($(window).width() > 340 && $(window).width() < 768) {
-                logotypeWidth = 320;
-            } else {
+            if ($(window).width() < 540) {
                 logotypeWidth = 240;
+            } else {
+                if ($(window).width() < 767) {
+                    logotypeWidth = 320;
+                } else {
+                    logotypeWidth = 420;
+                }
             }
 
             var positionFinal = $('#main-nav .navbar-brand').offset();
-            var finalX = positionFinal.left - 48;
+            var finalX = positionFinal.left;
             console.log(`FinalX ${finalX}`);
-            var finalY = positionFinal.top - 48;
+            var finalY = parseInt(positionFinal.top - 48);
             var initialX = finalX;
             console.log(`FinalY ${finalY}`);
 
-            var initialY = $('.hero-psyke').height() - logotypeWidth - 42;
-            var initialYStart = initialY + 250;
+            //var initialY = $('.hero-psyke').height() - (logotypeWidth - 42);
+            var initialY = parseInt($('.hero-psyke').height() / 3 );
+            var heroPsykeJEIGHT = parseInt($('.hero-psyke').height());
+            console.log(`heroPsykeJEIGHT: ${heroPsykeJEIGHT}`);
+            console.log(`initialY: ${initialY}`);
 
-            gsap.set(logotype, { y: initialYStart, x: initialX, width: logotypeWidth, transformOrigin: "50% 50%"});
+            var initialYStart = heroPsykeJEIGHT;
+
+            console.log(`initialYStart: ${initialYStart}`);
+
+            gsap.set(logotype, {opacity: 0, y: initialYStart, x: initialX, width: logotypeWidth});
             gsap.set(logotypeNavbar, {opacity: 0, transformOrigin: "50% 50%"}); 
 
-            gsap.to(logotype, {autoAlpha: 1, y: initialY, duration: 0.75, delay: 1.5, ease: "power2.out"});
-            //gsap.to(logotype, {y: finalY, width: 96, duration: 0.3, delay: 2.75, ease: "power4.out"});
-            gsap.to(logotype, {autoAlpha: 0, y: initialYStart, duration: 0.75, delay: 4, ease: "power2.out"});
-
-            gsap.to(logotypeNavbar, {opacity: 1, duration: 0.75, delay: 4, ease: "power2.out"});
-
+            gsap.to(logotype, {opacity: 0.5, y: initialY, duration: 0.75, delay: 1, ease: "none"});
+            gsap.to(logotype, {opacity: 0, duration: 0.5, delay: 3.5, ease: "none"});
+            gsap.to(logotypeNavbar, {opacity: 1, duration: 0.5, delay: 4.5, ease: "none"});
         }
 
         if($('body').hasClass('no-touchevents')) {
@@ -796,6 +822,16 @@
                 // .FOLLOW MOUSE
             }
         }
+
+        $('.navbar-toggler').on('click', function() {
+            $(this).toggleClass('toggleOn');
+        });
+        $('.open-card-body').on('click', function() {
+            $(this).toggleClass('active');
+            $('.card-body').toggle('fast');
+        });
+
+        
  
         /*
         // LOADING AJAX
@@ -967,6 +1003,17 @@
             var courseName = getUrlParameter('curso');
             $('#courseName').text(decodeURI(courseName));
         }
+
+
+        
+        if($('body').hasClass('page-template-form-aviso-page')) {
+            var courseTitle = getUrlParameter('title');
+            $('#courseTitle').val(decodeURI(courseTitle));
+
+            document.addEventListener('wpcf7mailsent', function (event) {
+                location = `${baseURL}/gracias-por-ponerte-en-contacto/`;
+            }, false);
+        }
         
 
     });	//ready
@@ -979,6 +1026,7 @@
         collapseNavbar();
         watchComponentValores();
         setPaddingBottomBody();
+        setCardBodyVisibility();
     });
 
 })(jQuery);

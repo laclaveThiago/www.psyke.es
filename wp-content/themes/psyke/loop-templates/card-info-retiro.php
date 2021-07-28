@@ -52,6 +52,7 @@ defined( 'ABSPATH' ) || exit;
                                 <?php echo do_shortcode(get_post_meta(get_the_id(), 'retreatSubTitle', true)); ?>
                             </div>
                         <?php endif; ?>
+                        <button class="open-card-body circle"></button>
                     </div>
                     <div class="card-body">
                         <?php if( get_post_meta( get_the_id(), 'retreatDates', true) ) : ?>	

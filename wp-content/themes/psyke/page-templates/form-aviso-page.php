@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Formulario - retiros
+ * Template Name: Formulario - aviso
  *
  * Template for displaying a page without sidebar even if a sidebar widget is published.
  *
@@ -17,7 +17,7 @@ $featured_img_url = get_the_post_thumbnail_url(get_the_id(), 'full');
 
 ?>
 
-<div class="hero-pages has-overlay hero-contact--wrapper" style="background-image: url('<?php echo $featured_img_url; ?>');">
+<div class="hero-pages hero-pages--form has-overlay hero-contact--wrapper" style="background-image: url('<?php echo $featured_img_url; ?>');">
     <div class="hero-inner" style="flex-wrap: wrap;">
         <div class="container">
             <div class="row">
@@ -40,12 +40,9 @@ $featured_img_url = get_the_post_thumbnail_url(get_the_id(), 'full');
             <div class="<?php echo esc_attr( $container ); ?>" id="content">
 
                 <main class="site-main" id="main" role="main">
-
+                    
                     <div class="box-contact box-courses-form">
-                        <div class="box-card bg-white">
-                            <?php get_template_part( 'loop-templates/card-info-retiro'); ?>
-                        </div>
-                        <div class="box-form">
+                        <div class="box-form" style="flex: 0 0 100%;">
                             <div class="padding--inner">
                                 <?php
                                     while ( have_posts() ) {
@@ -61,7 +58,6 @@ $featured_img_url = get_the_post_thumbnail_url(get_the_id(), 'full');
                             </div>
                         </div>
                     </div>
-                    
 
                 </main><!-- #main -->
 

@@ -98,8 +98,6 @@
     letter-spacing: 3px;
 }
 .card-post {
-    padding-left: 50px;
-    padding-right: 50px;
     text-align: center;
 }
 .slick-dots li {
@@ -119,6 +117,7 @@
 .card-post .card-header h3 {
     font-weight: bold;
 	color: #443f3f;
+	line-height: 1.1;
 }
 .btn-outline.btn-outline--primary:hover {
     color: #fff;
@@ -127,12 +126,13 @@
     display: none;
 }
 .titulo-thais{
-font-size: 1.425rem;
-color: #853115;
-letter-spacing: -.01em;
-	font-family: Garamond,"AGaramond Pro","Garamond Pro",serif;
-	line-height: 100%;
-	font-weight: bold;
+    font-size: 1.425rem;
+    color: #853115;
+    letter-spacing: -.01em;
+    font-family: Garamond,"AGaramond Pro","Garamond Pro",serif;
+    line-height: 100%;
+    font-weight: bold;
+    line-height: 1.2;
 }
 .padding--inner .content-collumns {
     column-gap: 80px;
@@ -172,6 +172,7 @@ color: #4e4c4d;
     font-family: Garamond,"AGaramond Pro","Garamond Pro",serif;
     line-height: 100%;
     font-weight: bold;
+	line-height: 1.2;
 }
 .section-terapias--slider .collumn-image h3 {
     font-weight: bold;
@@ -184,15 +185,15 @@ color: #4e4c4d;
 }
 .hero-pages .hero-psyke .text-hero-02 {
     padding-left: 140px;
-	font-size: 6.725rem;
+	font-size: 6rem;
 }
 .hero-pages .hero-psyke .text-hero-01 {
     padding-left: 224px;
-	font-size: 4.7rem;
+	font-size: 4.375rem;
 }
 .hero-pages .hero-psyke .text-hero-03 {
     padding-left: 140px;
-	font-size: 4.7rem;
+	font-size: 4.375rem;
 }
 .hero-pages .hero-psyke .text-hero-04 p{
     padding-left: 100px;
@@ -299,7 +300,7 @@ padding-top: 0px;
 	max-width: 23px!important;
 	height: auto;
 	float:left;
-	padding-right:5%x; 
+	padding-right:5%; 
 }
 .txticono a{
 font-size:12px;
@@ -309,16 +310,14 @@ font-size:12px;
 }
 .course-content .btn-sm{
     padding: 10px 24px;
-    font-size: 16px;
-    font-size: 1rem;
+    font-size: 0.9rem;
     background-color: #8ab1b8;
     color: #fff;
     border: 2px solid #8ab1b8;
 }
 .course-content .btn-sm:hover{
     padding: 10px 24px;
-    font-size: 16px;
-    font-size: 1rem;
+    font-size: 0.9rem;
     background-color: #fff;
     color: #142738;
     border: 2px solid #8ab1b8;
