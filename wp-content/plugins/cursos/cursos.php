@@ -451,7 +451,7 @@ function shortcode_slider_cursos( $atts ) {
 												<?php
 													if( get_post_meta( get_the_id(), 'courseOnline', true) ) :
 														if( get_post_meta( get_the_id(), 'courseClassroom', true) ) :
-															echo 'Online o Presencial';
+															echo 'Online · Presencial';
 														else:
 															echo 'Online';
 														endif;
