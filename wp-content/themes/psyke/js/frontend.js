@@ -643,12 +643,21 @@
             $('body').removeClass('searchOpened');
         });
 
-        var $grid = $('.grid-masonry').masonry({
-                    columnWidth: '.grid-sizer',
-                    itemSelector: '.grid-item',
-                    percentPosition: true,
-                    horizontalOrder: true
-                });
+        if ($('.grid-sizer').length > 0) {
+            var $grid = $('.grid-masonry').masonry({
+                columnWidth: '.grid-sizer',
+                itemSelector: '.grid-item',
+                percentPosition: true,
+                horizontalOrder: true
+            });
+        } else {
+            var $grid = $('.grid-masonry').masonry({
+                columnWidth: '.grid-sizer--2',
+                itemSelector: '.grid-item',
+                percentPosition: true,
+                horizontalOrder: true
+            });
+        }
 
         $('.grid-masonry--container').imagesLoaded().done( function( instance ) {
             setTimeout( function(){

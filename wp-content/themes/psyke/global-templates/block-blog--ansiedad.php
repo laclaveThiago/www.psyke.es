@@ -15,7 +15,7 @@ defined( 'ABSPATH' ) || exit;
 $posts = new WP_Query(
     array(
         'post_type'   => 'post',
-        'category_name'  => 'ansiedad-estres',
+        'category_name'  => 'reflexiones-terapeuticas-ansiedad-estres',
         'posts_per_page' => 6
     )
 );

@@ -15,7 +15,7 @@ defined( 'ABSPATH' ) || exit;
 $posts = new WP_Query(
     array(
         'post_type'   => 'post',
-        'category_name'  => 'emociones',
+        'category_name'  => 'reflexiones-terapeuticas-emociones',
         'posts_per_page' => 4
     )
 );

@@ -15,7 +15,7 @@ defined( 'ABSPATH' ) || exit;
 $posts = new WP_Query(
     array(
         'post_type'   => 'post',
-        'category_name'  => 'autoestima',
+        'category_name'  => 'reflexiones-terapeuticas-autoestima',
         'posts_per_page' => 3
     )
 );

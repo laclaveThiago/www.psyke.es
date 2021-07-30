@@ -15,7 +15,7 @@ defined( 'ABSPATH' ) || exit;
 $posts = new WP_Query(
     array(
         'post_type'   => 'post',
-        'category_name'  => 'mente',
+        'category_name'  => 'reflexiones-terapeuticas-mente',
         'posts_per_page' => 3
     )
 );

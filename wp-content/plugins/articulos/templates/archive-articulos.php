@@ -41,9 +41,8 @@ $container = get_theme_mod( 'understrap_container_type' );
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="padding-large grid-masonry--container">
-                    <div class="grid-masonry">
-                        <div class="grid-sizer"></div>
+                <div class="padding-large">
+                    <div class="row">
                             <?php
                                 $pointerGrid = 1;
                                 // Start the loop.
@@ -56,9 +55,9 @@ $container = get_theme_mod( 'understrap_container_type' );
                                     */
                                     if ($pointerGrid == 3 || $pointerGrid == 4 || $pointerGrid == 9 || $pointerGrid == 10) :
                                         //echo '<div class="grid-item grid-item--width2">';
-                                        echo '<div class="grid-item">';
+                                        echo '<div class="col-md-4">';
                                     else:
-                                        echo '<div class="grid-item">';
+                                        echo '<div class="col-md-4">';
                                     endif;
                                     get_template_part( 'loop-templates/content-card--articulos' );
                                     echo '</div>';

@@ -48,10 +48,10 @@ $container = get_theme_mod( 'understrap_container_type' );
                                     <div class="category-item">
                                         <ul>
                                             <li>
-                                                <a href="<?php echo esc_url( home_url( '/' ) ); ?>category/autoestima/">Autoestima</a>
+                                                <a href="<?php echo esc_url( home_url( '/' ) ); ?>category/reflexiones-terapeuticas-autoestima/">Autoestima</a>
                                                 <ul>
-                                                    <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>category/autoestima/autocompasion/">Autocompasión</a></li>
-                                                    <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>category/autoestima/amor/">Amor</a></li>
+                                                    <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>category/reflexiones-terapeuticas-autoestima/articulos-terapueticos-autocompasion/">Autocompasión</a></li>
+                                                    <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>category/reflexiones-terapeuticas-autoestima/articulos-terapeuticos-amor/">Amor</a></li>
                                                 </ul>
                                             </li>
                                         </ul>
@@ -59,10 +59,10 @@ $container = get_theme_mod( 'understrap_container_type' );
                                     <div class="category-item">
                                         <ul>
                                             <li>
-                                                <a href="<?php echo esc_url( home_url( '/' ) ); ?>category/desarrollo-personal/">Desarrollo personal</a>
+                                                <a href="<?php echo esc_url( home_url( '/' ) ); ?>category/reflexiones-terapeuticas-desarrollo-personal/">Desarrollo personal</a>
                                                 <ul>
-                                                    <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>category/desarrollo-personal/crecimiento-personal/">Crecimiento Personal</a></li>
-                                                    <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>category/desarrollo-personal/autorrealizacion/">Autorrealización</a></li>
+                                                    <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>category/reflexiones-terapeuticas-desarrollo-personal/articulos-terapueticos-crecimiento-personal/">Crecimiento Personal</a></li>
+                                                    <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>category/reflexiones-terapeuticas-desarrollo-personal/articulos-terapeuticos-autorrealizacion/">Autorrealización</a></li>
                                                 </ul>
                                             </li>
                                         </ul>
@@ -70,10 +70,10 @@ $container = get_theme_mod( 'understrap_container_type' );
                                     <div class="category-item">
                                         <ul>
                                             <li>
-                                                <a href="<?php echo esc_url( home_url( '/' ) ); ?>category/emociones/">Emociones</a>
+                                                <a href="<?php echo esc_url( home_url( '/' ) ); ?>category/reflexiones-terapeuticas-emociones/">Emociones</a>
                                                 <ul>
-                                                    <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>category/emociones/educacion-emocional/">Educación Emocional</a></li>
-                                                    <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>category/emociones/inteligencial-emocional/">Inteligencia Emocional</a></li>
+                                                    <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>category/reflexiones-terapeuticas-emociones/articulos-terapeuticos-educacion-emocional/">Educación Emocional</a></li>
+                                                    <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>category/reflexiones-terapeuticas-emociones/articulos-terapeuticos-inteligencia-emocional/">Inteligencia Emocional</a></li>
                                                 </ul>
                                             </li>
                                         </ul>
@@ -81,10 +81,10 @@ $container = get_theme_mod( 'understrap_container_type' );
                                     <div class="category-item">
                                         <ul>
                                             <li>
-                                                <a href="<?php echo esc_url( home_url( '/' ) ); ?>category/mente/">Mente</a>
+                                                <a href="<?php echo esc_url( home_url( '/' ) ); ?>category/reflexiones-terapeuticas-mente/">Mente</a>
                                                 <ul>
-                                                    <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>category/mente/entrenamiento-mental/">Entrenamiento Mental</a></li>
-                                                    <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>category/mente/pensamientos/">Pensamientos</a></li>
+                                                    <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>category/reflexiones-terapeuticas-mente/articulos-terapeuticos-entrenamiento-mental/">Entrenamiento Mental</a></li>
+                                                    <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>category/reflexiones-terapeuticas-mente/articulos-terapueticos-pensamientos/">Pensamientos</a></li>
                                                 </ul>
                                             </li>
                                         </ul>
@@ -92,7 +92,7 @@ $container = get_theme_mod( 'understrap_container_type' );
                                     <div class="category-item">
                                         <ul>
                                             <li>
-                                                <a href="<?php echo esc_url( home_url( '/' ) ); ?>category/ansiedad-estres/">Ansiedad - Estrés</a>
+                                                <a href="<?php echo esc_url( home_url( '/' ) ); ?>category/reflexiones-terapeuticas-ansiedad-estres/">Ansiedad - Estrés</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -203,7 +203,7 @@ $container = get_theme_mod( 'understrap_container_type' );
                                 </g>
                             </svg>
                         </a>
-                        <p class="footer-tagline">Centro de Psicología General Sanitaria autorizado por la Conselleria de Sanidad (n&deg;13619/2013)</p>
+                        <p class="footer-tagline">Centro de Psicología General Sanitaria autorizado por la Conselleria de Sanidad (n&deg;13619/2013)</p>
                     </div>
                     <div class="col-md-4">
                         <?php
