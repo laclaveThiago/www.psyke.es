@@ -594,6 +594,7 @@
             }
         }
 
+        var tabStatus = false;
         $('.trigger-course').on('click', function () {
             $(this).toggleClass('active');
             var elementToTogglePointer = $(this).attr('data-tab');
@@ -605,7 +606,20 @@
                 $('.slick-brands').slick('reinit');
             }
             checkFunctionSlider(elementToTogglePointer);
+
+            /*
+            tabStatus = !tabStatus;
+            console.log(`Tab status ${tabStatus}`);
+
+            if(tabStatus) {
+                console.log('entrou no tabStatus')
+                window.location.href = window.location.href+"&curso-tab="+elementToTogglePointer;
+            }
+            */
         });
+
+        
+
 
         $('.course-tab .tab-button').on('click', function () {
             $(this).toggleClass('active');
@@ -1022,6 +1036,54 @@
             document.addEventListener('wpcf7mailsent', function (event) {
                 location = `${baseURL}/gracias-por-ponerte-en-contacto/`;
             }, false);
+        }
+
+
+        if($('body').hasClass('page-id-41')) {
+            var tabName = getUrlParameter('tab');
+            //iniciacion-tab
+            console.log(`tab atual ${tabName}`);
+
+            $('.course-content').each( function() {
+                var setdata = $(this).attr('id');
+                var setdataButton = '#'+$(this).attr('id')+' .btn.btn-outline.btn-outline--primary';
+                console.log(setdata);
+                $(setdataButton).each(function() {
+                    var pointerURL = $(this).attr('href');
+                    if (pointerURL.includes("?curso")) {
+                        pointerURL = pointerURL + '&tab='+setdata;
+                        $(this).attr('href', pointerURL);
+                    }
+                });
+            });
+
+            if (tabName) {
+                var $anchor = $(this);
+            
+            
+                console.log('entrou tabname');
+                var elementToOpenButton = '.trigger-course'+'[data-tab=#'+tabName+']';
+                $(elementToOpenButton).addClass('active');
+                var elementToOpen = '#'+tabName;
+                //$(elementToOpen).addClass('active');
+                $(elementToOpen).show('fast');
+
+
+                if (elementToOpen == '#company-tab') {
+                    $('.slick-brands').slick('reinit');
+                }
+                checkFunctionSlider(elementToOpen);
+
+                var elementToOpenSlick = elementToOpen+' .slick-cursos'; 
+                $('html, body').stop().animate({
+                    scrollTop: $(elementToOpenSlick).offset().top-242
+                }, 1500, 'easeInOutExpo');
+            }
+        }
+        if($('body').hasClass('page-id-3881')) {
+            var setTabName = getUrlParameter('tab');
+            var setFullURL = `${baseURL}/programas-formacion-mindfulness-profundo/?tab=${setTabName}`;
+            $('#setTabOnBack').attr('href', setFullURL);
         }
         
 

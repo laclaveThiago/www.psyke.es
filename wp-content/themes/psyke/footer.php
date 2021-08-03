@@ -260,6 +260,16 @@ $container = get_theme_mod( 'understrap_container_type' );
         function goBack() {
             window.history.back();
         }
+        /*
+        window.onload = function(){
+            window.scrollTo(0, 0);
+        };
+        history.scrollRestoration = "manual";
+
+        $(window).on('beforeunload', function(){
+            $(window).scrollTop(0);
+        });
+        */
     </script>
     <div id="insertModal"></div>
     <div id="insertModalCourses"></div>

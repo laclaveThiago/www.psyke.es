@@ -57,7 +57,7 @@ if( $posts->have_posts() ) :
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-8">
-                        <p class="text-center"><a href="<?php echo esc_url( home_url( '/' ) ); ?>blog" class="btn btn-outline btn-outline--primary">Ver blog</a></p>
+                        <p class="text-center"><a href="<?php echo esc_url( home_url( '/' ) ); ?>?p=48" class="btn btn-outline btn-outline--primary">Ver blog</a></p>
                     </div>
                 </div>
             </div>
